@@ -1,0 +1,681 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Week 10</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="92be715a-8a7b-4b3b-a97d-9945af9d4446" class="page sans"><header><h1 class="page-title">Week 10</h1><p class="page-description"></p></header><div class="page-body"><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§10.1: Introduction to Storage and File System</strong></summary><div class="indented"><p id="df5d9537-b1b8-4d60-99ec-987514e0614d" class="">There are two views of a FS: Hardware view (magnetic drive,  USB, SSD, etc), and the application view (system calls, protection, attributes, look and feel) in order to provide an abstraction and enable the user to use the hardware. </p><h2 id="cc526fc4-eaff-4c8b-a55e-5ec6fb3471a3" class="">Hardware View - Magnetic Disks</h2><p id="77ac59a1-770d-4db6-a66a-dc58571e998c" class="">The most common secondary storage device are hard disks because they are highly dense (lot of data can be stored per unit area), transfer rates are reasonable, inexpensive, and permits rewriting. </p><div id="06f958b7-cbde-4b4d-b100-da2995435c95" class="column-list"><div id="aa9e9d12-cf15-4f4c-a270-678006c8fc27" style="width:50%" class="column"><figure id="4276ea4c-dece-4fad-a19b-2a9262ef5c1d" class="image"><a href="img/Screenshot_2024-04-01_at_2.35.47_PM.png"><img style="width:317px" src="img/Screenshot_2024-04-01_at_2.35.47_PM.png"/></a><figcaption>Structure of a magnetic disk</figcaption></figure></div><div id="6fe89d17-6973-47ea-b709-9dc089e196fe" style="width:50%" class="column"><figure id="60491b04-20c3-4e89-b83b-ee62093e0b82" class="image"><a href="img/Screenshot_2024-04-01_at_2.36.11_PM.png"><img style="width:317px" src="img/Screenshot_2024-04-01_at_2.36.11_PM.png"/></a><figcaption>Tracks and sector in a platter </figcaption></figure></div></div><ul id="fb313bc6-2bba-4f98-ae05-e100282c7ac9" class="bulleted-list"><li style="list-style-type:disc">There are several platters (circular disks) coated both on the top and bottom side with magnetic material. The charge on the magnetic material determines if 1/0 is stored. </li></ul><ul id="2d11832a-b7cf-4a1f-b517-98899aaeb09e" class="bulleted-list"><li style="list-style-type:disc">Reading and storing on the hdd is done using the read-write heads which are connected using an arm assembly. The assembly can move the heads towards the centre or away from the centre of the platters. The platters are connected to a spindle and rotate at a very high speed. </li></ul><ul id="9b3fc827-1caf-4ecc-96f8-bbe53d3967b6" class="bulleted-list"><li style="list-style-type:disc">Each platter is made of concentric circles and each concentric circle is called a track. Each track is divided into sector and a sector is the smallest unit of a hard disk. Note that sectors in the outer region of the hard disk are bigger than the sectors of the inner region of the hard disk. </li></ul><ul id="97cb4143-e9d1-4beb-a155-8c1e7c5c0f46" class="bulleted-list"><li style="list-style-type:disc">A cylinder is a set of tracks which are all accessible from a given rw-head position. In the image on the left, it is the innermost concentric circle on all the platters. </li></ul><h3 id="218af117-ceb7-4fb1-b8f9-e1b59dc79c29" class="">Disk Controllers</h3><p id="76d3059e-fe7b-490c-9489-e28d88b38a37" class="">To understand how rw of data works we need a higher level perspective. </p><figure id="bf1264ef-cf71-4b54-915b-db51db3c7c1c" class="image"><a href="img/Screenshot_2024-04-01_at_3.25.07_PM.png"><img style="width:680px" src="img/Screenshot_2024-04-01_at_3.25.07_PM.png"/></a><figcaption>A typical Intel system</figcaption></figure><ul id="34c44568-f48d-4fcc-80ae-fdd2b6224a5a" class="bulleted-list"><li style="list-style-type:disc">You have 4 processors which are connected to a frontside bus. And then you have a chipset also known as North Bridge on which you have various peripherals. <ul id="546e4204-d40c-438d-9975-61feb4e4b557" class="bulleted-list"><li style="list-style-type:circle">The north bridge has a DMI bus which connects to the South Bridge connecting to the Hard Disk Controller (ATA) - Legacy</li></ul><ul id="5d625f33-a10c-4590-8ecc-381925741f9a" class="bulleted-list"><li style="list-style-type:circle">North Bridge connects to a SATA controller - Modern</li></ul></li></ul><ul id="21b231f6-3efe-4e24-a033-537e5399c6d2" class="bulleted-list"><li style="list-style-type:disc">The hard disk controllers are memory mapped to the address space of the processor. The controller controls the spindle and the arm (rw-head) to rw the hard disk.</li></ul><ul id="495a9261-429e-4711-9eae-aa501b51ed45" class="bulleted-list"><li style="list-style-type:disc">On an embedded device the hard disk controller is connected to the bus. </li></ul><ul id="fa5149fd-7a85-4e08-918c-08d43b6bfc63" class="bulleted-list"><li style="list-style-type:disc">Typically transfers can be done in 2 ways:<ul id="29cdf0e0-1621-47c9-8215-fa65b13ffead" class="bulleted-list"><li style="list-style-type:circle">One is data read from the hard disk can be directed to registers in the processor. From the processor it could possibly be written to DRAM. </li></ul><ul id="5b8f47b6-bc43-4648-9b4d-47b390d2e921" class="bulleted-list"><li style="list-style-type:circle">The second, more common way where you need to load a lot of data from the hard disk into the RAM is where the processor initiates a request to read from the hard disk controller. The Hard disk controller initiates the transfer directly into certain memory locations in the DRAM (Processor not involved in the transfer). Once the transfer is complete the hard disk controller would send an interrupt to the processor to indicate that the transfer is complete. (When a page fault occurs this type of transfer takes place). </li></ul></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§10.2: Reading data from Hard disks</strong></summary><div class="indented"><h2 id="8e4f8ab9-4d87-487e-9855-3dc78ad1daf2" class="">Access Time</h2><p id="c21acf0e-a45c-4e78-8544-5c472337bbfb" class="">Broadly speaking, accessing data aka the <strong>Access Time</strong> comprises of a few parts </p><ul id="f4d4f758-4b3a-4f45-b1e0-842f88930ad1" class="bulleted-list"><li style="list-style-type:disc"><strong>Seek Time: </strong>Time taken to move the head assembly to the desired track. It varies depending on the current head location hence average seek time is generally considered. </li></ul><ul id="96a1c1c7-0430-45a0-b483-29443269a501" class="bulleted-list"><li style="list-style-type:disc"><strong>Rotation Latency: </strong>Time taken to rotate the disk so that the required sector is under the head which depends on the spindle.<ul id="18c42ae3-afa4-4984-8ba8-d07040a75bd5" class="bulleted-list"><li style="list-style-type:circle"><strong>Constant Linear Velocity (CLV): </strong>spindle speed (rpm) varies depending on the position of the head so as to maintain constant r/w speeds. (Used in audio CDs)<ul id="f16edb00-3431-4f77-b24c-2e5f242cecb7" class="bulleted-list"><li style="list-style-type:square">Sectors close to the centre are smaller and hence the density is considerably higher compared to the outer region. Thus in CLV speed of spindle varies so that the r/w of inner vs outer sector remains the same. </li></ul></li></ul><ul id="60ca1b73-6048-40fe-aaff-202b17ce7f8b" class="bulleted-list"><li style="list-style-type:circle"><strong>Constant Angular Velocity (CAV): </strong>spindle velocity is always a constant which is easy to engineer and is more durable. (Used in hard disks). CAV allows for higher r/w rates because there are no momentum issues. </li></ul></li></ul><ul id="9ae0ef32-8ecf-40d9-b445-84df63141589" class="bulleted-list"><li style="list-style-type:disc"><strong>Data Rate: </strong>Time to get data off the disk.</li></ul><h2 id="881845a9-1cd6-4124-96cc-2f0cd6a16abb" class="">Disk Addressing</h2><ul id="73d6d1e1-85c5-4439-836d-a1190898ced6" class="bulleted-list"><li style="list-style-type:disc"><strong>Cylinder, Head, Sector (CHS) tuple: </strong>Well suited for disks but not for any other medium and it needs abstraction. (Older Scheme)</li></ul><ul id="0b3db27e-fa65-43f0-a2e9-36e1a7637b58" class="bulleted-list"><li style="list-style-type:disc"><strong>Logical Block Addressing (LBA): </strong>Large 1-D array of logical blocks where a logical block is the smallest unit of transfer addressed using 48 bits. <p id="64833ad6-c2f3-4925-97b7-488bcb293917" class="">Mapping from CHS to LBA where HPC: heads/cylinder, SPT: sectors / track</p><figure id="a45f5fa4-7a81-4e7a-98b1-5dc3b9d3a3d4" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>LBA</mtext><mo>=</mo><mo stretchy="false">(</mo><mtext>C</mtext><mo>∗</mo><mtext>HPC + H</mtext><mo stretchy="false">)</mo><mo>∗</mo><mtext>SPT</mtext><mo>+</mo><mo stretchy="false">(</mo><mtext>S</mtext><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\text{LBA} = (\text{C}*\text{HPC + H})*\text{SPT} + (\text{S}-1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">LBA</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord text"><span class="mord">C</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">HPC + H</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord text"><span class="mord">SPT</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord text"><span class="mord">S</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span></span></div></figure></li></ul><ul id="cfc19407-3793-4928-a427-25137686a7d9" class="bulleted-list"><li style="list-style-type:disc">Within the hard disk controller, the LBA addressing is converted to a head and a sector. Then there is seek and rotation to read from those sectors. </li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§10.3: Disk Scheduling</strong></summary><div class="indented"><ul id="c25a3018-a791-4c3b-a5ef-dfa357a9a1f6" class="bulleted-list"><li style="list-style-type:disc">Since the read times could be considerably slow due to the mechanical movements, we would like to minimise the seek time and rotational latency. One way to reduce seek time is by minimising head movements. </li></ul><ul id="113b0e6a-73c6-43c5-b7a1-1b693257f058" class="bulleted-list"><li style="list-style-type:disc">Note that the head positions depend exclusively on the cylinder. If we were to use FCFS scheduling for the following cylinder queue: 95,180,34,119,11,123,62,64 - we would have wild oscillations and a lot of head movements. If the current cylinder is 50:<figure id="3ab299fd-66a9-481d-a59e-22894d9a5354" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">∣</mi><mn>95</mn><mo>−</mo><mn>50</mn><mi mathvariant="normal">∣</mi><mo>+</mo><mi mathvariant="normal">∣</mi><mn>180</mn><mo>−</mo><mn>95</mn><mi mathvariant="normal">∣</mi><mo>+</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>=</mo><mn>644</mn></mrow><annotation encoding="application/x-tex">|95-50| + |180-95| + ... = 644</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣95</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">50∣</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣180</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">95∣</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mord">...</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">644</span></span></span></span></span></div></figure></li></ul><ul id="72033198-7068-48ba-80fb-c94de8ce9da5" class="bulleted-list"><li style="list-style-type:disc">The <strong>Shortest Seek Time First (SSTF) </strong>is the counterpart of Shortest Job First. Similar to SJB, it could lead to starvation of cylinders that are queued but very far from the current one. </li></ul><ul id="fd6f2166-2d59-4c42-9ece-e727dbfec352" class="bulleted-list"><li style="list-style-type:disc">There are <strong>elevator</strong> based algorithms:<ul id="3f463255-f408-4252-862c-405a5f4daf09" class="bulleted-list"><li style="list-style-type:circle"><strong>SCAN: </strong>Start scanning toward the nearest end and goes till <strong>0, </strong>then it starts processing sectors on the way to the other end. <div id="e1b2ec55-e2c0-4e5d-975c-2cfb5df1f389" class="column-list"><div id="ee942002-d954-4ae2-86ba-c9541a574e72" style="width:50%" class="column"><figure id="247952ce-d277-454c-a62b-120114bb82fe" class="image"><a href="img/Screenshot_2024-04-01_at_6.25.10_PM.png"><img style="width:289px" src="img/Screenshot_2024-04-01_at_6.25.10_PM.png"/></a></figure><p id="62b92fa2-9d22-4ca5-878d-d7ef6c4ba55b" class="">
+</p></div><div id="8bb26281-4778-41d9-be6d-85459eb276ec" style="width:50%" class="column"><p id="0441fe8f-8483-41be-895b-4d8b0db48d31" class="">A limitation of this algorithm is when sector requests are uniform. Suppose you’re in cylinder 199 and requests start coming in with t1 arriving first and t4 arriving last. Since t1 is at the other end, it will be serviced last even though it arrived first. </p><p id="b77d1375-80f1-4fd6-a840-228687142196" class="">
+</p></div></div></li></ul><ul id="e9c45850-43f0-437d-b814-33346a8ed92e" class="bulleted-list"><li style="list-style-type:circle"><strong>C-SCAN: </strong>Start scanning toward the nearest end and go till the <strong>0. </strong>Then go to the last cylinder say 199 and then start processing sectors again. This is useful if tracks are accessed with uniform distribution. <strong>Note that shifting one extreme not included in the head movement count. </strong><div id="fedc0023-6d11-47f3-b6a3-dbba9d474382" class="column-list"><div id="0d74da14-d917-409b-96af-17b205018d1e" style="width:50%" class="column"><figure id="1196febd-be88-496d-a2e9-f239ae852cc6" class="image"><a href="img/Screenshot_2024-04-01_at_6.26.50_PM.png"><img style="width:289px" src="img/Screenshot_2024-04-01_at_6.26.50_PM.png"/></a></figure></div><div id="c8c0b65f-c450-44d3-a187-aa5a37a93730" style="width:50%" class="column"><p id="0b8c43a7-8b0f-42f9-bcac-5de1660c3883" class="">Compared to SCAN, C-SCAN only moves in one direction and resets. Thus if requests arrive uniformly, then this algo would service t1 before t2. </p><p id="3f837ae5-b94e-4d0f-8c80-de70efc69362" class="">
+</p></div></div></li></ul><ul id="a66f81c0-40b9-473d-bc6d-e6c4ef31c128" class="bulleted-list"><li style="list-style-type:circle"><strong>C-LOOK: </strong>Like C-SCAN, but don’t go to the extreme. Stop at the minimum (or maximum).</li></ul></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§10.4: Application View of Filesystem</strong></summary><div class="indented"><ul id="d7ae8d6e-7af4-4161-8371-63a22ac2b83c" class="bulleted-list"><li style="list-style-type:disc">From a <strong>users perspective</strong>, files are a byte array and are persistent across reboots and power failures. From an <strong>OS perspective, </strong>files are stored on secondary (non-volatile) storage devices like HDDs, USB, etc and OS map bytes as a collection of blocks on storage device. </li></ul><ul id="3d0c0ed8-38ef-4c7a-b17e-ce78872078fc" class="bulleted-list"><li style="list-style-type:disc">A Files Metadata (inodes):<ul id="5dfccbcb-5b7d-4a6a-b48e-610ee2dc9a4b" class="bulleted-list"><li style="list-style-type:circle"><strong>Name</strong>: only info kept in human readable form</li></ul><ul id="c3a08efc-d58b-4499-93d2-46d31c38e866" class="bulleted-list"><li style="list-style-type:circle"><strong>Identifier (inode number): </strong>A unique number that identifies a file within filesystem. </li></ul><ul id="e6f8add3-9028-41f7-abd2-af6482925870" class="bulleted-list"><li style="list-style-type:circle"><strong>Type: </strong>File type (inode base file, pipe, etc)</li></ul><ul id="92e1659a-88fe-4b41-be50-d88113525eae" class="bulleted-list"><li style="list-style-type:circle"><strong>Location: </strong>Pointer to location of the file on device</li></ul><ul id="f0b9b909-670a-4ea5-ba17-22590b58081e" class="bulleted-list"><li style="list-style-type:circle"><strong>Size, Protection </strong>(Owner, rwx), <strong>Monitoring </strong>(creation time, last modified, etc). </li></ul></li></ul><ul id="65e33871-b2f2-4434-8e1c-23c3884c781c" class="bulleted-list"><li style="list-style-type:disc">Every memory location has an address that can be directly accessed. In files everything is <strong>relative</strong>. <ul id="59e9896e-7cb8-43a2-af21-6b25d9348df9" class="bulleted-list"><li style="list-style-type:circle">A characteristic of DRAM is random access because every byte stored in memory has a corresponding unique address. </li></ul></li></ul><ul id="4e3dd390-1042-4602-9b1c-5a6b5ed33d39" class="bulleted-list"><li style="list-style-type:disc">A location of a file depends on the directory it is stored in. A pointer must be used to store the current r/w position within the file. </li></ul><ul id="d3f61ef8-0a3c-4cb1-a4da-d167f39abfd5" class="bulleted-list"><li style="list-style-type:disc">To read a byte in a specific file, first search for the file in the directory path and resolve the identifier <strong>(expensive for each access). </strong>Then use the read pointer to seek the byte position. <ul id="2a888111-74c8-4a0d-8338-7f57858fd1ce" class="bulleted-list"><li style="list-style-type:circle"><strong>Solution: </strong>Use open system call to open the file before any access and close system call to close the file after accesses are complete. </li></ul></li></ul><h2 id="2d446d4c-3a3d-4a28-bc06-aad08e3a87b7" class="">Opening a File</h2><ul id="88bd19b2-66ae-410e-a515-57ade979e043" class="bulleted-list"><li style="list-style-type:disc">The steps involved in opening a file: Resolve the name wrt root directory and check for permissions → Read file metadata into open file table → Return index in the open file table<ul id="eb9c500e-15a0-464a-b10c-ce40315e9824" class="bulleted-list"><li style="list-style-type:circle"><strong>Systemwide Open File Table: </strong>Contains information about inode, size, access dates, permissions, location, etc and reference counts ie number of processes that have opened the file</li></ul><ul id="8e19c52c-58eb-4cb6-b795-0a6c58acb43b" class="bulleted-list"><li style="list-style-type:circle"><strong>Per Process Open File Table: </strong>Part of the PCBs proc structure which is a pointer to entry in the systemwide table. </li></ul></li></ul><h3 id="fa780f7e-335f-4666-9ed1-c1adea388af9" class="">Detailed Steps</h3><figure id="3c435f11-d50e-47da-8212-79c6f61b5364" class="image"><a href="img/Screenshot_2024-04-01_at_7.27.28_PM.png"><img style="width:680px" src="img/Screenshot_2024-04-01_at_7.27.28_PM.png"/></a></figure><ol type="1" id="e19164c0-179a-464a-9bee-8316b61cfc3a" class="numbered-list" start="1"><li>Application passes file name through open system call.</li></ol><ol type="1" id="ec6c5c7d-954e-4335-99b9-d4b5b5690e58" class="numbered-list" start="2"><li>sys_open (kernel mode) searches the system-wide open table to see if file already in use by another process. <ul id="606d1017-5e13-481a-ab1f-69356c8c1fa3" class="bulleted-list"><li style="list-style-type:disc">If yes, then increment usage count and add pointer in per-process open file table. </li></ul><ul id="f48666e0-f940-4ec6-b0ed-eff41dc75df4" class="bulleted-list"><li style="list-style-type:disc">If no, search directory structure for file name and add to system-wide open file table and per-process open file table. </li></ul></li></ol><ol type="1" id="f4107b16-c3b0-4e9d-b76e-1c5b50e0a1a2" class="numbered-list" start="3"><li>The pointer (or index) in the per-process open file table is returned to application which becomes the file descriptor. </li></ol><h2 id="a484ba67-c90a-40e5-a30a-575ad5a9728e" class="">Closing a File</h2><ul id="c1ff17fe-089e-4e2c-b056-a11cad4f008d" class="bulleted-list"><li style="list-style-type:disc">Per process open table entry is removed and system wide open table reference count decremented by 1. If value becomes 0 → updates copied back to disk, remove entry from system wide open table</li></ul><h2 id="d3e2c08d-c2b2-4b02-a5f9-bab991f06d2a" class="">Reading/Writing a File </h2><figure id="4162b734-eb39-40b4-bede-751d355f5079" class="image"><a href="img/Screenshot_2024-04-01_at_7.31.26_PM.png"><img style="width:680px" src="img/Screenshot_2024-04-01_at_7.31.26_PM.png"/></a></figure><ul id="c36d36bc-7c37-4f23-ab57-63a186223f6e" class="bulleted-list"><li style="list-style-type:disc">From our program in the userspace, we provide the file descriptor (index). This system call invokes the kernel to execute which checks the per-process open-file table which leads to the system-wide open-file table and finally the data blocks. </li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§10.5: File system organization</strong></summary><div class="indented"><ul id="f6d0d354-a237-4146-813f-ddffab960e35" class="bulleted-list"><li style="list-style-type:disc">From an OS perspective, files are organised as a file system and a <strong>Volume </strong>is used to store a file system. A volume could be present in partitions, disks, or across disks. It contains directories which record information about name, location, size, and type of all files on that volume. <figure id="3e31d2a5-0e94-48c4-a969-33cea392b1b8" class="image" style="text-align:center"><a href="img/Screenshot_2024-04-01_at_8.37.59_PM.png"><img style="width:384px" src="img/Screenshot_2024-04-01_at_8.37.59_PM.png"/></a></figure></li></ul><ul id="b3dad8ed-bf60-4e0e-9f51-b835af85db95" class="bulleted-list"><li style="list-style-type:disc"><strong>Protection: </strong>Each file has a type of access (rwx), access control (which user), and classification of users, groups associated with it. </li></ul><ul id="e4d5a083-7791-4cdd-a660-519a486355e1" class="bulleted-list"><li style="list-style-type:disc"><strong>Directories </strong>(stored on disk)<strong> </strong>maps file names to location on disk.<ul id="6e8f57e5-56d8-4af1-af10-47be571265c2" class="bulleted-list"><li style="list-style-type:circle"><strong>Single-level directory: </strong>One directory for all files is simple but there are issues when multiple users are present and all files should then have a unique name. (legacy)</li></ul><ul id="ec18e634-cfdd-400e-96d1-5a1344d7babe" class="bulleted-list"><li style="list-style-type:circle"><strong>Two-level directory: </strong>One directory for each user which solves name collision issues between users. However they are still not flexible enough as it is difficult to share files between users.  (legacy)</li></ul><ul id="9c29f810-736d-4329-bb05-5ffea9a4cc07" class="bulleted-list"><li style="list-style-type:circle"><strong>Tree structured directory: </strong>Directory stored as files on disk. Bit in file system used to identify directory and they are referenced by slashes between directory name. Special system calls to rw and create directories. (modern)<p id="116d6502-dc07-4f77-9aa5-744c205ef75c" class="">/ → Root, . → current directory, .. → parent directory </p></li></ul></li></ul><h2 id="c33f9d03-92ee-4b5a-ba48-87ab5c9f8530" class="">File Links</h2><div id="564bd7ef-c8c4-418f-8a18-043a89cfb4e1" class="column-list"><div id="d328ef27-9d7a-4c97-babd-d263cd3c4c36" style="width:37.5%" class="column"><figure id="864e0e73-b578-4db1-9a53-cf8dbc980994" class="image"><a href="img/Screenshot_2024-04-01_at_8.55.54_PM.png"><img style="width:277.375px" src="img/Screenshot_2024-04-01_at_8.55.54_PM.png"/></a></figure></div><div id="33dcf8b8-a055-4980-a897-f161a79f2961" style="width:62.5%" class="column"><ul id="4bda3043-776c-42f1-81ca-71f026653836" class="bulleted-list"><li style="list-style-type:disc">Directories can also share files by creating links between files in <strong>Acyclic Graph Directories</strong>. A <strong>hard link </strong>is a link to the actual file on disk whereas a <strong>soft link </strong>is a symbolic link to the path where other file is stored. </li></ul><ul id="0e6535cb-2aec-49ae-92c2-6fa0297ebe3f" class="bulleted-list"><li style="list-style-type:disc">Hard links cannot link directories and they cannot cross filesystem boundaries. A soft link can do both.</li></ul></div></div><ul id="103bc34f-a24e-4e8b-9a2d-783c6a7ca6d6" class="bulleted-list"><li style="list-style-type:disc">Hard links always refer to the source, even if moved, removed or renamed whereas soft links are destroyed if moved, removed, or renamed. </li></ul><ul id="9062873b-fdb3-4aa6-b9da-4e7207b7bd58" class="bulleted-list"><li style="list-style-type:disc">Hard links also store reference count in file metadata. </li></ul><ul id="7ac2b1f3-12de-4de6-98b1-068981764d03" class="bulleted-list"><li style="list-style-type:disc">The inode number for hard links are the same whereas they are different for softlinks. </li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§10.6: Implementing a file system</strong></summary><div class="indented"><h2 id="8cfe2b57-f624-4053-9e56-ed11280bf4c3" class="">FS Layers</h2><figure id="7cb82cfa-bbac-49f7-9e1f-94b017d70fdf" class="image"><a href="img/Screenshot_2024-04-01_at_9.16.39_PM.png"><img style="width:680px" src="img/Screenshot_2024-04-01_at_9.16.39_PM.png"/></a></figure><p id="bf8a0ff4-165e-4d88-9d98-794ef5ff12d7" class="">The OS has a series of steps to link to application view to the hardware view. From the application view the only way to access files is through system calls. </p><ul id="45d6001d-d4b5-4191-99ec-7d752b90d500" class="bulleted-list"><li style="list-style-type:disc"><strong>Logical FS: </strong>Receives system calls (sys_open, sys_read, sys_write)</li></ul><ul id="968c79c7-456f-4167-8673-64427d87c65c" class="bulleted-list"><li style="list-style-type:disc"><strong>File Organisation Module: </strong>Translates the 1D array to that of the physical view. Convert the logical address to track, sector, cylinder. If there is a different storage device, <strong>this layer gets modified. </strong>Logical FS remains intact. </li></ul><p id="7c878772-3cc0-4f0d-a7b5-513d812e7239" class="">From an application perspective things are fixed and independent of which secondary storage device is used. However as you go down, you dig deeper. For example at File Org module you can distinguish between which type of storage device you have. At the I/O control you’d be able to distinguish between different types of a storage device for example if a CD-ROM is R or RW. </p><h2 id="ca8c5709-5f36-42da-8387-43e1bb4ea3c5" class="">Disk Contents</h2><ul id="d7d9cd5b-af63-4469-ba25-25a3bd3419f2" class="bulleted-list"><li style="list-style-type:disc"><strong>Boot Control Block (per volume):</strong> If no OS, then boot control block is empty</li></ul><ul id="c36f4d45-6233-4d94-8bf0-b8fd272471d8" class="bulleted-list"><li style="list-style-type:disc"><strong>Volume Control Block (per volume): </strong>Volume (or partition details) such as number of blocks in the partition, size of blocks, free blocks etc. It is also called <strong>Superblock.</strong></li></ul><ul id="467022d2-cd0f-4b79-bf30-3693694f9769" class="bulleted-list"><li style="list-style-type:disc"><strong>Directory Structure: </strong>To organise the files</li></ul><ul id="d986ac42-eb76-44b2-87f9-7530afeeef69" class="bulleted-list"><li style="list-style-type:disc"><strong>Per file file-control-block: </strong>Metadata about a file, unique id to associate with a dir</li></ul><h2 id="d7eedb54-7e47-47b9-a3b4-d4ae850fcad2" class="">In-Memory Contents</h2><p id="0671a990-a0c5-4c12-afe0-2cd817ee2ac1" class="">Besides whats present in the disk, the FS also has a component thats present as part of the OS. These are stored in the memory and directly controlled by the OS. </p><ul id="24c344b5-6388-473d-8dbd-0a37645b273e" class="bulleted-list"><li style="list-style-type:disc"><strong>Mount Table: </strong>contains information about each mounted volume</li></ul><ul id="4b44df77-82b9-444d-a4a3-f85aa5c5517c" class="bulleted-list"><li style="list-style-type:disc"><strong>Directory structure cache: </strong>In memory and holds recently accessed dirs</li></ul><ul id="1f2e916a-32ad-4b15-97a6-9ce7119e4cbd" class="bulleted-list"><li style="list-style-type:disc"><strong>System-wide </strong>and<strong> Per-Process </strong>open file tables</li></ul><ul id="21fd1726-9744-4c7d-b5d0-9f2eee51e352" class="bulleted-list"><li style="list-style-type:disc"><strong>Buffer Cache: </strong>holds FS blocks</li></ul><h2 id="e78aff44-980e-46cf-830e-a0f92c49bcf3" class="">Tracking Free Space</h2><p id="0abb8bce-e429-4e70-bda3-3f8aded6cc9e" class="">In order to utilise the HDD in the best way, we need to determine which are used and which are free. This is important in order efficiently utilise resource, it also affects the time taken to rw files, and also affects incase FS crashes to determine if a file can be retrieved. You can keep track using the following ways:</p><ul id="1785ab96-db6b-4adb-bc5a-64d54d922a1d" class="bulleted-list"><li style="list-style-type:disc"><strong>Bitmap </strong>of blocks are used where 1 indicates if a particular block is used. </li></ul><ul id="b601f4b1-8564-44ae-956b-c460ab5b9626" class="bulleted-list"><li style="list-style-type:disc">Linked list of free nodes</li></ul><ul id="2dffe167-ee66-44a1-b6e4-b63f66cc7991" class="bulleted-list"><li style="list-style-type:disc">FS may use heuristics eg group of closely spaced free blocks</li></ul><p id="cf1da227-2371-4535-b3e6-6b6b68263ca9" class="">How does the OS allocate blocks in the disk? </p><h2 id="91a4ada9-1aa0-4ef6-b5b4-54687354dbdf" class="">Contiguous Allocation</h2><p id="fd2c32a5-aa74-4b80-aec6-0f08676f241e" class="">Each file is allocated contiguous blocks on the disk and a directory entry keeps the start and length. </p><div id="2829c30d-f65a-4443-944f-af7b8d79155f" class="column-list"><div id="1af6b8e2-92ee-425f-8fb9-1c1bea3ffcb2" style="width:43.75%" class="column"><figure id="7fc6c005-6df9-496e-82d5-ba011c53514f" class="image"><a href="img/Screenshot_2024-04-01_at_9.40.07_PM.png"><img style="width:277.375px" src="img/Screenshot_2024-04-01_at_9.40.07_PM.png"/></a></figure></div><div id="7da641e7-3416-4756-aad0-a4adc434a51b" style="width:56.25%" class="column"><ul id="0ed98dd2-519c-4eec-ae20-a0cb6f2e79e1" class="bulleted-list"><li style="list-style-type:disc"><strong>Allocation: </strong>for a file (of X blocks)<ul id="1a361faa-65f6-4d30-a662-71c756d09d09" class="bulleted-list"><li style="list-style-type:circle">First fit: First X free blocks that are contiguous</li></ul><ul id="bab097ce-841e-4991-b540-bd1ae3a71bea" class="bulleted-list"><li style="list-style-type:circle">Best Fit: scan all blocks and find the ideal location where the file would exactly fit in such that it leaves very less space vacant</li></ul></li></ul><ul id="4d0edd4a-bc12-489e-946f-1f668d109247" class="bulleted-list"><li style="list-style-type:disc"><strong>Advantages: </strong>Easy / Simple</li></ul></div></div><ul id="aff427e4-cf32-4285-a3fb-c3f1564d2bb9" class="bulleted-list"><li style="list-style-type:disc"><strong>Disadvantages: </strong>External fragmentation (may need regular defragmentation) &amp; users need specify the max file size at creation (may lead to internal fragmentation as a file may request much larger space and not use it). </li></ul><h2 id="90f9e0dd-d57c-4a41-baf8-e4db062d5b65" class=""><strong>Linked Allocation</strong></h2><p id="68fae6a6-fcfc-46ab-86de-2186b7a9bc25" class="">Directory stores link of start and end block (optionally) and a pointer in block stored to link to next block. </p><div id="5cfebf69-3022-4404-9f29-ef5683e8d359" class="column-list"><div id="782dce0b-17d0-40cb-8c44-0566ff07f2b9" style="width:43.75%" class="column"><figure id="1f85e8ce-3ec1-4ad2-9ccf-5742ee90fcf0" class="image"><a href="img/Screenshot_2024-04-01_at_9.50.07_PM.png"><img style="width:277.375px" src="img/Screenshot_2024-04-01_at_9.50.07_PM.png"/></a></figure></div><div id="248428eb-cb58-422e-9a1b-79b33e0bd0bd" style="width:56.25%" class="column"><ul id="7dbc9ffb-3595-47f3-bae0-a88131a624db" class="bulleted-list"><li style="list-style-type:disc"><strong>Advantages: </strong>Solves fragmentation problems.</li></ul><ul id="f157d516-ceff-491b-8d05-c55184a6ba66" class="bulleted-list"><li style="list-style-type:disc"><strong>Disadvantages: </strong><ul id="d151e7a8-1b22-4be8-8df1-da10c0260167" class="bulleted-list"><li style="list-style-type:circle">Not suited for direct access of files as all pointers need to be accessed. </li></ul><ul id="0a5d4301-4b9e-414a-a90f-8e2f6f045e60" class="bulleted-list"><li style="list-style-type:circle"><strong>Overheads</strong>: Pointer needs to be stored.</li></ul><ul id="fec3644e-eb2e-412a-80bc-0e5cf3e2b1ad" class="bulleted-list"><li style="list-style-type:circle"><strong>Reliability: </strong>If a pointer is damaged, rest of the file is lost. A bug in the OS may result in a wrong pointer being picked up. </li></ul></li></ul></div></div><ul id="02e938c5-06eb-4efe-b127-43b5ddb1c2fc" class="bulleted-list"><li style="list-style-type:disc">Overheads may be reduced using clusters ie cluster of sequential blocks only have one pointer. </li></ul><h2 id="d57771e6-344e-466e-a24a-2676bf8fb6dc" class="">FAT File </h2><p id="cf3107ea-97f8-4993-910d-256b3a69eeb8" class="">It is a variation of the linked allocation scheme in which a FAT is a table that contains one entry for each block and is indexed by block number. Files are represented by linking pointers in the FAT table (generally cached). </p><div id="1813ec61-b5d4-4a50-a229-24251fc82e86" class="column-list"><div id="3bf82a3b-9bec-44a3-b06c-19d09a4027e6" style="width:43.75%" class="column"><figure id="e0aeac0e-a298-4ecf-9f00-8e51c9b90e89" class="image"><a href="img/Screenshot_2024-04-01_at_9.59.20_PM.png"><img style="width:317px" src="img/Screenshot_2024-04-01_at_9.59.20_PM.png"/></a></figure></div><div id="e5a3d701-5eeb-49cb-9ebf-b92e8a562717" style="width:56.25%" class="column"><ul id="ce70eb59-b905-43c7-9dbf-b6dc85c3a394" class="bulleted-list"><li style="list-style-type:disc">Moo file starts at block 5. The FAT table for block 5 has 12 which in turn points to End of file (EOF). Thus moo: 5 → 12 → EOF. </li></ul><ul id="1203e027-4660-48e5-bfe3-b3a1f17055d7" class="bulleted-list"><li style="list-style-type:disc"><strong>Advantages: </strong>Solves direct access problems of linked allocation, has greater reliability and you can grow file sizes. </li></ul><ul id="f013fee9-8a5f-4db6-b3db-dca1d9228180" class="bulleted-list"><li style="list-style-type:disc"><strong>Disadvantages: </strong>Volume size is determined by the FAT size. </li></ul><p id="e0c0fad7-e912-44a4-bcb5-1efd9aaaccc6" class="">
+</p></div></div><h2 id="cd2e9dd4-040f-43e7-857c-d2b560217316" class="">Indexed Allocation</h2><p id="3e9c4bfd-87a5-4d26-b810-9769d3861fa8" class="">It uses disk blocks as index blocks that don’t hold file data but hold pointers to the disk blocks that hold file data ie a directory has a filename and a pointer to an index block. </p><div id="48190f0b-077c-4c70-a5f3-57f8b52a7ccd" class="column-list"><div id="7c49e123-3395-4cea-a139-510839b2381a" style="width:43.75%" class="column"><figure id="e202d7bf-7d17-4c9f-b048-347f26286124" class="image"><a href="img/Screenshot_2024-04-01_at_10.05.49_PM.png"><img style="width:317px" src="img/Screenshot_2024-04-01_at_10.05.49_PM.png"/></a></figure></div><div id="92129ee7-2f19-4d20-b547-11c2e3afd6ab" style="width:56.25%" class="column"><ul id="67265183-1c8e-4a3e-8ba0-204fa6658eec" class="bulleted-list"><li style="list-style-type:disc">The index table for the file jeep is in block 19. In the table we can see that the first block is in block 9, second in 16, so on. Rather than a separate file allocation table, each file has its own table. </li></ul><ul id="111d8406-fe4c-4a67-be50-8f01cc0a3c0c" class="bulleted-list"><li style="list-style-type:disc"><strong>Advantages: </strong>Supports direct access, no external fragmentation, easy to grow files. </li></ul><ul id="04f3e63b-07ef-4651-98f2-c03d33c8b936" class="bulleted-list"><li style="list-style-type:disc"><strong>Disadvantages: </strong>Sequential access may be slow ⇒ use clusters</li></ul></div></div><p id="271ccc8a-3a6e-489e-a887-73e6e9009bfb" class=""><strong>How large should the index block be ? </strong></p><p id="8bc8ff60-be80-494b-b075-6530048d7f53" class=""><div class="indented"><ul id="f4cc94ed-c1f1-45ec-a2de-a13b91d01085" class="bulleted-list"><li style="list-style-type:disc">Files typically are one or two block longs. The index block will therefore only have one or two entries. If you have a large index block → huge wastage</li></ul><ul id="6b1cf064-c23c-40fa-b56a-201e00297944" class="bulleted-list"><li style="list-style-type:disc">On the other hand a small index block will limit the size of the file → need additional mechanism to deal with large files. <ul id="9f2b2d18-85ae-4830-9543-195788634586" class="bulleted-list"><li style="list-style-type:circle">Use multi level indexing for block index <figure id="aa9f50d4-e1b2-44cc-a087-fa9f2eae965a" class="image"><a href="img/Screenshot_2024-04-01_at_10.12.02_PM.png"><img style="width:600px" src="img/Screenshot_2024-04-01_at_10.12.02_PM.png"/></a></figure></li></ul></li></ul></div></p></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

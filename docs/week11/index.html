@@ -1,0 +1,682 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Week 11</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3b0b2ec4-5421-4451-8164-e87aaacc9f06" class="page sans"><header><h1 class="page-title">Week 11</h1><p class="page-description"></p></header><div class="page-body"><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§11.1: System Crashes</strong></summary><div class="indented"><p id="3891d47f-f7fb-4853-9ee0-85bd1179021e" class="">Suppose a write system call wants to modify 4 blocks (a,b,c,d) where block <strong>a</strong> is the file’s FCB, block <strong>b</strong> is the corresponding directory, <strong>c </strong>and <strong>d</strong> are the file data. What happens if the system crashes after <strong>a </strong>and <strong>b </strong>are written?<div class="indented"><ul id="7365d4ba-29ff-4a7c-95df-f0e61bd180e1" class="bulleted-list"><li style="list-style-type:disc">Files system state becomes inconsistent as block <strong>a </strong>indicates that there exists a directory entry for the file and block <strong>b </strong>indicates that the file should be present but the file is not present ⇒ <strong>Recovery</strong></li></ul><ul id="c5aec4cd-8973-4677-8952-9d9f96fdbf65" class="bulleted-list"><li style="list-style-type:disc"><strong>Consistency checking:</strong> scan all data on directory and compare with data in each block to determine consistency. However this slow, may not always successfully repair and may require human intervention to resolve conflicts. (Old)</li></ul><ul id="6abd8506-c5a2-4727-a722-401dd3981357" class="bulleted-list"><li style="list-style-type:disc"><strong>Journaling File Systems (JFS): </strong>use log based recovery techniques. When a (write) system call is invoked, all metadata changes are written sequentially to a log and the system call returns. Log entries corresponding to a single operation are called <strong>transactions. </strong><ul id="21d60459-c5a5-4f77-8d23-45c69ef900a1" class="bulleted-list"><li style="list-style-type:circle">Entries are played sequentially to actual file structures. As changes are made to file systems, a pointer is updated to indicate which actions have completed. When an entire transaction is completed, the corresponding log entries are removed </li></ul><ul id="c68eec89-dac2-47a2-af19-7fa6bdb2f8e4" class="bulleted-list"><li style="list-style-type:circle">If the system crashes and if the log file has one or more entries, it means OS has committed the operations but FS is not updated ⇒ <strong>replay entries. </strong><figure id="640c2d18-22b6-4053-baed-cfc331fc7b57" class="image"><a href="img/Screenshot_2024-04-05_at_12.08.44_PM.png"><img style="width:600px" src="img/Screenshot_2024-04-05_at_12.08.44_PM.png"/></a></figure></li></ul></li></ul></div></p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§11.2: xv6 File System Layers - 1</strong></summary><div class="indented"><p id="1c030a3f-2973-4b35-b0f7-0b1e1371c0e7" class="">At a high level the xv6 FS has many layers:</p><ul id="84084fe4-c57b-41a5-8e39-6a5113772ad6" class="bulleted-list"><li style="list-style-type:disc"><strong>FS Interface</strong>: Receive open/write/read system calls and implement them</li></ul><ul id="e1b4829e-997a-496e-a008-fabf15398cd4" class="bulleted-list"><li style="list-style-type:disc">Identify device, pathnames, inodes, directory</li></ul><ul id="81101f5b-7fc5-4b87-a9d4-1b8f89cea1bd" class="bulleted-list"><li style="list-style-type:disc"><strong>Log </strong>used for journaling</li></ul><ul id="a581f142-14c9-4d9a-82e4-9ad5952e1562" class="bulleted-list"><li style="list-style-type:disc"><strong>Buffer Cache </strong>is present in the memory and used to cache blocks </li></ul><ul id="3f0bdca2-c687-4f00-ac2f-8f204dde45eb" class="bulleted-list"><li style="list-style-type:disc"><strong>ide (old)/ virtio (new): </strong>They are the device drivers for the hdd which uses the memory mapped IO registers present in the peripheral to communicate and set up interrupts. It converts the linear address to address corresponding to the hdd. </li></ul><p id="01429707-cea9-47c1-b157-95bc33ea16e1" class="">The file data structure:</p><div id="649ee093-74f6-481d-b319-6495f11fdd75" class="column-list"><div id="8ec956b3-b66d-4cc9-8fc3-c71a7896cc01" style="width:50%" class="column"><figure id="08bb8073-b1af-41c2-a642-01594b61bed1" class="image"><a href="img/Screenshot_2024-04-05_at_1.09.17_PM.png"><img style="width:710px" src="img/Screenshot_2024-04-05_at_1.09.17_PM.png"/></a></figure></div><div id="8f2c4c47-b037-4ffe-a8ff-2ffcbc8878bb" style="width:50%" class="column"><ul id="96d639f5-554f-48c7-83d6-ac7d8c75b8bb" class="bulleted-list"><li style="list-style-type:disc">type is used to indicate if its a pipe,  inode (hdd) or a device (note that in linux you can write to any device not necessarily hdd)</li></ul><ul id="dbc24933-1261-4c4d-92a2-a58a82b0e29e" class="bulleted-list"><li style="list-style-type:disc">ref counts the number of times a file was opened. </li></ul></div></div><ul id="23aadf03-0dc4-4c37-8a65-0bcade8f0c4f" class="bulleted-list"><li style="list-style-type:disc">readable and writeable are indicators regarding the r/w settings of the file</li></ul><ul id="3d34c832-168f-416f-9e74-c7c49cf6cc69" class="bulleted-list"><li style="list-style-type:disc">struct pipe is for communication using pipes whereas struct inode is utilised for files on hdd or external device. </li></ul><ul id="855f6094-3078-442e-830d-cfd92b6241cf" class="bulleted-list"><li style="list-style-type:disc">The major number distinguishes device one from the other. You can use the major number to determine which device to r/w to. </li></ul><p id="d9441d12-0013-4443-8e95-50a6755ae488" class="">The inode data structure:</p><div id="97c8eb5c-4fea-4d91-87df-5e9e9f15624a" class="column-list"><div id="310343b6-4796-4206-9a61-0a532ed80541" style="width:50%" class="column"><figure id="559951af-e66b-405d-942c-1d0a06353733" class="image"><a href="img/Screenshot_2024-04-05_at_2.49.36_PM.png"><img style="width:701px" src="img/Screenshot_2024-04-05_at_2.49.36_PM.png"/></a></figure></div><div id="5a7ac94c-9270-409c-a187-c013891b7e00" style="width:50%" class="column"><ul id="2c40c169-dbd2-4b4d-a292-4256c1b01e7e" class="bulleted-list"><li style="list-style-type:disc">In memory copy of the inode</li></ul><ul id="2369a524-383b-4f21-aff3-b6cd06297c39" class="bulleted-list"><li style="list-style-type:disc">addrs corresponds to where in the hard disk the file is stored. </li></ul><ul id="97c88e60-f8aa-463f-969e-90d1a4266707" class="bulleted-list"><li style="list-style-type:disc">Struct <strong>dinode </strong>is similar to this except it is the inode actually stored on disk (type, major, minor, nlink, size, addrs)</li></ul><p id="e6b2ebe0-7e80-424d-a4f1-ad09cbb4090b" class="">
+</p></div></div><p id="a8c648f3-6e91-42e7-978f-ddd99a37b85f" class="">At an abstract level, FS could be thought of a contiguous set of bytes. The struct <strong>superblock</strong> has the  size of the FS (in number of blocks), number of data blocks, inodes and log blocks. </p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§11.3: xv6 File System Layers - 2</strong></summary><div class="indented"><p id="72fb4643-253c-499f-b0dd-fdc4529369c2" class="">Recall that buffer cache is a part of memory that buffers blocks of memory from the HDD to DRAM. </p><ul id="2de3fe79-a80b-4655-b3d1-fa6f837ca395" class="bulleted-list"><li style="list-style-type:disc">The bache spinlock is maintained as a doubly linked linked-list with each node corresponding to a block stored as <strong>struct buf </strong>in xv6. <ul id="f910b951-8e80-4392-b576-7edee608839f" class="bulleted-list"><li style="list-style-type:circle"><strong>dev</strong>: which hdd the block is coming from, <strong>blockno, prev </strong>(to point to previous block), <strong>next </strong>(to point to the next block), <strong>data[bsize] </strong>(stores the bsize data)</li></ul><ul id="66dffb85-b287-4f9f-aea9-b607e833d8d8" class="bulleted-list"><li style="list-style-type:circle"><strong>flags: </strong>to identify if a particular entry is locked by some process, valid - if it has been read from disk, dirty - if it needs to be written to disk. </li></ul></li></ul><ul id="043e889c-63bb-4268-87fd-de9d73cb4765" class="bulleted-list"><li style="list-style-type:disc">The function <strong>binit(void) </strong>initializes the circular linked list and sets up the pointers. <strong>bread </strong>is used to find a block in the buffer cache. If the data is not in the cache, the HDD is queried. <strong>bwrite </strong>is used to write buffer from cache to disk. <strong>brelse </strong>releases the buffer and marks as most recently used. <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="52b948c8-736e-44b7-836d-10e72acfcd66" class="code"><code class="language-C">bp = bread(xxx, yyy)
+// modify buffer data: modify bp[offset]
+bwrite(bp)
+brelse(bp)</code></pre></li></ul><ul id="c78acdf0-41e1-467f-b914-cf6a185f1bf2" class="bulleted-list"><li style="list-style-type:disc"><strong>bget </strong>traverses the various nodes of the buffer cache and try to retrieve the pointer to the buffer which holds the required data. <ul id="53cb2409-4c37-411e-9a27-7ec10ee6c73f" class="bulleted-list"><li style="list-style-type:circle">Params: <strong>dev </strong>- to identify device, <strong>blockno </strong>- the block number to be retrieved. </li></ul><ul id="ab6acc45-2723-4591-83b9-216331540c6e" class="bulleted-list"><li style="list-style-type:circle">First we iterate through the buffer cache linked list to find the blockno. If the block is already cached the system wide reference counter is incremented and the pointer to the buffer is returned. </li></ul><ul id="958fe206-96a7-47c2-98de-73843a5cdc6b" class="bulleted-list"><li style="list-style-type:circle">If the block is not cached, traverse the linked list to find a buffer whose reference count is set to 0 (ie not being used by any process), allocate this buffer to the block and set valid to 0 because at this point only the block is allocated. it has still not been read from the hdd. </li></ul><ul id="1e1ed89e-68c1-43cb-9d8f-011b212642db" class="bulleted-list"><li style="list-style-type:circle">If no buffer available, error</li></ul></li></ul><ul id="8f136432-338d-4b1d-a4ea-a69a9b7a995d" class="bulleted-list"><li style="list-style-type:disc"><strong>bread </strong>reads the buffer from the hdd into some entry in the buffer cache.<ul id="44e2b42f-0fec-4033-90f3-8bd264a91ad0" class="bulleted-list"><li style="list-style-type:circle">Params: device, blockno</li></ul><ul id="abcfbcb8-7037-4654-9c0c-04935a32346e" class="bulleted-list"><li style="list-style-type:circle">It essential invokes bget which returns a pointer to the buffer. If valid bit is 0, virtio_disk_rw performs the low level operations to r/w to the virtio disk. In virtio disk, the block number is converted to the specific device. This copies the contents at of the block to the buffer. </li></ul></li></ul><ul id="b04e4aa2-4b1f-4787-a543-0830d1fdbc43" class="bulleted-list"><li style="list-style-type:disc"><strong>bwrite </strong>does something similar and invokes the virtio_disk_rw to write to the disk from the buffer cache. </li></ul><ul id="c2e06c57-92e3-4054-a622-d72c099658c0" class="bulleted-list"><li style="list-style-type:disc"><strong>sys_open </strong>system call either creates a new inode (using ialloc) or obtains the inode (using namei) for the file to be opened present in path. <ul id="daabb33b-b3e0-468d-ac7c-8d2e0aecdea5" class="bulleted-list"><li style="list-style-type:circle">Note that the structure inode is has information on where in the hard disk particular data is whereas structure file has information on the permissions, and so on. </li></ul></li></ul><ul id="fb8c5030-cf39-4687-aeca-58dc9889d2b9" class="bulleted-list"><li style="list-style-type:disc"><strong>sys_read </strong>system call extracts the parameters passed to read system call and reads a file. </li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§11.4: Introduction to OS Security</strong></summary><div class="indented"><p id="28d6fb3e-0340-4db3-b270-84880391c108" class="">Very broadly the entire aspect of OS security can be split into two components: <div class="indented"><ol type="1" id="571e1bc9-c9f6-4859-be47-43bdd4984679" class="numbered-list" start="1"><li>OS facilitates security in the system</li></ol><ol type="1" id="3fddbb67-943e-4168-8b1c-0a6ff615efbe" class="numbered-list" start="2"><li>Security threats in the OS</li></ol></div></p><h2 id="c2546c92-47d3-4e02-af47-b137bd5745c7" class="">OS facilitates secure computer systems</h2><ul id="d6fb7a9c-ecc4-4326-8181-089b6ddec6b0" class="bulleted-list"><li style="list-style-type:disc">There are many different types of resources in a system: files, HW resources(CPU, DRAM, UART, etc), and SW Resources (processes) which need to be satisfy our security goals: <strong>Confidentiality </strong>(authorized rw)<strong>, Integrity </strong>(a read-only file should not be allowed to be written)<strong>, Availability </strong>(auth users should be able to use)<strong>.  </strong>A security threat concerns one resource and one goal. <ul id="3d95cc94-ed75-4a08-8f63-1f5c2ade8f03" class="bulleted-list"><li style="list-style-type:circle">A threat like while(True) is mitigated by multi-tasking that uses time slices and allows other processes to use the CPU to be used (availibility)</li></ul><ul id="4ee5ad81-b295-465c-a3ef-71d30d07771a" class="bulleted-list"><li style="list-style-type:circle">As memory should be available for all, paging helps with this aspect. </li></ul></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§11.5: Access Control</strong></summary><div class="indented"><figure id="289913d7-bf49-4b89-bbd2-54c9adf94f40" class="image"><a href="img/Screenshot_2024-04-05_at_7.32.27_PM.png"><img style="width:1566px" src="img/Screenshot_2024-04-05_at_7.32.27_PM.png"/></a></figure><p id="d1b4e020-74d5-4688-8f66-b2ec6a8bf074" class=""><strong>Discretionary Access Control (DAC): </strong>Access based on identity of requester and access rules that state what requestors are allowed to do. Privileges are granted/revoked by the admin (root user in linux). Users can pass on their privileges to other users. In its earliest form it was the <strong>Access Matrix Model. </strong><div class="indented"><figure id="25f2f91b-524e-453b-b035-9e66babcce75" class="image"><a href="img/Screenshot_2024-04-05_at_8.04.37_PM.png"><img style="width:652px" src="img/Screenshot_2024-04-05_at_8.04.37_PM.png"/></a></figure><ul id="ec27a661-ea85-47f8-8192-fe0ffa071c4f" class="bulleted-list"><li style="list-style-type:disc"><strong>Subjects</strong> are active elements requesting information (Ann, Bob, Carl) whereas <strong>Objects </strong>are passive elements storing information (File-1,2,3; Program 1). Note that subjects can also be objects.   </li></ul><ul id="2658da46-d766-48e4-b111-e838169d65e3" class="bulleted-list"><li style="list-style-type:disc">While this is easy to understand, it is not efficient as a typical hard disk will have 1000s of files so you’ll have a huge matrix where most of the matrix will have a default value or be empty.</li></ul><div id="d911daef-499e-4418-9943-4b1b7d135278" class="column-list"><div id="8af97a92-14f4-468c-8393-ebe28ea9a872" style="width:50%" class="column"><h3 id="f11b7618-9912-41de-9ae3-95270784ccfc" class="">Capabilities</h3><figure id="0a0ca2a7-1269-406b-aaf4-51c2d9574b0c" class="image"><a href="img/Screenshot_2024-04-05_at_8.09.40_PM.png"><img style="width:447px" src="img/Screenshot_2024-04-05_at_8.09.40_PM.png"/></a></figure><ul id="5ac381e6-a826-4222-91a1-1a172253fc67" class="bulleted-list"><li style="list-style-type:disc">Each user are given a linked list of what the user can achieve. For each user it has every object that it can access. </li></ul><ul id="560d585f-ce45-494b-9889-066d3b50a8a6" class="bulleted-list"><li style="list-style-type:disc">When a user opens a file, their linked list is traversed and whether the user can perform certain operations on that file is then verified. </li></ul><ul id="ccf56337-b3e1-49aa-a071-9ac0515aecfb" class="bulleted-list"><li style="list-style-type:disc"><strong>Delegation </strong>is easily achieved as a user can transfer their own list entirely to another user. </li></ul><ul id="7537ff10-7136-4715-844a-7ab55e7bbf50" class="bulleted-list"><li style="list-style-type:disc">Every subject has to be traversed and the corresponding file has to be <strong>revoked. </strong></li></ul></div><div id="d264bd00-fd5c-4a2b-9ab7-5b94b1f674d2" style="width:50%" class="column"><h3 id="4a8130ed-7eea-43ce-8abf-5ab80ac54395" class="">Access Control List</h3><figure id="26f1d5b8-6b95-4831-99cd-4180f82d58f3" class="image" style="text-align:center"><a href="img/Screenshot_2024-04-05_at_8.11.28_PM.png"><img style="width:458px" src="img/Screenshot_2024-04-05_at_8.11.28_PM.png"/></a></figure><ul id="7ef198f8-5935-4f9b-ac3b-d48b083c9261" class="bulleted-list"><li style="list-style-type:disc">Think of it as a transpose of capabilities. Each file has a linked list of users and their permissions. </li></ul><ul id="c93e886b-ccf4-42f4-bac1-6ae88be3c1a1" class="bulleted-list"><li style="list-style-type:disc">Owner of the file has to add permissions to ensure <strong>delegation</strong>. </li></ul><ul id="ba0c526a-4d9b-40d8-af86-0998127047f6" class="bulleted-list"><li style="list-style-type:disc">However <strong>Revocation</strong> is easily done as you can traverse the list and remove the user/group. </li></ul></div></div></div></p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§11.6: Unix Security Mechanism</strong></summary><div class="indented"><p id="d7bfa27d-52eb-4c19-9ec3-d01976e70cf2" class="">It is a modified version of the DACs where the <strong>subjects </strong>are the processes and the <strong>objects </strong>are the files, dirs, sockets, process, process memory, filedescriptors. Each process is associated with a <strong>uid </strong>(user ID) and <strong>gid</strong> (group ID) which determine the privileges of a process.</p><ul id="5ad7ec40-ef3d-4745-8d3d-91231c2e4d47" class="bulleted-list"><li style="list-style-type:disc"><strong>File Operations: </strong>Create, Read, Write, Execute, Ownership, Change Permissions<ul id="45d6ebb1-4ec3-447d-b0b1-3bc2186497a6" class="bulleted-list"><li style="list-style-type:circle">For each file RWX permissions exist for owner, group, other. </li></ul></li></ul><ul id="99474f80-607b-449f-a2fb-6a2cbc9aa68a" class="bulleted-list"><li style="list-style-type:disc"><strong>Directory Operations: </strong>Create, Unlink/Link, Rename, lookup<ul id="28e6e1f8-1939-4de7-8be2-fa305db6d1c1" class="bulleted-list"><li style="list-style-type:circle">Similarly Link, Unlink Write permissions for a directory. Execute permission on a directory implies one can look up a name but not read the contents of a directory. Additional bits are present to indicate direct/symbolic linking etc. </li></ul></li></ul><h3 id="b55919a3-124e-407d-aa4f-c4461b305ba8" class="">More on User IDs</h3><ul id="39761117-b3e2-452b-933c-be6c6bb86534" class="bulleted-list"><li style="list-style-type:disc">Each unique user in a system is associated with a uid. <strong>root </strong>has uid=0. </li></ul><ul id="59d466b4-2bad-4631-8701-6bc42fda7ec1" class="bulleted-list"><li style="list-style-type:disc"><strong>setuid(uid) </strong>is a system call used to set the user id of a process. This call can only be executed by a process with uid=0 ie root. </li></ul><ul id="ffb46e02-63ef-4ba9-ae17-41751b6a6071" class="bulleted-list"><li style="list-style-type:disc">Similarly, <strong>setgid(gid) </strong>is used to set the group id of a process. </li></ul><ul id="5e0196ec-6fbe-40d5-82a5-a411c00e36b6" class="bulleted-list"><li style="list-style-type:disc"><strong>Login Process: </strong>at the time of login, the login process runs with uid=0. If username &amp; password are verified ⇒ uid is set to that of the user. Then the shell with user’s process id is invoked. </li></ul><h3 id="7edb253a-c9b4-4b95-86a7-79d95e25adb2" class="">File Descriptors</h3><ul id="3b332447-f53a-49f9-b952-9e830de74181" class="bulleted-list"><li style="list-style-type:disc">FD’s represent an open file and there are two ways of obtaining one. Either open a file or get it from another process (child process inherits fd from parent process, through shared memory or sockets). </li></ul><ul id="e9c30dce-6490-4287-bc5f-540531d52cb5" class="bulleted-list"><li style="list-style-type:disc">Only when opening the file, user access permissions are checked. Once you have a file descriptor, no more explicit checks for permissions are done. </li></ul><ul id="07979407-be0e-4b20-8817-f83c629c2c21" class="bulleted-list"><li style="list-style-type:disc">If root opens a file and starts a process in user mode, the user process can read the file. </li></ul><h3 id="df453cd3-598c-461e-801f-12713cf6564f" class="">Processes</h3><ul id="d13fc7ea-0a32-4bce-b195-dc40bba5e524" class="bulleted-list"><li style="list-style-type:disc">You can have policies regarding Create, kill, and debug. </li></ul><ul id="bce8ac90-cd76-4fab-960b-cbe6c19ec9be" class="bulleted-list"><li style="list-style-type:disc">A process can kill another process only if it has the same uid. </li></ul><ul id="89f01e39-5127-40b5-9f90-190397649a9e" class="bulleted-list"><li style="list-style-type:disc">ptrace can debug other processes with the same uid. </li></ul><h3 id="24f71a7b-9b54-498c-9e1c-63dc4cd86255" class="">Network Permissions in Unix</h3><ul id="ed632411-f00a-4329-9daf-1aa9b2d73fc0" class="bulleted-list"><li style="list-style-type:disc">Operations: Connect, Listen, Send/Receive. </li></ul><ul id="08a0d118-c4a4-4edf-9956-986e5714b25c" class="bulleted-list"><li style="list-style-type:disc">Unlike files and processes which are tightly linked to a uid and gid, networks don’t. Any process can listen to ports &gt; 1024 without having authorisation to access that machine. </li></ul><ul id="85e519b3-14ef-4f3b-9f4b-b17f463b0d0c" class="bulleted-list"><li style="list-style-type:disc">If you have a fd for a socket, you can send/receive without further permissions. </li></ul><p id="b907a2b5-a901-41c4-99a1-07a5aa13894d" class="">
+</p></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,685 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Week 8</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7487feff-8fee-42c5-b230-543c61abb8a1" class="page sans"><header><h1 class="page-title">Week 8</h1><p class="page-description"></p></header><div class="page-body"><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§8.1: Inter Process Communication (IPC)</strong></summary><div class="indented"><p id="72409cef-2942-4e84-a7bf-0de7312a4417" class="">During execution, a process can only view its VA. It cannot view another processes VA or determine the physical mapping. Then how does one process communicate with another?       I<strong>nter process Communication. </strong>There are 3 ways:</p><h2 id="b126e354-b893-4e0b-9275-7a3d29d7f7db" class="">Shared Memory</h2><div id="24b0ffdf-9cb6-4ee3-a9f1-4f8a3b3257b9" class="column-list"><div id="1c709b06-2d99-42f0-b951-83b56c9bdbe7" style="width:25%" class="column"><figure id="e0769084-28b2-41db-ad0f-fc8bac52b571" class="image"><a href="img/Screenshot_2024-03-20_at_7.40.12_PM.png"><img style="width:198.125px" src="img/Screenshot_2024-03-20_at_7.40.12_PM.png"/></a></figure></div><div id="4498ba5d-97ce-48e3-acde-de52b2f38f4f" style="width:75%" class="column"><ul id="ebbe2641-6775-4e1b-bf06-5a1319cb7748" class="bulleted-list"><li style="list-style-type:disc">One process will create an area in RAM which other processes can access. Both processes can access shared memory like a regular working memory ⇒ R/W is like regular R/W and it is Fast. However it is error prone and needs synchronization between processes. </li></ul><ul id="4160d893-5881-496c-a110-25e969da417f" class="bulleted-list"><li style="list-style-type:disc"><strong>int shmget </strong>creates a shared memory segment and returns the ID of the segment</li></ul><ul id="fa43380d-bcb9-4e48-9849-bedde6bb0007" class="bulleted-list"><li style="list-style-type:disc"><strong>int shmat </strong>attaches shmid shared memory to address space of calling process</li></ul><ul id="bbfafb6a-390f-497f-8a70-e93e8034ae49" class="bulleted-list"><li style="list-style-type:disc"><strong>int shmdt </strong>detaches shared memory</li></ul></div></div><h2 id="ed59b523-c3a1-4cd6-9524-ba5e360b61fe" class=""><strong>Message Passing</strong></h2><div id="8c229536-fd2e-40fc-9dc5-ce832647c4d4" class="column-list"><div id="2be5b8b0-dd9e-4dc2-ba51-e5895275fc84" style="width:31.25%" class="column"><figure id="994353eb-9690-4c3a-b3eb-412bed867224" class="image"><a href="img/Screenshot_2024-03-20_at_7.46.52_PM.png"><img style="width:418px" src="img/Screenshot_2024-03-20_at_7.46.52_PM.png"/></a></figure></div><div id="fac34950-1881-41ad-a77d-09e3580b61b3" style="width:68.75%" class="column"><ul id="ca8ef29d-7966-4bc9-a2d0-a8450f72ff0d" class="bulleted-list"><li style="list-style-type:disc">Shared memory is created in the kernel. System calls such as <strong><mark class="highlight-blue">send</mark></strong>  and <mark class="highlight-blue"><strong>receive </strong></mark>used for communication. <ul id="30ddc696-9a3e-4d0e-bbda-7ca5a04fd4fc" class="bulleted-list"><li style="list-style-type:circle">Each send must have a receive</li></ul></li></ul><ul id="0850d97c-968a-433c-a182-230a5c727a72" class="bulleted-list"><li style="list-style-type:disc"><strong><mark class="highlight-blue">Advantage: </mark></strong>Explicit sharing, less error prone.</li></ul><ul id="6090da20-a166-4520-a6b3-97049094e215" class="bulleted-list"><li style="list-style-type:disc"><strong><mark class="highlight-blue">Limitation: </mark></strong>Slow. Each call involves marshalling/demarshalling of information.</li></ul><div id="a9bdfad3-4c3c-4968-bdae-72c1d445fc9a" class="column-list"><div id="98d8e138-41b6-4e87-9e7f-cb3de7939217" style="width:43.75%" class="column"><figure id="3913935d-f486-41d9-b7aa-66c612d46224" class="image"><a href="img/Screenshot_2024-03-20_at_7.50.54_PM.png"><img style="width:194.9375px" src="img/Screenshot_2024-03-20_at_7.50.54_PM.png"/></a></figure></div><div id="e4ff9b29-4f40-4786-a2c4-d96a1ee944cf" style="width:56.25%" class="column"><p id="a81c1c33-bb44-453f-9696-f4a47ad79a74" class="">Another common application of message passing is the use of <strong>Pipes. </strong></p><p id="5239d32f-35eb-4ec1-aa16-f16c8ef2d378" class="">It is always between parent and child and also unidirectional</p></div></div></div></div><ul id="1c0ad132-0632-479e-a574-5e858b64e57e" class="bulleted-list"><li style="list-style-type:disc">In order to obtain two way communication using pipes, two pipes need to be opened <figure id="8b47c5a6-f50d-43b6-a502-01c81d2fa1f0" class="image"><a href="img/Screenshot_2024-03-20_at_7.55.48_PM.png"><img style="width:652px" src="img/Screenshot_2024-03-20_at_7.55.48_PM.png"/></a></figure><p id="caa8cfbe-4db9-4b30-846e-b1a8968c92a4" class="">Note that Parent can read from Pipe 0 and Pipe 1. However we only need one read operation. The diagram on the right shows the unnecessary pipes that were removed</p></li></ul><h2 id="ef9ee334-b61b-4818-9090-28903169b0c5" class="">Signals</h2><ul id="b22f039c-db8e-4bda-ad24-583662bb4283" class="bulleted-list"><li style="list-style-type:disc">Signals are asynchronous unidirectional communication between processes. Signals are usually small integers with each integer having predefined meaning (for eg. 9 = kill). <ul id="25f432de-f86e-4d7b-aacc-7bb48d8b9ab0" class="bulleted-list"><li style="list-style-type:circle"><strong><mark class="highlight-blue">kill(pid, signum) </mark></strong>⇒ In order to kill the signal the process defines a signal handler <strong><mark class="highlight-blue">sighandler_t signal(signum, handler);</mark></strong></li></ul></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§8.2: Synchronization</strong></summary><div class="indented"><figure id="8ae0b461-38d5-45dc-b7d7-3002583d1a63" class="image"><a href="img/Screenshot_2024-03-20_at_8.46.13_PM.png"><img style="width:680px" src="img/Screenshot_2024-03-20_at_8.46.13_PM.png"/></a></figure><ul id="e4b3fc06-a8db-4828-9cb4-e9ae7f770a35" class="bulleted-list"><li style="list-style-type:disc">Suppose you are executing two programs accessing a shared variable counter=5. One increments the variable whereas the other decrements. Thus the counter could take the values 4,5,6. This is an issue with shared memory and the results could be different based on when the context switch occurs.  </li></ul><ul id="5617f95c-b6f2-4c61-9f92-3726c82d6ad4" class="bulleted-list"><li style="list-style-type:disc"><strong>Race Conditions: </strong>A situation where several processes access and manipulate the same data and the outcome depends on the order in which the access take place ⇒ Prevent race conditions by synchronization and ensure only one process at a time manipulates critical data (section). </li></ul><ul id="a4d8d258-5e5c-4515-9877-8741b638958e" class="bulleted-list"><li style="list-style-type:disc">Any solution should satisfy the following requirements:<ul id="86d925aa-5d9e-4f7d-9938-d4669ad88b6b" class="bulleted-list"><li style="list-style-type:circle"><strong>Mutual Exclusion: </strong>Only one process can access critical section any given time</li></ul><ul id="a5e60b15-f211-4559-91ed-f839961e5e78" class="bulleted-list"><li style="list-style-type:circle"><strong>Progress: </strong>When no process is in the critical section, any process that requests entry into critical section must be permitted without any delay. </li></ul><ul id="eb654764-e8bb-42b8-aca4-68235bf69156" class="bulleted-list"><li style="list-style-type:circle"><strong>No Starvation: </strong>There is an upper bound on the number of times a process enters the critical section while another is waiting </li></ul></li></ul><p id="1ce227df-c070-4111-9368-bb5508780669" class="">All solutions typically use locking and unlocking. The use of lock and unlock constructs in the program ensures that the critical sections are made atomic. </p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§8.3: Software Solutions for Critical Sections</strong></summary><div class="indented"><div id="9eb8db92-c10b-4776-9ab2-73d3ad15ee6f" class="column-list"><div id="14b79934-284c-44f6-b95f-a3a529f013c6" style="width:37.5%" class="column"><figure id="b0d503ef-75ce-487e-bc46-9d65fa432b83" class="image"><a href="img/Screenshot_2024-03-20_at_9.14.57_PM.png"><img style="width:277.375px" src="img/Screenshot_2024-03-20_at_9.14.57_PM.png"/></a></figure></div><div id="54bf1a79-b9e5-41e0-bd00-4e7de0436ba8" style="width:62.5%" class="column"><p id="bec1f0ab-15f0-437c-9893-50c23b1d5735" class="">The simplest solution is to disable interrupts before entering a critical section. This way context switches can not happen. However this requires higher privilege and is not suited for multicore systems </p><p id="b11802e4-7809-4f04-9013-2dde56e21cb3" class="">
+</p></div></div><h2 id="6c7e3097-807e-4081-bbcd-e5f10f20fc19" class="">Attempt 1</h2><figure id="07dda367-b290-4f1c-830b-2c8f262fe6ff" class="image"><a href="img/Screenshot_2024-03-20_at_9.21.24_PM.png"><img style="width:680px" src="img/Screenshot_2024-03-20_at_9.21.24_PM.png"/></a></figure><p id="b8fe4f30-1436-474b-9c4c-83a7981b5626" class="">We can also use a shared variable to lock and unlock a critical section as the figure below. Only when the other process is not using the critical section is when the current process can access its critical section. This ensures <strong>mutual exclusion. </strong></p><ul id="7ca5a529-4038-40ce-89a1-df51b9ec8c31" class="bulleted-list"><li style="list-style-type:disc">However, there is busy waiting and there’s a waste of power and time. </li></ul><ul id="36997f6f-82b6-4c5c-bb4f-9d4207ca7ca6" class="bulleted-list"><li style="list-style-type:disc">It forces one to alternate execution of critical section between the two processes as only process 2 can set turn=1 ⇒ <mark class="highlight-red"><strong>Fails Progress</strong></mark></li></ul><h2 id="b3a5b919-643b-4579-8cc5-6d29298837fc" class="">Attempt 2</h2><p id="a840fb41-b3a4-417e-9142-6f485aea998d" class="">The issue with the previous attempt was the common turn flag that was modified by both processes. This <strong>forced </strong>processes to alternate. However we could have two flags, one for each process</p><figure id="cca12c23-71dd-4494-b28d-cbf2e99ac8e5" class="image"><a href="img/Screenshot_2024-03-20_at_9.29.52_PM.png"><img style="width:680px" src="img/Screenshot_2024-03-20_at_9.29.52_PM.png"/></a></figure><ul id="a4f614e7-9ba3-4b43-9f87-f3aea6a29e78" class="bulleted-list"><li style="list-style-type:disc">By using two flags, we need not alternate execution in critical section. However <strong><mark class="highlight-red">it does not guarantee mutual exclusion. </mark></strong><p id="02ff9a39-2d87-45ac-818b-ddc6a5483cb0" class="">Suppose both flags are false and the context switch occurs after the while statement in process 1. Since p1_inside is false, process 2 can now enter critical section. If again a context switch occurs then process 1 resumes by setting p1_inside=True. This way critical section is not protected.</p></li></ul><h2 id="dc930af5-adee-4452-94e3-9bb476a874bd" class="">Attempt 3</h2><p id="741101b8-af73-4fdc-b91c-f1cfd0a43ff3" class="">The issue with the previous attempt is that the flags were set after we break from the while loop. What if we change the ordering? </p><figure id="1a4b4795-c21f-4fe3-8b0d-ef57d380138f" class="image"><a href="img/Screenshot_2024-03-20_at_9.38.35_PM.png"><img style="width:680px" src="img/Screenshot_2024-03-20_at_9.38.35_PM.png"/></a></figure><ul id="5753cab8-0929-4d45-a37a-4d81b04dfd44" class="bulleted-list"><li style="list-style-type:disc">Whilst this achieves mutual exclusion, it <strong><mark class="highlight-red">does not achieve progress. </mark></strong>In fact it could deadlock.<p id="e15cac13-85d8-49d1-b31f-b6840060fc48" class="">Suppose a context switch occurs after p1_wants_to_enter=True. Then in process 2 p2_wants_to_enter = True. If a context switch occurs here then then process 1 will be stuck in its while loop. If a context switch happens again then process 2 will also be stuck in its while loop. This causes neither of the processes to progress and get stuck in a deadlock. </p></li></ul><h2 id="7ff6999b-f886-45f3-9436-07fc28b765e1" class="">Petersons Solution</h2><p id="b413b5c6-94ea-4d4f-a0ba-045dba5eed46" class="">The problem with the previous attempt is that there was no way to come out of the deadlock i.e. one of the processes breaks out of the while loop.  </p><p id="90f3459f-c1de-4b1e-a3b5-d31c59c55db2" class="">
+</p><figure id="b459b0ca-40e9-43a5-8747-c3f978478b65" class="image"><a href="img/Screenshot_2024-03-20_at_9.48.24_PM.png"><img style="width:680px" src="img/Screenshot_2024-03-20_at_9.48.24_PM.png"/></a></figure><ul id="83bdcd41-6fe5-4ae7-a648-c4ab2607c564" class="bulleted-list"><li style="list-style-type:disc">Favoured is used to break the tie when both p1 and p2 want to enter the critical section. This works because favoured can only take 2 values.<p id="4656a1cb-b1df-425d-96fa-3f25bed245a4" class="">Suppose a context switch occurs after setting both flags to true and now we are back in process 1. Now favoured gets set to 2 and therefore it won’t be able to breakout of the while loop. Once the time slice ends and a context switch occurs, favoured gets set 1 (in p2) and then process 2 also can’t break out of its while loop. Now back to process 1, since favoured is now 1, it breaks out of its while loop and process 1 enters the critical section and sets the flag as false. Since it is unlocked process 2 can now also enter the critical section. </p></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§8.4: Bakery Algorithm</strong></summary><div class="indented"><figure id="bffd9e58-3091-4be4-8a31-0c75057393e1"><div class="source"><a href="https://youtu.be/3pUScfud9Sg">https://youtu.be/3pUScfud9Sg</a></div></figure><p id="3b3d3f50-ece7-496c-be12-885cb377ef52" class="">The Petersons solution works well for 2 processes. However we need one that supports a larger number of processes. </p><h2 id="accf8b7e-6e7c-4f4b-8334-7c8c63cf4650" class="">Simplified Bakery Algorithm</h2><ul id="71ea6fac-65d9-4eac-9aa6-dd56f6db1c47" class="bulleted-list"><li style="list-style-type:disc">Processes number 0 to N-1, num (global) is an array of N integers initialized to 0. Each entry corresponds to a process. <figure id="dee4a157-f0eb-4dd4-870d-92bdbadaea69" class="image"><a href="img/Screenshot_2024-03-20_at_10.18.10_PM.png"><img style="width:652px" src="img/Screenshot_2024-03-20_at_10.18.10_PM.png"/></a></figure></li></ul><ul id="492f8bfb-d0d7-4288-9624-2ff654f54b82" class="bulleted-list"><li style="list-style-type:disc">When a process invokes lock(i) its corresponding num value is set to the maximum num value +1. </li></ul><ul id="11d2fa8b-f997-4a73-bbef-b23c4503d288" class="bulleted-list"><li style="list-style-type:disc">Then the for loop scans through all processes</li></ul><ul id="c08214f0-d0cd-429b-a3d7-4eea8a585258" class="bulleted-list"><li style="list-style-type:disc">A process can only enter the critical section if it has the lowest NON-ZERO num value among all processes. </li></ul><ul id="d023a73d-5b37-49d6-8675-41649c499df7" class="bulleted-list"><li style="list-style-type:disc">Note that for this algorithm to work, the assignment of max value has to be atomic to ensure that no two processes get the same value ⇒ ensures mutual exclusion</li></ul><h2 id="b60b1b4b-82bd-4c92-aacc-3ab825a1aebc" class="">Original Bakery Algorithm</h2><p id="8df62e36-35dd-441f-832c-45cc2bcb0527" class="">This algorithm does not require atomicity by introducing an array of N booleans choosing set to False. </p><div id="08aa5a10-0da7-42dc-b201-f5a43a839aa3" class="column-list"><div id="53bfa5f1-5823-45c9-8cd8-d74f579d3f01" style="width:50%" class="column"><figure id="f38ece79-dffa-449e-8bbf-6a1289100b48" class="image"><a href="img/Screenshot_2024-03-21_at_2.23.18_PM.png"><img style="width:680px" src="img/Screenshot_2024-03-21_at_2.23.18_PM.png"/></a></figure></div><div id="bc6e8b2a-442d-4f8b-b0ba-2c818254ded2" style="width:50%" class="column"><p id="cbc02085-5a55-4532-9256-472823985dac" class="">Choosing ensures that a process is not choosing a value for num. Therefore no 2 process can enter a critical section.</p><p id="c6be39f4-8265-46e3-88fe-0b9c5283025f" class="">The second condition in while ensures that if there are 2 processes with the same num value, the process with the smaller num value is chosen. </p></div></div><div id="4b6d9a9c-b2d0-40b8-914e-8a223b78dac7" class="column-list"></div></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§8.5: Hardware Locks</strong></summary><div class="indented"><p id="f126675b-fc81-408b-8389-f0e97fdcf3a9" class="">In practice software solutions are not efficient. Hence hardware solutions are used. The problem with software attempts usually was we needed to make multiple instructions atomic. Modern architectures allow making multiple instructions atomic. </p><figure id="5f5fa5ee-1ca3-4a3c-8f95-74e2056c17b6" class="image"><a href="img/Screenshot_2024-03-21_at_5.17.06_PM.png"><img style="width:680px" src="img/Screenshot_2024-03-21_at_5.17.06_PM.png"/></a></figure><ul id="34b35ff0-bf82-4c5a-a18a-c69f91caf2aa" class="bulleted-list"><li style="list-style-type:disc">Consider a hardware implementation of the above test_and_set function which is atmoic. If two CPUs execute the function at the same time the hardware ensures that one processor completes the entire function before the other one starts. </li></ul><ul id="a1fadd88-b3e9-42e3-bc3d-084f06105b67" class="bulleted-list"><li style="list-style-type:disc">We can now use this to lock and unlock critical sections in our code. Suppose P2 is run first. Then test_and_set function inside the while would return 0 and  break out of the while loop. However note that the lock variable is now set to 1 (inside the ts function).</li></ul><ul id="a23993a4-3fc9-4a71-b740-647d3d3dbaa8" class="bulleted-list"><li style="list-style-type:disc">Now, if P1 tries to enter the critical section, the test_and_set would return 1 and therefore it won’t be able to break out of the while loop. Only once P2 completes executing its critical section, the lock variable is set to 0 and the test_and_set inside P1 would return 0 and break out of its while loop. Thus, this ensures mutual exclusion. </li></ul><ul id="ca13a77b-6ca0-4ced-8d9b-63636dc50a10" class="bulleted-list"><li style="list-style-type:disc">Intel platforms have a similar implementation called xchg which takes 2 arguments. Instead of setting *L = 1, it sets *L to the value supplied to the function. </li></ul><p id="868a5f2f-15c4-444c-a829-6751c1fcb4c2" class="">This xchg function is used to build higher level constructs</p><h2 id="48f27c27-9dc2-4d96-9588-da72d8647378" class="">Spinlock</h2><ul id="c0962711-666a-4482-87fd-e9d1319c9d14" class="bulleted-list"><li style="list-style-type:disc">In a spinlock, one process will acquire the lock whereas the other will wait in a loop repeatedly checking if the lock is available. The lock becomes available when the former process releases it. </li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d256e533-c68e-49f4-a6ef-f24f579ea58c" class="code"><code class="language-Assembly">xchg %eax, X
+; Exchanges data between register eax and memory location X </code></pre><ul id="fd13003c-35ef-41a2-8c84-f7fc41b033b7" class="bulleted-list"><li style="list-style-type:disc">It should be ensured that no compiler optimizations are allowed on X i.e. should not make X a register variable ⇒ Write the loop in assembly or use volatile</li></ul><ul id="ff9cbcc9-e119-4883-9b9a-3da08a35bd6a" class="bulleted-list"><li style="list-style-type:disc">CPU should not reorder memory loads and stores i.e. use serialized instructions (xchg already implements serialization)</li></ul><ul id="567b7ef4-f7e4-440d-8168-97952d670c89" class="bulleted-list"><li style="list-style-type:disc">Each CPU has its own L1 cache. It should be ensured that the variable X is not cacheable. All xchg operations should be bus transactions ⇒ CPU asserts the lock to inform there is a ‘locked’ memory access</li></ul><ul id="57905512-0668-4583-96b7-00586ca0f11b" class="bulleted-list"><li style="list-style-type:disc">The acquire function in a spinlock invokes xchg in a loop with each being a bus transaction ⇒ <mark class="highlight-red"><strong>HUGE PERFORMANCE HIT </strong></mark><figure id="0f308a1a-3e2e-4af0-945c-bc9e068f6c3e" class="image"><a href="img/Screenshot_2024-03-21_at_5.53.29_PM.png"><img style="width:652px" src="img/Screenshot_2024-03-21_at_5.53.29_PM.png"/></a></figure></li></ul><ul id="ae34e77a-a5c2-4e6e-b9f4-ece92ea49261" class="bulleted-list"><li style="list-style-type:disc">The inner locked variable is cacheable and most of the time it will be looping inside. Once the cache is updated, it breaks out of that loop and the outer loop condition is checked. Thus bus transactions are hit fewer times. </li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§8.6: Mutexes</strong></summary><div class="indented"><p id="374326d1-1ce8-435c-8337-5381a9f58d12" class="">The main characteristic of Spinlock is busy waiting i.e. it is useful for short critical sections where much CPU time is not wasted waiting (increment a counter, access array element). However it is not useful when period of wait is unpredictable (read page from disk). </p><div id="e1a9cb78-871d-4e91-9764-86100968bc84" class="column-list"><div id="a756dbad-c9df-4004-b335-6be7ba8dc668" style="width:31.25%" class="column"><figure id="0ed8d0d0-c850-48cd-95ff-44902653fd3e" class="image"><a href="img/Screenshot_2024-03-21_at_6.50.59_PM.png"><img style="width:283.25px" src="img/Screenshot_2024-03-21_at_6.50.59_PM.png"/></a></figure></div><div id="2734eb9e-ee0e-457c-bd2c-885a56ded4a7" style="width:68.75%" class="column"><ul id="b287ce3d-6e58-41cd-b0cf-36a3dcc50e2c" class="bulleted-list"><li style="list-style-type:disc">If xchg(locked, 1)==0 evaluates to true, it means that process would acquire the lock and therefore you break out of the loop and access the critical section. However xchg does not return 0 then it means another process is currently using the lock ⇒ put the current process to sleep. </li></ul><ul id="1b47f5d6-1373-403f-809c-5898e6e48896" class="bulleted-list"><li style="list-style-type:disc">When another process which is presently accessing the critical section is completed it calls unlock and that invokes wakeup which wakes up all sleeping processes. </li></ul><ul id="3b870f4f-0419-4d3f-889e-0b2b75d9a7d7" class="bulleted-list"><li style="list-style-type:disc">This allows the CPU to be free instead of continuously looping inside the while in spinlocks. </li></ul></div></div><ul id="807db1a0-fcd2-42ee-ac96-e85c47b1ad3a" class="bulleted-list"><li style="list-style-type:disc">An issue with mutex is the <strong>thundering herd problem </strong>which occurs when a large number of processes wake up simultaneously. This leads to many context switches however all but one then end up going back to sleep ⇒ This could lead to starvation. <ul id="c88852bc-8369-404a-bb03-439a602cf722" class="bulleted-list"><li style="list-style-type:circle">One way to solve this is when entering a critical section, push the process into a queue before going to sleep. Before waking up, only wake up the first process in the queue.</li></ul></li></ul><ul id="e0a02f79-c817-4918-8e94-9b121258c876" class="bulleted-list"><li style="list-style-type:disc">What happens when a high priority task requests a lock while a low priority task is in the critical section? This is called the <strong>Priority Inversion </strong>problem.<ul id="c7d0c356-c776-4078-a028-4adc01120fea" class="bulleted-list"><li style="list-style-type:circle"><strong>Priority Inheritance: </strong>Low priority task is escalated to high priority and then executes with high priority until it finishes the critical section. This would lead to the higher priority task getting its lock quicker. </li></ul></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§8.7: Semaphores</strong></summary><div class="indented"><figure id="a6e269c1-7856-4e60-9a99-07878ebcc01d" class="image"><a href="img/Screenshot_2024-03-30_at_10.52.31_AM.png"><img style="width:680px" src="img/Screenshot_2024-03-30_at_10.52.31_AM.png"/></a></figure><ul id="4b9d0774-b8c2-4801-a4e0-b2644493bd6e" class="bulleted-list"><li style="list-style-type:disc">Consider the above problem known as the <strong>Producer-Consumer </strong>Problem or the <strong>Bounded-Buffer </strong>Problem. <ul id="1b49288a-7fae-4994-bd36-c881f0895a31" class="bulleted-list"><li style="list-style-type:circle">The producer produces and stores in the buffer whereas the consumer consumes from the buffer. </li></ul><ul id="453e30b3-d6aa-4a57-ad94-955f2e5d37ae" class="bulleted-list"><li style="list-style-type:circle">Problem occurs when the the buffer is full and the producer produces, or the buffer is empty and the consumer consumes.</li></ul><ul id="69fbb654-193a-4b0c-a4eb-acd03fd2c7b5" class="bulleted-list"><li style="list-style-type:circle">This requires a synchronisation mechanism between the producer and consumer. Essentially when the buffer is empty the consumer should wait until the producer fills in and similarly when the buffer is full the producer should wait until the consumer takes out. </li></ul></li></ul><p id="b4e64e3c-5431-479a-b81f-e63b61fbb39b" class="">A solution using Mutexes is proposed below:</p><figure id="82a3dc03-d43f-42e5-a1a8-d1a7151fad20" class="image"><a href="img/Screenshot_2024-03-30_at_10.59.08_AM.png"><img style="width:652px" src="img/Screenshot_2024-03-30_at_10.59.08_AM.png"/></a></figure><ul id="83e2318c-df38-4813-b057-8735ca729210" class="bulleted-list"><li style="list-style-type:disc">Before inserting an item, the producer checks if the buffer is full and if it is then it puts <strong>empty </strong>to sleep. On the other side the consumer will check if count == N-1 i.e. the buffer has 1 free spot and if it has then it would wake up <strong>empty. </strong>This is a signal to wakeup the producer and insert the item into the buffer</li></ul><ul id="5ced7450-0200-4da1-9394-019715b53e21" class="bulleted-list"><li style="list-style-type:disc">If the consumer finds that a buffer is empty, then will put <strong>full </strong>to sleep. This mutex gets woken up when the producer inserts an item. </li></ul><ul id="9ce99869-c815-4532-b7f0-adfae88d53f0" class="bulleted-list"><li style="list-style-type:disc">In addition to the empty and full mutex, there’s a third mutex called <strong>mutex </strong>which is used to synchronise access to the critical area. </li></ul><ul id="f3a25eef-c074-471d-a8f8-7e1322786b18" class="bulleted-list"><li style="list-style-type:disc">Whilst this solution seems fine, the producer and consumer may block infinitely. This could happen because if(count == 0) comprises of 2 steps and is hence non-atomic. =</li></ul><div id="c0fa19ca-302c-44da-a4df-b4f744dfaad9" class="column-list"><div id="a0ba0f44-7544-4933-8a6f-7905a311f1cb" style="width:50%" class="column"><figure id="ce5174f2-4e43-4025-a87b-3fa7e214ddae" class="image"><a href="img/Screenshot_2024-03-30_at_11.58.45_AM.png"><img style="width:680px" src="img/Screenshot_2024-03-30_at_11.58.45_AM.png"/></a></figure></div><div id="eb430e2b-d57a-4533-8d78-719591492604" style="width:50%" class="column"><ul id="4f090eaa-5ab4-4102-8e14-54859adbd8db" class="bulleted-list"><li style="list-style-type:disc">Suppose consumer starts executing first with an empty buffer. It reads the value of count = 0 and then switches context. The producer produces an item and increments the counter and sends the signal to wake up <strong>full. </strong></li></ul><ul id="bbe3baa1-c37e-49f7-83bd-6469c1f45d67" class="bulleted-list"><li style="list-style-type:disc">Back to consumer which has read count=0, the if condition would cause the consumer to wait indefinitely. </li></ul></div></div><ul id="f5b8ce1e-a7fe-481e-994d-53a89deaaec5" class="bulleted-list"><li style="list-style-type:disc">Eventually producer and consumer will wait indefinitely and the wake up is lost. </li></ul><p id="00817c2b-3388-49a2-8940-957c8cfd68ec" class="">Since solutions using mutexes can still breakdown based on atmocity of certain code. Semaphores were introduced to address this problem.</p><div id="f2cf4bb3-9951-4e95-8253-19f5b1b8fa02" class="column-list"><div id="559434f5-369b-4ff6-9dd1-9f906cb61c21" style="width:50%" class="column"><figure id="59501da8-2d8b-4eab-8edf-dba6598ef620" class="image"><a href="img/Screenshot_2024-03-21_at_7.32.45_PM.png"><img style="width:288px" src="img/Screenshot_2024-03-21_at_7.32.45_PM.png"/></a></figure></div><div id="87af0079-54fc-4030-a944-f53269b0a25c" style="width:50%" class="column"><ul id="6b2cae4e-3b1f-4210-a071-d968dce6da29" class="bulleted-list"><li style="list-style-type:disc">Functions down and up <strong>must be atomic. </strong></li></ul><ul id="304fc252-5cfd-44aa-b0c3-6344577fcdf0" class="bulleted-list"><li style="list-style-type:disc">A blocking sempahore is similar to a Mutex whereas a non-blocking semaphore is similar to a spinlock. </li></ul><p id="598c4664-6aec-4512-9aae-81fb773cddbd" class="">
+</p></div></div><ul id="861c3185-ccde-4669-9d3b-3f9609f2bd8c" class="bulleted-list"><li style="list-style-type:disc">Use semaphores <strong>full</strong>(initialised to 0) and <strong>empty</strong>(initialised to N)<strong>. </strong>The full semaphore indicates the number of filled blocks in the buffer and the empty semaphore indicates the number of empty blocks in the buffer. </li></ul><div id="d370dd74-653b-4a4f-adb7-6114431e865b" class="column-list"><div id="4407b27a-50a2-483c-911d-277abe294657" style="width:50%" class="column"><figure id="e00e8460-d1d4-46f1-85b8-54eb3d4f7bdd" class="image"><a href="img/Screenshot_2024-03-30_at_5.52.19_PM.png"><img style="width:719px" src="img/Screenshot_2024-03-30_at_5.52.19_PM.png"/></a></figure><figure id="30a42859-a31e-42e3-a069-4302e57e0290" class="image"><a href="img/Screenshot_2024-03-30_at_6.07.47_PM.png"><img style="width:317px" src="img/Screenshot_2024-03-30_at_6.07.47_PM.png"/></a></figure><ul id="fa626610-3bc8-4ad6-b397-74037a199a92" class="bulleted-list"><li style="list-style-type:disc">Similarly in the consumer, the down function is invoked on full which decrements full indicating that the buffer has one fewer filled block (full will go from 5 ⇒ 4)</li></ul><ul id="a1c9edc1-1e52-451e-b96f-ace793dee3b5" class="bulleted-list"><li style="list-style-type:disc">Then an item is removed from the buffer and the up function is called on empty which increments empty indicating that buffer has one more empty block (empty will go from 1 ⇒ 2)</li></ul><p id="e1d6e5b2-c3c2-480f-984c-6550b5f04829" class="">
+</p></div><div id="e93e8585-e1dd-49a1-aaee-82e694a1d048" style="width:50%" class="column"><ul id="9fb85fb5-667e-4a96-846d-1f029e80526a" class="bulleted-list"><li style="list-style-type:disc">When an item is produced, down function is invoked on the empty semaphore which decrements empty indicating that the buffer has one fewer empty block. (empty will go from 2⇒ 1)</li></ul><ul id="18b36f4b-80c7-43a0-835a-ff217e500311" class="bulleted-list"><li style="list-style-type:disc">Then a new item gets inserted and the up function is called on the full semaphore which increments full indicating that buffer has one more filled block. (full will go from 4 ⇒ 5)</li></ul><p id="98e1652e-e3fd-470c-ae11-5a6237cf57ae" class="">
+</p><figure id="8ffb495f-f572-425c-aa96-9848aeaa07df" class="image"><a href="img/Screenshot_2024-03-30_at_5.57.25_PM.png"><img style="width:317px" src="img/Screenshot_2024-03-30_at_5.57.25_PM.png"/></a></figure><figure id="eb27f835-8f23-4487-b4eb-64fd8fbf0d21" class="image"><a href="img/Screenshot_2024-03-30_at_6.08.20_PM.png"><img style="width:317px" src="img/Screenshot_2024-03-30_at_6.08.20_PM.png"/></a></figure><p id="a4299727-805e-4435-8ffb-78e7cf614f31" class="">
+</p></div></div><ul id="1f666ac5-5f4a-4097-92d3-1c5e8b4ba560" class="bulleted-list"><li style="list-style-type:disc">In order to synchronise access to buffer i.e. prevent the use of buffer by the consumer and producer at the same time. The lock/unlock wrapping the insert_item and the remove_item is therefore used.  </li></ul><ul id="5cdef157-5b86-4784-9d34-bc06c244112b" class="bulleted-list"><li style="list-style-type:disc">Consider the case when the buffer is full with full=6, empty=0<ul id="703a82ea-4352-4ff9-8280-6190384daf8b" class="bulleted-list"><li style="list-style-type:circle">If a producer produces an item and then calls down(empty), then the while statement inside the down function will keep executing indefinitely i.e. the producer will be blocked. </li></ul><ul id="d9b468cf-3003-46bc-9d34-4ea2d08e9764" class="bulleted-list"><li style="list-style-type:circle">After a while when the consumer consumes from the buffer, down(full) is first executed and as a result full will go from 6 ⇒ 5, then remove an item and then up(empty) which increments empty from 0 ⇒ 1. </li></ul><ul id="d1d43c25-3ae1-49ed-8983-83b38230f2d4" class="bulleted-list"><li style="list-style-type:circle">Now the while loop breaks and the producer is able insert the item and increment full. </li></ul></li></ul><ul id="a230148c-6816-4176-923d-d1e095253a4e" class="bulleted-list"><li style="list-style-type:disc"> Consider the case when the buffer is empty with full=0, empty=6<ul id="e1c3b61a-29cb-4d4a-b4bf-94818b07ecc1" class="bulleted-list"><li style="list-style-type:circle">If the consumer tries to consume an item which calls down(full), then the while statement inside the down function will keep executing indefinitely i.e. the consumer is blocked. </li></ul><ul id="70e6c8a1-3c8d-495b-a4b3-be09f00cbe96" class="bulleted-list"><li style="list-style-type:circle">After a while when the producer produces an item and inserts into the buffer then up(full) is called which increments full from 0 ⇒ 1.  </li></ul><ul id="91018b58-c91b-4c83-8374-0ccbcbba7ee7" class="bulleted-list"><li style="list-style-type:circle">Now the while loop breaks and the consumer is able to consume the item and increment empty. </li></ul></li></ul></div></details><p id="ef031aa9-472d-4819-a711-d25ce6ee11ef" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

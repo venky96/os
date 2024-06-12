@@ -1,0 +1,706 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Week 9</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7aefbf3d-1a76-4a47-a7c5-060c65a7ae77" class="page sans"><header><h1 class="page-title">Week 9</h1><p class="page-description"></p></header><div class="page-body"><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§9.1: Dining Philosophers Problem</strong></summary><div class="indented"><div id="5d9b40d4-bb0b-491a-891e-5acb528fefa3" class="column-list"><div id="0fedc92a-ca2d-4b07-b223-24b72cc59d8e" style="width:31.25%" class="column"><figure id="a52fc286-dc60-4e6e-a021-a708f0793845" class="image"><a href="img/Screenshot_2024-03-30_at_7.06.53_PM.png"><img style="width:144px" src="img/Screenshot_2024-03-30_at_7.06.53_PM.png"/></a></figure></div><div id="0492685a-cac7-40dc-b136-fe4f0177957e" style="width:68.75%" class="column"><ul id="c76acbcf-24ed-4664-9118-ba8cbf5579a0" class="bulleted-list"><li style="list-style-type:disc">5 philosophers who are sitting around a table with 5 plates and 5 forks. <strong>Philosophers either think or eat.</strong></li></ul><ul id="ef4ae451-279b-43d5-8366-a0ecf096ed57" class="bulleted-list"><li style="list-style-type:disc">To eat, a philosopher needs to hold both forks. If a philosopher is not eating, he is thinking.</li></ul><ul id="5eb075c1-a645-4f2e-aea5-d33333e559f0" class="bulleted-list"><li style="list-style-type:disc"><strong>Develop an algorithm where no philosopher starves. </strong></li></ul><p id="9e785edb-acb7-4512-acce-9d5af71232fb" class="">
+</p></div></div><h2 id="d20689d6-c406-4623-993e-af42869e7bd6" class="">Naive Solution</h2><div id="8013f36c-69e9-46cc-94ab-b1c0f4c02515" class="column-list"><div id="9db6499e-83eb-4b12-aaa5-93a92a8da9fc" style="width:31.25%" class="column"><figure id="72f6a607-5364-47bf-93bc-373fc141b4f4" class="image" style="text-align:center"><a href="img/Screenshot_2024-03-30_at_7.10.55_PM.png"><img style="width:288px" src="img/Screenshot_2024-03-30_at_7.10.55_PM.png"/></a></figure></div><div id="7a3071ec-a0f1-42de-bd16-ac1359393c88" style="width:68.75%" class="column"><ul id="582c8c50-0f97-474c-a326-d959db5fe465" class="bulleted-list"><li style="list-style-type:disc">For a philosopher i, we have an infinite loop where the philosopher will think for some time first. Later the take the forks on the left and right, and eat. Finally after eating they put down the forks. </li></ul><ul id="c822974f-8f89-4e9b-a7cb-99c603adf2e7" class="bulleted-list"><li style="list-style-type:disc">What if P1 and P3 are always given the priority i.e. if they are hungry they will always get the forks and get to eat ⇒ <strong>P2, P4, P5 STARVE.</strong></li></ul><ul id="132ca9d6-971c-4a95-8b1d-b7d342d81c13" class="bulleted-list"><li style="list-style-type:disc">If all P’s pick up their right forks at the same time then they will all wait for their left hand side fork to be free infinitely ⇒ <strong>DEADLOCK ⇒ STARVATION.</strong></li></ul></div></div><p id="bb6330ef-1dda-4101-b12e-117a394a2855" class="">A <strong>Deadlock </strong>is a situation where programs continue to run indefinitely without making any progress. Each program is waiting for an event that another process can cause. </p><h2 id="8a41ae1a-3929-421a-af56-f731a3ea75ed" class="">Second Solution</h2><div id="fd3d32db-1001-424d-85a9-af1def8e7095" class="column-list"><div id="8da309ee-0341-4549-a21f-f748e372298f" style="width:31.25%" class="column"><figure id="9bed8ef0-96ae-4455-a372-dffad26b7d54" class="image"><a href="img/Screenshot_2024-03-30_at_7.18.16_PM.png"><img style="width:561px" src="img/Screenshot_2024-03-30_at_7.18.16_PM.png"/></a></figure></div><div id="7e2327b6-d569-4c46-9362-6001f35ba082" style="width:68.75%" class="column"><ul id="2f217b30-77c6-48c7-bf50-36faf6f00e69" class="bulleted-list"><li style="list-style-type:disc">Suppose in this modified solution Pi takes the right fork. Then it would determine if the left fork is available. <ul id="ac07c3cd-b1d6-44f5-a88a-96f74f10a92e" class="bulleted-list"><li style="list-style-type:circle">If it is available, it will take the fork, eat and then put down both forks. </li></ul><ul id="4955b4de-4727-4e16-bb88-9ea64544ff3d" class="bulleted-list"><li style="list-style-type:circle">Else it will put down the right fork and sleep for some time. </li></ul></li></ul><ul id="ce7a2d66-66a6-47a5-933d-b70e57fb8915" class="bulleted-list"><li style="list-style-type:disc">If all Pi’s start at the same time, run and think for the same time then this could cause a deadlock for all Pi’s taking the fork and putting it down indefinitely. </li></ul></div></div><p id="bd0b0ff7-a979-4ee0-901b-18d3431ea078" class="">An improvement to this solution would be to sleep for a random amount of time instead of a fixed time T so that Pi’s wake up at different times and eat. Note however that this does not guarantee that Pi’s won’t starve, it reduces the possibility. Such solutions are used in protocols like the ethernet.</p><h2 id="27caca2d-9090-419d-80b1-f3e8c8041d16" class="">Third Solution using Mutex</h2><div id="c192dd42-5923-4514-97bc-2b2623977cf1" class="column-list"><div id="dcce997b-cde0-4458-b581-a3ab6ba4cf8c" style="width:31.25%" class="column"><figure id="c2089359-c7ef-4773-9c15-e0fe52b6e387" class="image"><a href="img/Screenshot_2024-03-30_at_7.30.50_PM.png"><img style="width:317px" src="img/Screenshot_2024-03-30_at_7.30.50_PM.png"/></a></figure></div><div id="fb1eb2dd-5353-4597-8286-b5c0a801f058" style="width:68.75%" class="column"><ul id="f74cd520-9dd8-472f-8ffe-a27e0886c467" class="bulleted-list"><li style="list-style-type:disc">Before taking the left or the right fork, lock the mutex. This protects the critical section and prevents a deadlock. </li></ul><ul id="5b5bb15c-b7dd-4b69-8303-cb9012b5b0f6" class="bulleted-list"><li style="list-style-type:disc">However only Pi can eat at a time ⇒ Huge performance issue. </li></ul></div></div><h2 id="b062b976-0cb3-4b45-9a9f-cc015c0beac4" class="">Solution using Semaphores</h2><ul id="5b30ada5-5df8-4115-b5ae-4aa6ca230ca6" class="bulleted-list"><li style="list-style-type:disc">Use N semaphores (s[1]…s[N]) all initialised to 0, and mutex. </li></ul><ul id="224bd40f-057d-4949-8642-9b280d1c6d2d" class="bulleted-list"><li style="list-style-type:disc">Philosopher has 3 states: Hungry, Eating, Thinking</li></ul><ul id="7439b082-8aba-40d7-acfa-60a2a1c40f6c" class="bulleted-list"><li style="list-style-type:disc">A philosopher can only move to eating if neither neighbour is eating</li></ul><figure id="104e8244-d05e-48d8-a7d4-2b4bddf2340d" class="image"><a href="img/Screenshot_2024-03-30_at_7.34.40_PM.png"><img style="width:680px" src="img/Screenshot_2024-03-30_at_7.34.40_PM.png"/></a></figure><ul id="c9b5e5e4-35b0-4305-861c-846f4a7bce83" class="bulleted-list"><li style="list-style-type:disc">Philosopher i thinks ⇒ take forks ⇒ eats ⇒ put forks<ul id="b03f17d0-3e75-48cc-8f1e-d5fd25e2a5ff" class="bulleted-list"><li style="list-style-type:circle">take_forks: first set the state of Pi as hungry ⇒ test(i) ⇒ decrement s[i]<ul id="6999f180-c1c2-4451-a20f-ee43550578fe" class="bulleted-list"><li style="list-style-type:square">test(i): Check if state is hungry and test if left &amp; right Pi’s are not eating ⇒ set state[i] to eating and call up on s[i]</li></ul></li></ul></li></ul><div id="4f2ab588-0a6c-47c8-a862-08e11fe98a00" class="column-list"><div id="50e52000-71fb-465a-927d-06f8f7512470" style="width:37.5%" class="column"><figure id="2122d39b-b1b5-4c07-8f5b-cc9f76488c59" class="image"><a href="img/Screenshot_2024-03-30_at_8.58.33_PM.png"><img style="width:317px" src="img/Screenshot_2024-03-30_at_8.58.33_PM.png"/></a></figure><p id="54a542eb-a977-4398-baae-a7dec3cc9e19" class="">
+</p><figure id="87fd05fd-dcc0-4d6a-9812-dd3ccc0165d2" class="image"><a href="img/Screenshot_2024-03-30_at_9.01.19_PM.png"><img style="width:237.75px" src="img/Screenshot_2024-03-30_at_9.01.19_PM.png"/></a></figure></div><div id="90fa417e-7037-4d28-b99c-791289f023e1" style="width:62.5%" class="column"><ul id="f6ac2ced-4be9-4085-8ca6-e80f9b4d8250" class="bulleted-list"><li style="list-style-type:disc">Suppose all Pi’s are in the thinking state initially. </li></ul><ul id="c2a9cc28-89d4-446a-aca4-e75f1f3d6936" class="bulleted-list"><li style="list-style-type:disc">Now if P3 ⇒ take_fork ⇒ state changes to H ⇒ test ⇒ state changes to E ⇒ s[3] = 1 ⇒ s[3] = 0 ⇒ eat</li></ul><ul id="bb28615e-cd0e-47a6-98ea-d67c9e294fe9" class="bulleted-list"><li style="list-style-type:disc">Now for P4 ⇒ take_fork ⇒ state changes to H ⇒ test fails ⇒ down(s[4]) blocks P4 as long as P3 is eating</li></ul></div></div><ul id="c0cb515e-1d21-4c67-bc08-beb41b7b3091" class="bulleted-list"><li style="list-style-type:disc">Now when P3 finishes eating ⇒ put_forks ⇒ state changes to thinking ⇒ test(LEFT/P2), test(RIGHT/P4) ⇒ test(P4) passes and state of P4 changes to eating and s[4] is set to 1 ⇒ this causes wakeup to occur and the semaphore decrements to 0. </li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§9.2: Deadlocks</strong></summary><div class="indented"><div id="fa055571-d28e-4c49-8ac1-cf65040898b6" class="column-list"><div id="42d0e31c-a089-47dd-8c3e-b87763e7f468" style="width:31.25%" class="column"><figure id="d7b8ac19-e712-4a7e-8ee2-750feb6bf40b" class="image"><a href="img/Screenshot_2024-03-31_at_10.50.43_AM.png"><img style="width:680px" src="img/Screenshot_2024-03-31_at_10.50.43_AM.png"/></a><figcaption>Circular Wait</figcaption></figure></div><div id="e7f80179-9536-4b56-b704-51783c774aff" style="width:68.75%" class="column"><ul id="aa5132ae-37d1-4fa0-876e-60104eb02b97" class="bulleted-list"><li style="list-style-type:disc">A <strong>Deadlock </strong>arises in a system when each process in a set is waiting for an event that only another process in the set can cause. </li></ul><ul id="21944a32-c9f9-4276-a57a-69cc28b263b0" class="bulleted-list"><li style="list-style-type:disc">In order to study deadlocks, we use direct graphs known as <strong>Resource Allocation Graphs.</strong></li></ul></div></div><ul id="11246d15-19da-4f59-a6d7-e76d7fa528c3" class="bulleted-list"><li style="list-style-type:disc">Circles are used to represent processes and squares are used to represent resources. Arrows from the process to the resource would indicate that a request was made for that resource. </li></ul><ul id="69f4f943-d631-4d13-9a3c-030e3cc687ab" class="bulleted-list"><li style="list-style-type:disc">If the request was successful, the direction of the arrow changes i.e. the arrow points from the resource to the process indicating that the process <strong>holds </strong>the resource. </li></ul><h2 id="3823cb26-c67c-47c2-8492-92ceb13a02e1" class="">Four Conditions for a deadlock</h2><div id="f0ba18a5-cc6b-4ae2-b057-c2929e34541e" class="column-list"><div id="3f24ddca-0d98-4037-8532-05dfbf55c081" style="width:43.75%" class="column"><figure id="97712c8f-2319-46bc-ad0b-dc8f2a4d8f88" class="image" style="text-align:center"><a href="img/Screenshot_2024-03-31_at_10.58.18_AM.png"><img style="width:317px" src="img/Screenshot_2024-03-31_at_10.58.18_AM.png"/></a><figcaption>Not Possible due to Mutual Exclusion</figcaption></figure><figure id="aa596655-6199-4664-85ac-a713bae5fe18" class="image"><a href="img/Screenshot_2024-03-31_at_11.02.05_AM.png"><img style="width:288px" src="img/Screenshot_2024-03-31_at_11.02.05_AM.png"/></a><figcaption>Hold and Wait</figcaption></figure></div><div id="88e2223c-fba1-4179-aad5-abce4c3aa102" style="width:56.25%" class="column"><p id="c4f14195-4e90-4607-917c-13dab9031246" class="">
+</p><ul id="6ec91ab6-aff1-4076-9ad4-ceec1c89d3ec" class="bulleted-list"><li style="list-style-type:disc"><strong>Mutual Exclusion: </strong>Each resource is either available or currently assigned to exactly one process. </li></ul><ul id="b22a1a4c-d286-471b-9ad7-e501dab0ea4c" class="bulleted-list"><li style="list-style-type:disc"><strong>No Preemption: </strong>Resources previously granted cannot be forcibly taken away from the process. They must be explicitly released by the process holding them. </li></ul><ul id="d097b83f-6624-4ce6-b75b-ea195d650c0c" class="bulleted-list"><li style="list-style-type:disc"><strong>Hold and Wait: </strong>A process holding a resource requests another Resource.</li></ul><ul id="f920dcff-2daa-4cfb-8946-ea82a4fc8ff1" class="bulleted-list"><li style="list-style-type:disc"><strong>Circular Wait: </strong>There must be a circular chain of two or more processes, each of which is waiting for a resource held by the next member of the chain</li></ul><p id="627b979d-b3e4-4b2c-a9d0-043b8fce6016" class="">
+</p></div></div><ul id="86c55ee3-d2f8-4ea1-9f05-fdc1004ab13c" class="bulleted-list"><li style="list-style-type:disc">Having all four of those conditions doesn’t imply that a deadlock has occurred. However if a deadlock has occurred then all 4 conditions must be present i.e. <strong>Deadlock ⇒ All conditions. </strong></li></ul><ul id="b6ac3e32-6261-4275-9cbf-a91b1f8e4fb2" class="bulleted-list"><li style="list-style-type:disc">A deadlock in a system is a <strong>chanced event. </strong>Since ordering of resource requests and allocations are probabilistic, deadlock occurrence is also probabilistic. Therefore given the same set of resource requests and processes, one ordering could lead to a deadlock whereas another may not. </li></ul><ul id="1bce9aff-887c-4d78-bbee-9f87f0266382" class="bulleted-list"><li style="list-style-type:disc">Having multiple resources can potentially reduce the chance of having a deadlock. </li></ul><p id="bd72c36c-1840-4101-b234-bf8e28f72417" class=""><strong>Should deadlocks be handled?  </strong>Preventing / detecting deadlocks could be tedious. Can we live without it? What is the probability of occurrence? What are the consequences of a deadlock i.e. how critical is it? There are 3 ways of handling deadlocks:</p><h2 id="9a584a2c-75e0-4dd8-8721-defdb9d7c9d7" class="">Detection and Recovery</h2><ul id="0cff0f48-21b9-48fd-a93f-a8f0dcf2771c" class="bulleted-list"><li style="list-style-type:disc">In order to detect a deadlock, the OS would need to keep track of the current resource allocation and requests i.e. which process is holding/waiting which resource. </li></ul><ul id="dff09366-53ac-40fa-8e44-3026b9e0f46d" class="bulleted-list"><li style="list-style-type:disc">Deadlock detection with <strong>one resource of each type </strong>would be to find cycles in the resource graph. </li></ul><ul id="4da39458-c76e-40a0-bc33-6addc46dbb64" class="bulleted-list"><li style="list-style-type:disc">For a system with <strong>multiple resources of each type</strong>, another algorithm would be required. <figure id="47818315-3e21-454d-97dd-dc6ef8f1208b" class="image"><a href="img/Screenshot_2024-03-31_at_12.01.48_PM.png"><img style="width:652px" src="img/Screenshot_2024-03-31_at_12.01.48_PM.png"/></a></figure><p id="121f2ef8-5e08-4db9-9d88-fbc69c5c9670" class="">Goal is to check if there is any sequence of allocation by which all current requests can be met. If so, there is no deadlock. </p></li></ul><ul id="4b9bb103-4e24-43ad-82d6-c1c6acb5c027" class="bulleted-list"><li style="list-style-type:disc">What should the OS do when it detects a deadlock? <ul id="43a0d393-9a7b-4db3-9bb2-252a3a62d54c" class="bulleted-list"><li style="list-style-type:circle"><strong>Raise an alert:</strong> tell the users and the admins</li></ul><ul id="dba41ebd-7c1b-4dad-b9fa-04cb02dc1449" class="bulleted-list"><li style="list-style-type:circle"><strong>Force a preemption:</strong> take away a resource temporarily from a process (often not possible)</li></ul><ul id="c611b28b-0d20-4ae4-badb-9fd1706b36e0" class="bulleted-list"><li style="list-style-type:circle"><strong>Rollback: </strong>checkpoint states and then rollback to the last non-deadlocked state and then the deadlock may not occur again (since resource allocation is probabilistic)</li></ul><ul id="f0e3345c-ebef-4f48-9d5a-7a40070e7a77" class="bulleted-list"><li style="list-style-type:circle"><strong>Kill Process: </strong>keep killing processes until deadlock is broken </li></ul></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§9.3: Dealing with Deadlocks</strong></summary><div class="indented"><h2 id="46b95052-11b1-437b-95c4-697d18038dce" class="">Deadlock Avoidance</h2><p id="00469ae0-be93-4e05-bf1b-8ac331b08b36" class=""><strong>Deadlock Avoidance </strong>means the system would never go into a state that could potentially create a deadlock situation. The system decided in advance if allocating a resource to a process will lead to a deadlock. </p><div id="b9280d8a-70f2-486b-9d4f-0e6b5c6d4225" class="column-list"><div id="b8c4d458-3982-4a11-8c03-bacf184ea468" style="width:50%" class="column"><figure id="5093be46-608b-4360-b3c5-9e4101041e7e" class="image" style="text-align:center"><a href="img/Screenshot_2024-03-31_at_2.11.18_PM.png"><img style="width:336px" src="img/Screenshot_2024-03-31_at_2.11.18_PM.png"/></a></figure><p id="92a18387-42c9-4cd0-8f85-e1f68fa3786a" class="">
+</p><figure id="c263cc11-5072-4e07-9e4a-809d2278ccc6" class="image"><a href="img/Screenshot_2024-03-31_at_2.11.56_PM.png"><img style="width:384px" src="img/Screenshot_2024-03-31_at_2.11.56_PM.png"/></a><figcaption>The black outlined box shows when both processes request R1</figcaption></figure></div><div id="65197ba9-4775-484c-bc48-d347fdca1dc6" style="width:50%" class="column"><ul id="a4fe010c-a673-425d-8d57-97cac1fc0139" class="bulleted-list"><li style="list-style-type:disc">Consider the state matrix for 2 processes. Each square on the matrix corresponds to a particular state of a process. </li></ul><ul id="2a324022-cb5b-4fa3-9149-2dd8d1363f4f" class="bulleted-list"><li style="list-style-type:disc">Now suppose we have two resources R1 and R2 and they following state matrix shows during which state they are requested </li></ul><p id="3d8fbe23-a3be-4a3f-ab27-8114a1766652" class="">
+</p><p id="336c90a5-41fa-462c-9c0d-97bbe8996f78" class="">
+</p><figure id="3643d1d7-577d-4fde-8d78-e497262345f3" class="image"><a href="img/Screenshot_2024-03-31_at_2.15.28_PM.png"><img style="width:317px" src="img/Screenshot_2024-03-31_at_2.15.28_PM.png"/></a><figcaption>The black outlined box shows when both processes request R2</figcaption></figure></div></div><figure id="3339db1f-3fb5-4a4d-8a2e-f7b3cd6bbe98" class="image"><a href="img/Screenshot_2024-03-31_at_2.19.59_PM.png"><img style="width:680px" src="img/Screenshot_2024-03-31_at_2.19.59_PM.png"/></a></figure><ul id="42aa21aa-b008-43d7-a957-d754deb979d2" class="bulleted-list"><li style="list-style-type:disc">Note that the area where both intersect is called an unsafe state. A potential deadlock may occur in an unsafe state.  Thus if the OS schedules the path such that the unsafe state is avoided then the potential deadlock is also avoided. </li></ul><ul id="2eeea07a-6c16-40dc-a9d3-7156d2a9d257" class="bulleted-list"><li style="list-style-type:disc"><strong>Safe State: </strong>A state is said to be safe, if there is some scheduling order in which every process can run to their completion even if all of them request their max number of resources immediately. </li></ul><ul id="38e80f63-7c6b-4d10-aed1-00738c7e9850" class="bulleted-list"><li style="list-style-type:disc">An unsafe state <strong>does not have to </strong>lead to dead lock; <strong>it could. </strong></li></ul><h3 id="7ec0e55c-7812-4c4c-8e01-df03a6d730a6" class="">Bankers Algorithm</h3><p id="0411ae53-ce6b-4b4c-a77d-ba01899f2bdc" class="">Consider a banker with 3 clients (A,B,C)</p><div id="c31c677b-2890-4354-9216-ac9ff051ecba" class="column-list"><div id="eeba7c31-d3f3-4767-b69a-f4cfcda98cd9" style="width:31.25%" class="column"><figure id="194a41a3-cf21-4a7f-be9f-ad68ee580c60" class="image"><a href="img/Screenshot_2024-03-31_at_2.49.37_PM.png"><img style="width:192px" src="img/Screenshot_2024-03-31_at_2.49.37_PM.png"/></a><figcaption>Free: 3 Units</figcaption></figure></div><div id="67dd9069-6f21-499b-a62c-988fb5a5a457" style="width:68.75%" class="column"><ul id="ae253f01-706a-4da0-a01f-671ad3efe438" class="bulleted-list"><li style="list-style-type:disc">Each client has certain credit limit (totalling 20)</li></ul><ul id="f758dbc8-f6ea-43e4-beee-05ae5fdf5a5b" class="bulleted-list"><li style="list-style-type:disc">The banker knows that max credits will not be used at one so only keeps 10 units</li></ul><ul id="83e90ec3-51c0-4959-9ef6-396cfbabaaa6" class="bulleted-list"><li style="list-style-type:disc">Clients declare <strong>max </strong>credits in advance ⇒ Banker can allocate credits provided no unsafe state is reached</li></ul></div></div><figure id="5b8138ba-b5a8-4dcd-a623-3e278ca44c89" class="image"><a href="img/Screenshot_2024-03-31_at_2.55.22_PM.png"><img style="width:680px" src="img/Screenshot_2024-03-31_at_2.55.22_PM.png"/></a><figcaption>Example of a Safe State</figcaption></figure><ul id="80a94ad0-0746-46f6-99fd-eb539abdc1b4" class="bulleted-list"><li style="list-style-type:disc">If there is instead a state from which no scheduling order exists such that every process executes, it would be an <strong>unsafe state. </strong></li></ul><ul id="cfc61eb9-d5eb-4612-9f8e-e8d67beb48ee" class="bulleted-list"><li style="list-style-type:disc"><strong>Bankers algorithm with single resource: </strong>if system is in a safe state ⇒ grant request else postpone until later. </li></ul><h2 id="d1c25094-423a-4a2f-94f0-f798524e37b3" class="">Deadlock Prevention</h2><p id="88b44954-5a36-4011-b8ff-3ad7931b7e50" class="">Deadlock avoidance is often not practical as we need to know max requests of a process. Deadlock prevention on the other hand prevents at least one of the 4 conditions necessary for a deadlock:</p><ol type="1" id="16536414-030e-413c-ba64-a5f042cfbbd6" class="numbered-list" start="1"><li>Mutual Exclusion<ul id="ea376fae-1bca-46f5-8c7f-e583b73ef2fa" class="bulleted-list"><li style="list-style-type:disc">Not feasible in practice. But OS can ensure that resources are optimally allocated. </li></ul></li></ol><ol type="1" id="62794aaa-02f7-405d-96b2-c3fd070a72fc" class="numbered-list" start="2"><li>Hold and wait<ul id="f8dacf47-2ba1-4a55-a356-a8c60a9a666e" class="bulleted-list"><li style="list-style-type:disc">One way to achieve this is to require all processes to request resources before starting execution. However this may not lead to optimal usage and it may not be feasible to know resource requirements. </li></ul></li></ol><ol type="1" id="e584a65e-9c48-43fb-a357-4d20a22bfe42" class="numbered-list" start="3"><li>No Preemption<ul id="32a3e54d-3000-4a9d-817d-e2155dac3b6b" class="bulleted-list"><li style="list-style-type:disc">Preempt the resources, such as by virtualization of resources (eg printer spools). </li></ul></li></ol><ol type="1" id="ad2e7eb1-513a-4744-9e4f-63d2e7309666" class="numbered-list" start="4"><li>Circular Wait<ul id="06de6135-dbd2-4d01-80b1-68e779c3dfda" class="bulleted-list"><li style="list-style-type:disc">One way, process holding a resource cannot hold a resource and request for another one </li></ul><ul id="bdba9c9d-89df-465e-8482-f2df023278eb" class="bulleted-list"><li style="list-style-type:disc">Ordering requests in a sequential / hierarchical order: Group resources into levels (ie prioritize resources numerically) <ul id="434dfe9c-14ba-44f7-a486-99209f2c0a8d" class="bulleted-list"><li style="list-style-type:circle">A process may only request resources at higher levels than any resource it currently holds. They may be released in any order. Consider semaphores s1, s2, s3 (with priorities in increasing order. <p id="af87fc19-56b5-4cd1-bab9-89eb0c96bec9" class="">down(s1); down(s2); down(s3) ⇒ allowed</p><p id="75555136-5540-40da-8cdd-dc372e028088" class="">down(s1); down(s3); down(s2) ⇒ not allowed</p></li></ul></li></ul></li></ol></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§9.4: Threads (Part 1)</strong></summary><div class="indented"><p id="45c1ff5c-8a4a-4051-b92e-67c9bceccc5f" class="">Consider a simple loop which sums from 1 to 100. This loop will have to run sequentially. However if we break it down into 4 chunks ie one loop for each chunk: (1,25) , (26,50), 51,75), (76,100); then we can parallelise it. If we create 4 processes, each doing 1/4th of the work then observe that:<div class="indented"><div id="32f0aec3-dac1-4c8a-8764-3dfa37218dcc" class="column-list"><div id="15156053-03dd-4940-b226-7e49f9a635ea" style="width:37.5%" class="column"><figure id="4cdfd861-5223-41cd-9634-bca51c786e58" class="image"><a href="img/Screenshot_2024-03-31_at_5.30.46_PM.png"><img style="width:265.53125px" src="img/Screenshot_2024-03-31_at_5.30.46_PM.png"/></a></figure></div><div id="659653ad-52df-43d8-a19a-08734f867f57" style="width:62.5%" class="column"><ul id="43a0efe2-a88e-4f88-8bb2-bfdfd811f4fa" class="bulleted-list"><li style="list-style-type:disc">4 fork system calls needed; one for each process.</li></ul><ul id="33a15788-6ae8-4134-be52-259db1bf556d" class="bulleted-list"><li style="list-style-type:disc">Each process is completely isolated from another.</li></ul><ul id="86476bc4-f837-4eb9-b06d-5a24e65fd1fe" class="bulleted-list"><li style="list-style-type:disc">IPC to communicate ⇒ more system calls; manage processes with system calls.</li></ul><ul id="2a048d87-6288-45c2-b0c0-5f26618e4d7a" class="bulleted-list"><li style="list-style-type:disc">Each process will have its own memory map, data, stack, heap, etc.</li></ul></div></div></div></p><h2 id="92c2af85-a1c7-4524-ad76-8e509dc9fb93" class="">Threading</h2><div id="b916cc01-ddac-4c25-a359-060b8b1585c2" class="column-list"><div id="f22e8406-5280-41c2-a29e-278d2157dfd7" style="width:37.5%" class="column"><figure id="c2a8b973-cf09-4c1d-b400-386358fd6b9f" class="image"><a href="img/Screenshot_2024-03-31_at_5.31.44_PM.png"><img style="width:619px" src="img/Screenshot_2024-03-31_at_5.31.44_PM.png"/></a></figure></div><div id="a0a7d444-cb8e-4fb5-b4b7-6b730e7759e0" style="width:62.5%" class="column"><ul id="4aabcc71-511a-4e47-8e74-d189377d8c88" class="bulleted-list"><li style="list-style-type:disc">Create 1 process with 4 threads each doing 1/4th the work (each is typically executed in a different processor)</li></ul><ul id="4421a060-052d-406f-902a-fafdd6af5706" class="bulleted-list"><li style="list-style-type:disc">1 fork system call needed to create 4 threads. </li></ul><ul id="cc970582-4070-4cb7-b708-35961c4285cf" class="bulleted-list"><li style="list-style-type:disc">Each thread is not isolated from others.</li></ul><ul id="196edf19-3a87-47ab-b30b-8541f333d8cb" class="bulleted-list"><li style="list-style-type:disc">Management of threads with fewer system calls.</li></ul><ul id="c9db0e07-c40b-47fc-855a-3735c43590a9" class="bulleted-list"><li style="list-style-type:disc">Shared instructions, global and heap regions. </li></ul></div></div><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="ae437673-9976-4572-96ee-e2bcace85b65"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Each thread will have its <strong>own stack. </strong>This allows it to have its own execution context and create local variables. </div></figure><div id="14098c98-2526-4dac-8022-09f4fd0bf89e" class="column-list"><div id="6503423f-ae8d-4e34-8bf2-25398458e5c3" style="width:37.5%" class="column"><figure id="098af9ca-d3fa-43e1-840d-81b00ba45ea2" class="image"><a href="img/Screenshot_2024-03-31_at_5.38.49_PM.png"><img style="width:317px" src="img/Screenshot_2024-03-31_at_5.38.49_PM.png"/></a></figure><p id="2db5aa89-2070-4bb9-be0b-2c44df35fdf4" class="">
+</p></div><div id="f7dcdf95-c9e2-4d78-9454-703397a498c2" style="width:62.5%" class="column"><ul id="18340842-637d-4b04-91bb-468fd6f6e50d" class="bulleted-list"><li style="list-style-type:disc">Separate streams of execution within a single process. Threads in a process <strong>not isolated </strong>from each other. </li></ul><ul id="e6752ac8-d962-47a0-ad14-60378cebfb15" class="bulleted-list"><li style="list-style-type:disc">What distinguishes on process from another is their state (registers and stack). Major advantage is that threads are extremely lightweight compared to processes.</li></ul><ul id="01c6e6d3-948e-496c-b249-80c287b76e6b" class="bulleted-list"><li style="list-style-type:disc">Threads have efficient communication between entities (as they have shared global data) and have efficient context switching (pagetables are the same across the threads, smaller context needs to be saved/loaded) </li></ul></div></div><p id="f791aacc-0016-4e07-a770-132e65fa949b" class="">
+</p><figure id="8f76842c-0755-4cf4-85e2-c29beefe9279" class="image"><a href="img/Screenshot_2024-03-31_at_5.46.51_PM.png"><img style="width:680px" src="img/Screenshot_2024-03-31_at_5.46.51_PM.png"/></a></figure><h3 id="f6e37bf8-bff6-45cf-b287-198173913a11" class="">pthread library</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f5cb528a-e325-48b8-842b-638fec939d11" class="code"><code class="language-C">// Create a thread in a process
+// 0: Thread Identifier (TID), 
+// 1: specify props of thread, 
+// 2: ptr to a func which starts execution in a diff thread, 
+// 3: args to the func
+
+int pthread_create(pthread_t *thread, const pthread_attr *attr,
+									 void *(*start_routine) (void *), void *arg);
+
+
+// Destroying a thread
+// 0: Ptr to return value to pass the return status of the thread
+void pthread_exit(void *retval);
+
+// Wait for a specific thread to complete
+// 0: TID of the thread to wait for
+// 1: Exit status of the thread
+int pthread_join(pthread_t thread, void **retval);</code></pre><div id="68b16d3f-f642-45d7-a6c2-c5cbec126b46" class="column-list"><div id="66965b62-f29e-4703-b89e-e0dfdcebaade" style="width:43.75%" class="column"><figure id="88320c90-98dd-47f5-a7e7-3f1ee2113ea9" class="image"><a href="img/Screenshot_2024-03-31_at_5.56.25_PM.png"><img style="width:317px" src="img/Screenshot_2024-03-31_at_5.56.25_PM.png"/></a><figcaption>Example of sum till 2.5 mil using threads</figcaption></figure></div><div id="b9cff511-fa5b-4317-8c97-ea3e021f0a45" style="width:56.25%" class="column"><p id="c32c8edc-841d-4a30-960f-2928219d52a3" class="">
+</p><ul id="e2cb5935-7b9e-4012-a641-3577313bc0a8" class="bulleted-list"><li style="list-style-type:disc">After creating the 4 threads, it invokes join. What this join will do is that it will block until the corresponding TID exits. </li></ul><ul id="8e585853-d904-4b93-ba5a-5b61cd0b0300" class="bulleted-list"><li style="list-style-type:disc">Thus when t1 exits, from the thread_fn, pthread_join of t1 will wake up and completes its execution. </li></ul><ul id="fcc1b5e6-c0f2-4a1b-b09e-796b4dabea1f" class="bulleted-list"><li style="list-style-type:disc">Only once the 4 threads complete execution, the join functions stop block and the last line summing up across the 4 threads is executed. </li></ul></div></div></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§9.5: Threads (Part 2)</strong></summary><div class="indented"><p id="6ce2e7b9-a98c-47b0-bbc9-5b2993b24c4b" class="">As threads are executing contexts, we need some entity to decide which thread gets executed in which CPU. There are 2 strategies:</p><h2 id="699d3d9c-57d3-43df-90f7-5983f6eb3845" class="">User Threads</h2><ul id="9c0aeaba-a367-41db-9560-c4bca70811b6" class="bulleted-list"><li style="list-style-type:disc">Thread management done by the user level thread library. Kernel knows nothing about the threads. </li></ul><ul id="81558141-f6ec-4b27-894c-7da4a7ba25f2" class="bulleted-list"><li style="list-style-type:disc">A runtime system exists in the user space of the process to manage all the threads of a process. It also contains a thread table which contains information local to its process. Each process will have a thread table and the number of entries in the thread table is equal to the number of threads. </li></ul><div id="fa1e44b2-98cb-472b-b022-55558dba9237" class="column-list"><div id="483d6b8f-ff55-477b-85c0-a173f89abba7" style="width:50%" class="column"><p id="fdb72829-13b5-4afa-ac65-25249ad91844" class=""><strong>Advantages</strong></p><ul id="060a605f-b5bc-4ed4-b095-dd14894979f1" class="bulleted-list"><li style="list-style-type:disc">Fast (really lightweight), no system call to manage threads. Thread library does everything. </li></ul><ul id="b9caf23a-da25-486a-b423-1a1c9ef7649d" class="bulleted-list"><li style="list-style-type:disc">Can be implemented in an OS that does not support threading. </li></ul><ul id="aed011ac-02d6-4f0d-b860-3f839ae54612" class="bulleted-list"><li style="list-style-type:disc">Switching is fast. No switch from user to protected mode.</li></ul></div><div id="bf921fff-c9f7-499d-aa42-53d68539975f" style="width:50%" class="column"><p id="da6ed1d3-36ef-49aa-b937-12e70ea2b0b0" class=""><strong>Disadvantages</strong></p><ul id="8e637c77-bb59-4cab-bf67-cd73996a0abc" class="bulleted-list"><li style="list-style-type:disc">Scheduling can be an issue (eg process with 3 threads - 2 blocked, 1 runnable. what should the be the decision?). </li></ul><ul id="6f197c79-56c0-4524-8e92-ccf546903851" class="bulleted-list"><li style="list-style-type:disc">Lack of coordination between kernel and threads. (A process with 100 threads competes for a timeslice having a process with just 1 thread). </li></ul><ul id="3f061de6-d269-463d-9219-6227be8b76b0" class="bulleted-list"><li style="list-style-type:disc">Requires non-blocking system calls (if one thread invokes a system call, all threads need to wait). </li></ul></div></div><h2 id="3b7a0098-e2d2-4534-bcc2-5577001cae71" class="">Kernel Threads</h2><ul id="74ac836b-10df-49b7-87e2-a2b3efec437c" class="bulleted-list"><li style="list-style-type:disc">Threads directly supported by the kernel. Known as light weight processes. </li></ul><ul id="f42a780d-d0dd-4002-979d-89c91f507516" class="bulleted-list"><li style="list-style-type:disc">The management of thread resources is done in the kernel space. Along with a process table, a thread table/ thread control block (TCB) is also maintained in the kernel space.  </li></ul><div id="e53eb63e-a329-4704-987d-a8f1373699d1" class="column-list"><div id="4742b719-9cfe-454a-b2b2-be39062f518e" style="width:50%" class="column"><p id="58023918-b64e-4515-a766-472510a6b3e0" class=""><strong>Advantages</strong></p><ul id="1a511c97-159e-4bd0-8a0b-93c4264a0de6" class="bulleted-list"><li style="list-style-type:disc">Scheduler can decide to give more time to a process having larger number of threads.</li></ul><ul id="3a834dd5-1c8a-423a-8190-36e34cb052b4" class="bulleted-list"><li style="list-style-type:disc">Good for applications that frequently block i.e if a particular thread is ready it can be run whereas if one is blocked it can be not run. </li></ul></div><div id="48ffd4de-44e5-458a-8a36-3cb94a74e886" style="width:50%" class="column"><p id="c5d421a1-4ff7-4e41-98f2-cdd37b604c6d" class=""><strong>Disadvantages</strong></p><ul id="51e05227-9099-4cf9-94eb-d39c1536df39" class="bulleted-list"><li style="list-style-type:disc">Slow since they involve system calls</li></ul><ul id="c913f05f-d8dc-49c4-87a1-18fd0d147bad" class="bulleted-list"><li style="list-style-type:disc">Overheads in the kernel since kernel must manage and schedule threads as well as processes. Requires TCB for each thread to maintain info about threads.</li></ul></div></div><h2 id="ffdf430a-7252-4331-b0d9-bebf75aa8ecb" class="">Threading Issues</h2><ul id="70305460-5984-4e2c-90cd-d9c1e0353022" class="bulleted-list"><li style="list-style-type:disc">What should the system do when a thread invokes a fork? <ul id="6777cf4d-6dd5-4139-bbe9-4fe949f93339" class="bulleted-list"><li style="list-style-type:circle">Duplicate all threads? Not easy as some may be running/blocked in a system call, be in a critical section.</li></ul><ul id="f90ba962-1052-4ced-a9cd-d4795335aeb0" class="bulleted-list"><li style="list-style-type:circle">Duplicate only the caller thread? Feasible.</li></ul></li></ul><ul id="8e26c2ce-f529-4685-87cd-54680a9c2af1" class="bulleted-list"><li style="list-style-type:disc">Segmentation fault in a thread ⇒ Should only the thread terminate or the entire process? </li></ul><h2 id="6b91103d-b326-47d1-ac13-458d755d468c" class="">Typical usage of threads</h2><div id="96b1a13d-79cb-43fa-b51a-d3ce563b4a85" class="column-list"><div id="edc58662-f66f-4287-82fe-73467184bb04" style="width:50%" class="column"><figure id="3fd5fc9f-40eb-4e39-9123-881db4d041a9" class="image"><a href="img/Screenshot_2024-03-31_at_7.32.26_PM.png"><img style="width:317px" src="img/Screenshot_2024-03-31_at_7.32.26_PM.png"/></a></figure><p id="c7fb0820-0afb-4fa8-9669-98d48bfe1cce" class="">
+</p></div><div id="42bef46d-6e91-4751-854d-ec08753c0c57" style="width:50%" class="column"><ul id="2708afdc-85ea-4a64-b2b7-bccdbd223a3b" class="bulleted-list"><li style="list-style-type:disc">Suppose we have loop that is waiting for an event to occur. When an even occurs it spawns a thread and services the event.</li></ul><ul id="ee301041-fad5-4006-83be-4ddb0d380a55" class="bulleted-list"><li style="list-style-type:disc">Drawback are the overheads ie creating and terminating threads.</li></ul><ul id="2f65bd53-2257-490d-a45a-3dbfde876354" class="bulleted-list"><li style="list-style-type:disc">Applications therefore typically use thread pools. </li></ul></div></div><figure id="e2fbc484-38aa-4212-a91d-bfc82094e613" class="image"><a href="img/Screenshot_2024-03-31_at_7.34.09_PM.png"><img style="width:680px" src="img/Screenshot_2024-03-31_at_7.34.09_PM.png"/></a></figure><ul id="c0bdeec3-c20f-4eff-901a-c4e5f9f11aa4" class="bulleted-list"><li style="list-style-type:disc">What the application does on creation is a create a pool of threads typically in <strong>blocked state. </strong></li></ul><ul id="7713a7cc-d1cd-4929-b4a4-019c0572286e" class="bulleted-list"><li style="list-style-type:disc">When an event occurs, a thread from the pool is woken up and serviced. Then the thread goes back to the blocked state. </li></ul><ul id="5dd1de14-3d0c-4838-be3d-8732d847a373" class="bulleted-list"><li style="list-style-type:disc">This eliminates the overheads as we no longer need to create and delete threads. However if all threads are being used to service an event and another event occurs then the new event will have to wait for a thread from the pool to be free ⇒ performance is affected.</li></ul><ul id="9c2303e3-03c5-42b9-911d-1d9945252b56" class="bulleted-list"><li style="list-style-type:disc">If a larger number of threads are assigned to the pool but not many events occur then most threads are being blocked and not being used blocking resources for other processes. </li></ul><p id="eec94e61-aa13-4140-95ba-39c6e0aaf118" class="">
+</p></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

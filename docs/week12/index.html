@@ -1,0 +1,681 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Week 12</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1463d950-5ee6-4bad-b99d-ab244ccb7b32" class="page sans"><header><h1 class="page-title">Week 12</h1><p class="page-description"></p></header><div class="page-body"><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§12.1: System Software Vulnerabilities</strong></summary><div class="indented"><h2 id="9247f8a6-c2d5-422c-a45a-5276a8baf910" class="">Buffer Overflow</h2><p id="740eb4a4-db9e-43a0-aa4d-11de08ee3875" class="">In order to understand buffer overflow, we first need to understand how a stack is managed. </p><div id="c9d460ab-c05b-43d1-8920-90d94de55726" class="column-list"><div id="94eea420-9b18-4921-b4ab-5aaa14dba8ad" style="width:33.33333333333333%" class="column"><figure id="4c5356ad-be08-4cc3-b135-38e38df923e9" class="image"><a href="img/Screenshot_2024-04-07_at_1.55.54_PM.png"><img style="width:216px" src="img/Screenshot_2024-04-07_at_1.55.54_PM.png"/></a></figure></div><div id="64051a77-915f-40d7-adc9-f7714eece01b" style="width:33.33333333333333%" class="column"><figure id="4482e4cb-f5e5-4223-878e-8b32998d59a1" class="image"><a href="img/Screenshot_2024-04-07_at_1.56.34_PM.png"><img style="width:472px" src="img/Screenshot_2024-04-07_at_1.56.34_PM.png"/></a></figure><p id="bb5045c3-4870-4245-ae5f-f5238c1c453c" class="">
+</p></div><div id="40cafde6-9064-44cd-b124-c9a791cbc5e4" style="width:33.33333333333333%" class="column"><figure id="15283143-6a12-4e40-9977-8ebbbdb841b8" class="image"><a href="img/Screenshot_2024-04-07_at_1.57.35_PM.png"><img style="width:195.984375px" src="img/Screenshot_2024-04-07_at_1.57.35_PM.png"/></a></figure><p id="ca11bbd7-0bb5-44d4-ade3-6aa1bda251c5" class="">
+</p></div></div><ul id="f6e8d7c0-2e10-4e69-9368-64ee066ec8c8" class="bulleted-list"><li style="list-style-type:disc">Since the function parameters are integer, each occupies 4 bytes. Hence addresses [1000,997] store the integer 3 and so on. </li></ul><ul id="b034463c-e4cf-4ab7-a0df-9b055fc5d5b5" class="bulleted-list"><li style="list-style-type:disc">Similarly the return address being 32 bits requires 4 bytes of storage. </li></ul><ul id="0122e32f-594f-4fb2-a04a-bb4af1978077" class="bulleted-list"><li style="list-style-type:disc">Now take a look at the buffers. If you do printf(”%d, buffer1), you get 976 ie the started address of buffer 1. Similarly if you do printf(”%d, buffer2), you’ll get 966. </li></ul><ul id="072cf61f-5b77-48ef-9a6f-124855415e48" class="bulleted-list"><li style="list-style-type:disc">Now note that buffer2 is 10 bytes long and hence buffer2 array indices go from 0-9. What happens if we do printf(”%x”, &amp;buffer2[10]) ie print the address of buffer[10]. We get 976. <ul id="aa5b0dbc-777a-42fe-817b-80ba29d39365" class="bulleted-list"><li style="list-style-type:circle">Note how we have now accessed buffer1 using buffer2? ⇒ This essentially is the <strong>buffer overflow</strong> problem because programming languages like C don’t restrict which memory locations buffer2 can access. </li></ul></li></ul><ul id="eb982912-31cc-4f27-82ff-b9dfcc4f6fea" class="bulleted-list"><li style="list-style-type:disc">Take this a step further, what if you overflow enough that now you’ve accessed the memory location of the return address ie buffer2[19] will now access the memory location of the return address. If you change the return address here to a malicious code, you can now return to memory location of your choice ⇒ BIG Problem</li></ul><div id="7c47aeec-339a-4d81-8101-718e7e37bc1c" class="column-list"><div id="5ebf91d4-09e2-4e63-9c96-9627fd04a48f" style="width:12.5%" class="column"><figure id="c7d8563c-b7cf-4b94-8d3e-064039487c4d" class="image"><a href="img/Screenshot_2024-04-07_at_2.26.46_PM.png"><img style="width:216px" src="img/Screenshot_2024-04-07_at_2.26.46_PM.png"/></a></figure></div><div id="40dd8ba8-e8f6-4eb2-ab7d-89cbc2b0a5e2" style="width:87.5%" class="column"><ul id="be48bda5-1914-4924-a73a-1ef16a6b7dbc" class="bulleted-list"><li style="list-style-type:disc">Often it is hard to return to a memory location outside the stack (lots of complexities). Instead if somehow malicious code can be placed in the buffer itself, and you overflow the buffer such that every memory location in the stack contains the value of the buffer2 (BA), one of them is bound to be the return address which now contains the address of buffer2.  </li></ul><ul id="2631b137-f6a0-45c2-8937-ee68d38e65da" class="bulleted-list"><li style="list-style-type:disc">So if you can place the malicious code at location 966 and use the overflow so that every address points to 966, the return address will be 966 and hence the malicious code will get executed. </li></ul></div></div><h3 id="50687da3-0e70-4c28-9990-badba52b8013" class="">Defenses</h3><ul id="b3c382cb-9019-4729-9ebc-5fcd1358a538" class="bulleted-list"><li style="list-style-type:disc"><strong>Eliminate program flaws that could lead to subverting the execution</strong> by using safer programming languages, libraries, hardware enhancements and static analysis. </li></ul><ul id="69546f64-c84b-436e-befe-90a1c144eb55" class="bulleted-list"><li style="list-style-type:disc"><strong>If we cant eliminate, make it more difficult to subvert execution:</strong><ul id="5cf13abe-117f-40ca-87a7-faf16b64d86e" class="bulleted-list"><li style="list-style-type:circle">W^X: Any memory location can be writable or executable but not both. So in this case the buffer location would be writeable but not executable so placing the malicious code there would not affect the system. </li></ul><ul id="984d4bf9-43bb-4bba-a665-1b67eedb9d7d" class="bulleted-list"><li style="list-style-type:circle">ASLR where the various components in the address space are randomized</li></ul><ul id="c01f39db-a3a3-4b10-9f92-68bb203ea13e" class="bulleted-list"><li style="list-style-type:circle">Canaries act as a way to detect overflow beyond a frame </li></ul></li></ul><ul id="0ad1895c-6142-4e3f-b2ca-7a0681818610" class="bulleted-list"><li style="list-style-type:disc"><strong>If malware still manages to execute, try to detect at runtime </strong>using ML, AI techniques and malware signatures. </li></ul><ul id="4c0d56b1-e688-421d-b5f6-8d7bed475adf" class="bulleted-list"><li style="list-style-type:disc"><strong>If can’t detect at runtime, try to restrict what the malware can do </strong>by using sandboxing and tracking information flow. </li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§12.2: Micro-Architectural Attacks</strong></summary><div class="indented"><ul id="0701df59-7dcd-4471-849b-f877452d0c58" class="bulleted-list"><li style="list-style-type:disc">Previously we have seen how the ring architecture and virtual address space ensures different levels of privilege and sandboxing. However, <strong>Microarchitectural Attacks</strong> directly affect the processor and can leak information from OS across privileged rings and can leak information from one process to another across virtual spaces. <ul id="4c8f746d-0905-4afd-8469-4d817a2b702c" class="bulleted-list"><li style="list-style-type:circle">These attacks work essentially because of shared hardware like the cache. </li></ul></li></ul><ul id="00852448-1d5d-4284-a2d2-36d89669e011" class="bulleted-list"><li style="list-style-type:disc">The entire <strong>Process State </strong>can be divided into two parts:<ul id="2c3b0e85-ba71-4332-9ce1-e41118b873d8" class="bulleted-list"><li style="list-style-type:circle"><strong>Architectural State </strong>is visible to software like the registers, Program Counter, Stack Pointer, CSR, r0-r31</li></ul><ul id="ff7108a2-52af-41dd-b594-0dc923c4df94" class="bulleted-list"><li style="list-style-type:circle"><strong>Microarchitectural State </strong>are those regions of the processor that can store data but are inaccessible/invisible to the software like the cache memory, TLB, Branch Predictors, etc.</li></ul></li></ul><ul id="b3f4cdf2-fe56-4f65-8033-1f1e53fabb30" class="bulleted-list"><li style="list-style-type:disc">So when a context switch occurs between P1 and P2, the state of the process i.e the architectural state is saved by the process before it switches to the next process.  However the microarchitectural state is not affected when switching from P1 to P2 ⇒ Even if P2 is executing, michroarchitectural state may still hold data from P1. If P2 is somehow able to read out of this state, P2 may be able to get information about P1 and bypass the sandbox environment.</li></ul><h2 id="0a0582ea-f064-4901-a0ca-a590b8a90bbc" class="">Cache-Timing Attacks</h2><h3 id="9ee244aa-785c-4cc3-8be1-48fb19d3a5e8" class="">Cache Memory</h3><div id="8f76be49-f3fd-4c91-9bf6-76c3e57c2691" class="column-list"><div id="0d44f1bb-6588-4c41-b225-fbec5fbc0ba4" style="width:37.5%" class="column"><figure id="5bf31f75-6a2c-4bf2-80fb-2a9dee88b22f" class="image"><a href="img/Screenshot_2024-04-07_at_4.11.30_PM.png"><img style="width:680px" src="img/Screenshot_2024-04-07_at_4.11.30_PM.png"/></a></figure><p id="3851d698-96fe-4a58-93ec-ff7229b32696" class="">
+</p><figure id="37ac4535-4dbf-4034-968a-53f8327b853a" class="image"><a href="img/Screenshot_2024-04-07_at_5.41.54_PM.png"><img style="width:237.75px" src="img/Screenshot_2024-04-07_at_5.41.54_PM.png"/></a></figure></div><div id="8a417239-eb65-4937-9968-1560dcd28bb9" style="width:62.5%" class="column"><ul id="1b4c4e77-bb93-4de9-b580-f87c17b80eed" class="bulleted-list"><li style="list-style-type:disc">Typically a processor is several times faster than a DRAM. Whilst DRAM is good to store data in a highly dense manner, it is not as performant. </li></ul><ul id="89d2df52-8e58-4890-b4ae-1e6d1d71818c" class="bulleted-list"><li style="list-style-type:disc">To bridge this gap between processors and RAM, cache memory stores recently loaded data from the RAM. For example when the processor requests some data from DRAM, it is loaded onto both the processor and the cache.  </li></ul><ul id="f824dd8a-8da3-4628-95c6-19c34c5f8d5e" class="bulleted-list"><li style="list-style-type:disc">If there is a subsequent request of the same data, the data can be directly loaded into the processor from the cache memory which is considerably faster. </li></ul><p id="f5fd2771-9df7-4d46-9723-30f262f4c71f" class="">
+</p></div></div><ul id="44caab82-f5d4-435d-9076-972db7185731" class="bulleted-list"><li style="list-style-type:disc">There is a mapping that exists between the addresses in RAM and the set. So a particular address is always stored in the same set. </li></ul><h3 id="e4aaed86-0926-4327-99b9-33f4b2ac9831" class="">Prime + Probe Attack</h3><ul id="1805b50c-8092-4f32-be97-df780a658eb5" class="bulleted-list"><li style="list-style-type:disc">During the prime phase, the spy process populates all the sets and ways with its own random data. Since this data was previously not on the cache, the access time for this would be high. </li></ul><ul id="ec0d9592-3bb3-4802-a6ea-bb9da46d7c2d" class="bulleted-list"><li style="list-style-type:disc">Now the victim process is run and since cache is full, certain entries which were previously populated by the spy process get removed and replaced by the victim data </li></ul><ul id="8b29a83d-7f95-493c-96f9-e9b7117c000b" class="bulleted-list"><li style="list-style-type:disc">In the probe phase, the spy process is run again and since a lot of the data is already present on the cache its retrieval is quick. However since some data got replaced, its access time would be high. This way we can identify which entries were populated by the victim. </li></ul><ul id="b2bcb692-2f8a-45f4-8692-029a04a21714" class="bulleted-list"><li style="list-style-type:disc">Given the set number, and input to the function one can identify the memory address of certain data that was loaded by the victim. </li></ul><ul id="d88d46d7-0465-4008-b235-d507e1a4d077" class="bulleted-list"><li style="list-style-type:disc">Now that we have the address, we can run the victim process again and then the spy process can request the exact address that was determined in the previous step. This way the spy process bypasses the VA of its own process is able to access victim processes data through the cache. </li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§12.3: Counter Measures</strong></summary><div class="indented"><p id="53e214ba-3822-46d2-bf10-1b4cb43447ed" class="">The three steps in the previous attack was:</p><ol type="1" id="2e23f813-0e3e-4e61-8453-e498a293a947" class="numbered-list" start="1"><li><strong> Sharing processor resource: </strong>In the microarchitectural state, all process shared all of the cache. <ul id="e23a51fb-9d20-4538-8236-0213b26392b8" class="bulleted-list"><li style="list-style-type:disc">Counter Measure: Each process has its own set. This way two processes would not be able to read from each others cache or evict data of another process ⇒ Not using the resources efficiently.</li></ul></li></ol><ol type="1" id="b4875e95-5d10-4496-8966-25a5b55bea02" class="numbered-list" start="2"><li><strong>Measuring Execution time accurately: </strong>the attack works by profiling access times accurately. <ul id="451fae4c-79c4-4ac2-8668-b081e8148390" class="bulleted-list"><li style="list-style-type:disc">Counter Measure: Disable accurate time measurements like making the timestamp counter is made less precise by adding random delays. </li></ul></li></ol><ol type="1" id="97fb01d9-fc9d-476e-acd2-6b40800f9a7b" class="numbered-list" start="3"><li><strong>Inference: </strong>The attacker is able to infer the cache set<ul id="4c606c65-986d-471a-a651-8386e4fbd75c" class="bulleted-list"><li style="list-style-type:disc">Counter Measure: Break relationship between address and cache access by encrypting address. The attacker will be able to infer that a cache set was accessed but will not be able determine the exact set. </li></ul></li></ol></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§12.4: Trusted Execution Environment</strong></summary><div class="indented"><ul id="96b6f799-0d4e-4d27-b88a-95244429e61b" class="bulleted-list"><li style="list-style-type:disc">When there are bugs in the OS as opposed to a malicious software (process), the attack surface is much larger. What we need to do is reduce the attack surface such that even if there is a bug in the OS, the secret is kept safe. </li></ul><ul id="5a17ac18-9433-40f8-83ab-fc83f13caa38" class="bulleted-list"><li style="list-style-type:disc">In a <strong>Trusted Execution Environment, </strong>we are able to keep certain parts of memory protected such that they are inaccessible even by the OS. This greatly reduced the attack surface and secrets are protected even if the OS &amp; Hypervisor are compromised. </li></ul><ul id="d7aa4e92-a1db-4fc4-8325-2d31e02c52ab" class="bulleted-list"><li style="list-style-type:disc">When secrets need to be accessed, processor transitions to <strong>Secure Execution Mode. </strong>After secure code completes, move processor back to normal mode. <ul id="f1f4c80f-82f3-476e-bf45-cda0564fe0bd" class="bulleted-list"><li style="list-style-type:circle">For example if a certain app requires the phone unlock PIN, it will transition to secure mode. Upon successfully entering the PIN, the secure mode would return to normal mode and indicate that PIN was entered successfully. Incase the wrong PIN is entered, the it returns to normal mode and indicates wrong PIN was entered.</li></ul><ul id="f2f96d93-9941-4ffd-8335-887b18d624ea" class="bulleted-list"><li style="list-style-type:circle">Essentially all the app knows is if the right PIN was entered or not. It never has access to the PIN. </li></ul></li></ul><h2 id="69fb8115-c55d-475c-a932-dc94ca2e9fd8" class="">ARM Trustzone</h2><figure id="807da335-47fe-40e9-9e3d-8c54c7cfe77e" class="image"><a href="img/Screenshot_2024-04-08_at_11.43.27_AM.png"><img style="width:941px" src="img/Screenshot_2024-04-08_at_11.43.27_AM.png"/></a></figure><ul id="bac1ef00-a802-44ca-b137-cc69665a9921" class="bulleted-list"><li style="list-style-type:disc">All the user applications run in the normal world whereas secure apps would be in the secure world. Monitor mode connects the two worlds.</li></ul><ul id="793edd8e-c253-4327-9900-ee51a454e852" class="bulleted-list"><li style="list-style-type:disc">First protected regions are created in memory that are not accessible even by the OS<ul id="86645da7-4fec-44ac-a9f7-e9420117e340" class="bulleted-list"><li style="list-style-type:circle">Virtual addresses have an extra bit. Previously if a VA was 32 bit, now the VA would be 33 bits. When the processor is in the secure world this bit is 0, and when it is in normal mode this bit is set to 1. So based on this bit, the MMU will translate the address corresponding to the correct page table. <figure id="60556ad6-a0dd-4ef2-a0f7-fcb493388e6d" class="image"><a href="img/Screenshot_2024-04-08_at_11.52.16_AM.png"><img style="width:624px" src="img/Screenshot_2024-04-08_at_11.52.16_AM.png"/></a></figure></li></ul><ul id="2a7211aa-3187-4615-8b5b-9858630cae57" class="bulleted-list"><li style="list-style-type:circle">This can extend to every peripheral not just RAM. Note how every devices is memory mapped? This way we can set certain devices (or certain sub devices) to be accessible only from the secure mode. </li></ul></li></ul><ul id="ad94fc89-abfe-4e3d-a815-2c8df6e49dbb" class="bulleted-list"><li style="list-style-type:disc">When secrets need to be accessed, processor moves to Secure Execution Mode. After secure code completes, processor moves back to normal mode. <figure id="d6d6c14c-0d9f-4f5b-ba0e-780ce4f06c14" class="image"><a href="img/Screenshot_2024-04-08_at_11.46.31_AM.png"><img style="width:652px" src="img/Screenshot_2024-04-08_at_11.46.31_AM.png"/></a></figure><ul id="6fc8fd04-1122-4dc0-9fca-c919ede284d9" class="bulleted-list"><li style="list-style-type:circle">Hardware interrupts or SMC instruction cause the switch from the normal world to secure world. During this process Monitor saves the context of the normal world process. Then in the secure world, the exception is handled and upon returning to normal world the monitor restores the context. </li></ul></li></ul><ul id="70850eb2-b7e0-4e6b-8d1c-ae7cccae2e58" class="bulleted-list"><li style="list-style-type:disc">All interrupts are routed to the monitor first. Then the monitor routes the interrupts to the correct world. Therefore there are multiple interrupt vector tables (1 for monitor mode, 1 for secure world, 1 for normal mode)</li></ul><ul id="196b50de-e0b7-4d19-b600-4493dc6d6409" class="bulleted-list"><li style="list-style-type:disc">The minimal secure world can just have implementation of critical applications. But it could also be a full fledged OS like Samsung Knox. The secure OS could be tightly coupled with the rich OS so that priority of task in the rich OS gets mapped accordingly in the secure OS. <ul id="c07962fc-d4f0-4b13-8037-1bb3d1aa8685" class="bulleted-list"><li style="list-style-type:circle">Complete MMU Support. </li></ul></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§12.5: Securing data in storage</strong></summary><div class="indented"><ul id="019744c5-325c-4142-82b6-e3e490701995" class="bulleted-list"><li style="list-style-type:disc">Attackers may replace the flash software with a malicious version, compromising the entire system ⇒ <strong>Secure Boot</strong></li></ul><ul id="ca624024-a71b-4089-9600-2dc91e1e1819" class="bulleted-list"><li style="list-style-type:disc">There is a secure chain of trust starting from the root device that cannot be easily tampered. <figure id="72681fca-d8da-4b0a-9e2c-ab8a9acde3f1" class="image"><a href="img/Screenshot_2024-04-08_at_2.56.56_PM.png"><img style="width:652px" src="img/Screenshot_2024-04-08_at_2.56.56_PM.png"/></a></figure></li></ul></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

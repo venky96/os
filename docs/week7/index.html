@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Week 7</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="680adcb7-54fd-4755-8b72-7638f332645e" class="page sans"><header><h1 class="page-title">Week 7</h1><p class="page-description"></p></header><div class="page-body"><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§7.1: CPU Scheduling </strong></summary><div class="indented"><ul id="04bacf5d-bd47-4965-abf9-2f0415162249" class="bulleted-list"><li style="list-style-type:disc">A scheduler chooses a process from the RUNNABLE queue and that process assigned to run in the processor. How should the scheduler choose the next process? </li></ul><ul id="6df7a620-e8ad-4bd2-b4e1-ca05512826e2" class="bulleted-list"><li style="list-style-type:disc">We can classify the processes into two types based on their phases of execution - CPU Burst and Idle. Note that this is not a rigid classification. <ol type="1" id="4ad8a854-a062-4334-8447-8061ed2df75f" class="numbered-list" start="1"><li><strong>I/O Bound: </strong>Has small bursts of CPU activity and then waits for I/O (Word). It affects the user interaction and therefore we want them to have the highest priority.</li></ol><ol type="1" id="592fdc7b-741c-43b6-b7aa-5f045b199361" class="numbered-list" start="2"><li><strong>CPU Bound: </strong>Hardly any I/O, mostly CPU activity (scientific modelling, 3D rendering), useful to have long CPU bursts. They could work with lower priorities. </li></ol></li></ul><ul id="5e25dd4d-1e16-41d2-bd9a-3b1d498a12b0" class="bulleted-list"><li style="list-style-type:disc">A process could be I/O bound at one point and change to CPU bound at another time (Entering data in Excel then calculating).</li></ul><ul id="a653af27-5783-4ccf-bdc9-105434c2a571" class="bulleted-list"><li style="list-style-type:disc">A scheduling algorithm needs to take the following scheduling criteria into consideration. However a single algorithm may not satisfy all of them. <ol type="1" id="e67ac3a9-9df6-4452-8a83-91fe0fb021e9" class="numbered-list" start="1"><li><strong>Maximize CPU utilization: </strong>CPU should be idle as less as possible.</li></ol><ol type="1" id="d18ea688-aa33-4255-b88a-6f284f7e1ca6" class="numbered-list" start="2"><li><strong>Maximize Throughput</strong>: Complete as many processes as possible per unit time.</li></ol><ol type="1" id="f74b7b14-91e6-4819-8d23-be3bebb4143c" class="numbered-list" start="3"><li><strong>Minimize turnaround time</strong>: For a process, turnaround time is the time from start to completion.</li></ol><ol type="1" id="e6fc8675-4df7-4ce7-a5be-159cf102c12b" class="numbered-list" start="4"><li><strong>Minimize response time</strong>: CPU should respond immediately.</li></ol><ol type="1" id="af1645dd-50ac-4cd6-bdac-0182bf80ef02" class="numbered-list" start="5"><li><strong>Minimize waiting time</strong>: Process should not wait long in the ready queue.</li></ol><ol type="1" id="cca8413d-cb1a-454b-98d3-bba25626e888" class="numbered-list" start="6"><li><strong>Fairness</strong>: Give each process a fair share of the CPU.</li></ol></li></ul><h2 id="1cf64a68-2507-46ab-a84f-34311836d2f5" class="">First Come First Serve (FCFS) Scheduling </h2><figure id="086e5a87-469e-445e-8b25-b3c43d83a80c" class="image"><a href="img/Screenshot_2024-03-19_at_10.27.04_PM.png"><img style="width:680px" src="img/Screenshot_2024-03-19_at_10.27.04_PM.png"/></a></figure><ul id="74f5bdec-a5e8-4ace-9d6f-44ac9205bc0e" class="bulleted-list"><li style="list-style-type:disc">First job that requests the CPU gets the CPU i.e. the first process that enters the ready queue gets allocated a CPU. It is <strong>non</strong>-<strong>preemptive meaning </strong>the process continues til the burst cycle ends. </li></ul><ul id="3d5ea6aa-1e11-41e4-b38e-8164fc84774e" class="bulleted-list"><li style="list-style-type:disc">In FCFS, order of scheduling matters. If you execute P2 ⇒ P3 ⇒ P4 ⇒ P1, then the average waiting reduces. </li></ul><ul id="ed0b75d8-f3f8-470a-8470-ae55cbec546c" class="bulleted-list"><li style="list-style-type:disc"><strong>The Convoy Effect: </strong>All processes wait for the one big process to get off the CPU. </li></ul><h2 id="e4734028-6d68-4982-abbf-ced4035b3920" class="">Shortest Job First (SJF)</h2><figure id="d56ec5e7-8489-45f1-808b-03c985d60aa3" class="image"><a href="img/Screenshot_2024-03-19_at_10.37.00_PM.png"><img style="width:680px" src="img/Screenshot_2024-03-19_at_10.37.00_PM.png"/></a></figure><ul id="620fd35f-ce0d-4839-ab8f-2e745c8156cd" class="bulleted-list"><li style="list-style-type:disc">Schedule processes with the shortest burst time first. Turns into FCFS if burst time is same for all processes.</li></ul><ul id="cc015726-eb81-4d18-947a-a3da615e2931" class="bulleted-list"><li style="list-style-type:disc">In the non-preemptive version, the process will continue to execute until its CPU burst completes. </li></ul><ul id="da45c739-b798-44ed-b773-bb08483ec677" class="bulleted-list"><li style="list-style-type:disc">The advantage is that it is optimal and will minimize the average wait time. However it is not practical as it is difficult to predict burst times and it may starve long jobs (if short processes keep arriving, they’ll get processed and the long burst process will have to wait). </li></ul><ul id="35cf5bf4-fa91-4450-a9e3-9ee2d09d2376" class="bulleted-list"><li style="list-style-type:disc">In the preemptive version, process may get preempted when a new process arrives. </li></ul><h2 id="c6c0863a-429b-49b7-bae3-5b199fc23507" class="">Shortest Remaining Time First (SRTF)</h2><figure id="1e9cc110-af4a-4bf7-9b27-b25a4f585eb5" class="image"><a href="img/Screenshot_2024-03-19_at_10.43.23_PM.png"><img style="width:680px" src="img/Screenshot_2024-03-19_at_10.43.23_PM.png"/></a></figure><ul id="24518cf4-4620-4e0a-964f-25c0b10f4385" class="bulleted-list"><li style="list-style-type:disc">If a new process arrives with a shorter burst time than remaining of a current process then schedule the new process. It further reduces the average waiting time and average response time however it is not practical. </li></ul><h2 id="ecbea567-59b6-424c-b3ea-90d0fc59cc7c" class="">Round Robin Scheduling</h2><figure id="7ff17847-e276-4b85-8c71-93b50f64212e" class="image"><a href="img/Screenshot_2024-03-19_at_10.48.18_PM.png"><img style="width:680px" src="img/Screenshot_2024-03-19_at_10.48.18_PM.png"/></a></figure><ul id="ca198b74-b6c8-4705-b85c-79e0b7549201" class="bulleted-list"><li style="list-style-type:disc">Run a process for a time slice then move it back to ready queue. Configure the timer to periodically interrupt. At every timer interrupt, preempt the current running process. </li></ul><ul id="53c50c11-5635-4e29-980d-f40cb6e45622" class="bulleted-list"><li style="list-style-type:disc">Reducing the time slice would reduce the average response time as the new process have to wait less before they start executing. Therefore now there will also be a higher number of context switches and <strong>vice versa. </strong></li></ul><ul id="4d13ef1c-04be-42e6-952e-f7270bdcf7b7" class="bulleted-list"><li style="list-style-type:disc">Therefore the duration of the time slice is critical. A short one is good because process need not wait long before they are scheduled however this incurs a higher context switch overhead. A long one on the other hand is bad because process no longer appear to execute concurrently and may degrade system performance. </li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§7.2: Priority Based Scheduling Algorithms</strong></summary><div class="indented"><ul id="182252a2-089a-4444-a995-6b5a7cdb71af" class="bulleted-list"><li style="list-style-type:disc">In a priority based scheduling algorithm, each process is assigned a priority. A priority is a number in a range (0,255). A small number would mean high priority while a large number would mean low priority.  If &gt;&gt; 256 process are running then several processes may be assigned the same base priority and therefore scheduling begins to behave more like round robin ⇒ See Multilevel queues below</li></ul><ul id="2da4514c-43eb-4298-b4b8-89a878639b88" class="bulleted-list"><li style="list-style-type:disc"><strong>Scheduling Policy: </strong>pick the process in the ready queue having the highest priority. <ul id="69a76a77-4f2b-4b5e-ba02-cfddfef7ea89" class="bulleted-list"><li style="list-style-type:circle"><strong>Advantage: </strong>mechanism to provide relative importance to processes</li></ul><ul id="31f580ae-6200-4022-a3e2-2e3ffa3529b6" class="bulleted-list"><li style="list-style-type:circle"><strong>Disadvantage: </strong>could lead to starvation of low priority processes. </li></ul></li></ul><ul id="2e9d3a2a-154c-42c7-966e-ba54005cb4e1" class="bulleted-list"><li style="list-style-type:disc">To fix the starvation issue, scheduler adjusts priority of processes to ensure that all processes eventually execute.  Each process is given a base priority and after every time slot, increase the priority of all other processes. This ensures low priority process eventually executes. After a process executes, its priority is reset. <ul id="c2e68bd9-aed3-4070-920a-c1fe2e5f398a" class="bulleted-list"><li style="list-style-type:circle"><strong>Static Priority: </strong>typically set at start of execution and takes on a default value if not set by the user</li></ul><ul id="4331c083-9f08-496b-83fc-75ac6f393944" class="bulleted-list"><li style="list-style-type:circle"><strong>Dynamic Priority: </strong>scheduler can change the priority during execution in order to achieve scheduling goals</li></ul></li></ul><ul id="31aed70d-80ee-4012-bf64-04af638a6f1b" class="bulleted-list"><li style="list-style-type:disc"><strong>Multilevel Queues: </strong>Processes are assigned priority classes. Each class has its own ready queue. Scheduler picks the highest priority queue (class) which has at least one ready process and selection of process within class would have its own policy (typically round robin). High priority classes may implement FCFS in order to ensure quick response time. <ul id="686efe27-4340-40fa-af21-b427adae2e8f" class="bulleted-list"><li style="list-style-type:circle">Scheduler can adjust the time slice based on class picked. I/O bound process may be assigned higher priority class with longer time slice and CPU bound process may be assigned lower priority class with shorter time slice. </li></ul><ul id="bed1d075-1f2e-4a79-a2b8-e9888b3a54bb" class="bulleted-list"><li style="list-style-type:circle">The disadvantage is that the class of a process must be assigned apriori. </li></ul></li></ul><ul id="3319230e-ca8b-47fb-9d2c-5e524b0d9658" class="bulleted-list"><li style="list-style-type:disc"><strong>Multilevel Feedback Queues: </strong>Process dynamically moves between priority classes based on its CPU/IO activity. <ul id="e5d4889a-f76b-41e6-bc46-2244dc86de52" class="bulleted-list"><li style="list-style-type:circle">Basic observation: CPU bound process likely to complete its entire time slice whereas IO bound process may not complete the entire time slice. </li></ul><ul id="e16702f6-23c5-4ed6-95b1-8ac4ee04db05" class="bulleted-list"><li style="list-style-type:circle">All processes start in the highest priority. If it finishes its time slice (CPU Bound), move to the next lower priority class. If it doesn’t (IO Bound), keep it on the same priority class. Starvation needs to be properly dealt. </li></ul><ul id="d447e721-cb87-4ac1-8720-6587adad114a" class="bulleted-list"><li style="list-style-type:circle">Another drawback is that a malicious process can game the system and stay in the highest priority. It can do some work for most of the time slice and then sleep till the end of the time slice. Sleep will force a context switch and therefore the process will remain in the highest priority ⇒ the process will need to know the time slice. </li></ul></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§7.3: Multi-Processor Scheduling</strong></summary><div class="indented"><ul id="16ed7a6a-4e35-4d5f-ac44-5fc13c3e9f3c" class="bulleted-list"><li style="list-style-type:disc">One simple scheme for a multi-processor scheduler is where there is a dedicated CPU to run the scheduler. This scheduler decides which process should run on which core. The disadvantage is performance degradation. </li></ul><ul id="c691b725-ef0a-4fef-ac02-d3b282c24db0" class="bulleted-list"><li style="list-style-type:disc">Another scheme is a <strong>symmetrical scheduling</strong> scheme. Each processor runs a scheduler independently to select the process to execute. Two variants:<ul id="6a3ef4ec-79ff-434b-86a4-089984bdc77a" class="bulleted-list"><li style="list-style-type:circle"><strong>Global Queues: </strong>Exactly one queue of ready (runnable) processes which is shared among all processors. <ul id="f2140009-0f55-4067-84df-1b2c5b46c083" class="bulleted-list"><li style="list-style-type:square">Advantages: Good CPU Utilization, Fair to all processes</li></ul><ul id="401ad7a2-e030-4b4d-9be2-678abe71d674" class="bulleted-list"><li style="list-style-type:square">Disadvantages: Not scalable, processor affinity (choose which processor a user wants to execute their process), is not easily achieved locking needed in scheduler (if 2 cores query at the same time, if the scheduler is not serialized/locked then both will end up running the same process. However locking the scheduler is a bad idea as schedulers should be efficient)</li></ul></li></ul><ul id="0c15ff88-42f7-4bcf-acfa-5688657c649b" class="bulleted-list"><li style="list-style-type:circle"><strong>Per CPU Queue: </strong>Static partition of processes across CPUs<ul id="34058363-54cc-412c-9047-3fa2972c9e95" class="bulleted-list"><li style="list-style-type:square">Advantages: Easy to implement, scalable, locality</li></ul><ul id="dead5d83-0348-468b-94d0-85edafb7a574" class="bulleted-list"><li style="list-style-type:square">Disadvantages: load imbalance (some CPU has a lot of processes where as another CPU might be idle or have few processes)</li></ul></li></ul><ul id="7a6cf3a3-c58a-466a-b827-dab7398c4604" class="bulleted-list"><li style="list-style-type:circle"><strong>Hybrid Approach: </strong>Uses both local and global queues. Global queues are used to ensure load balancing is maintained. Locality is achieved due to local queues. </li></ul></li></ul><ul id="75aa567e-3c73-4499-921e-c329579155f5" class="bulleted-list"><li style="list-style-type:disc">There are two techniques for <strong>Load Balancing:</strong><ul id="deef477d-0b72-406d-ad00-482a6a75bc56" class="bulleted-list"><li style="list-style-type:circle"><strong>Push Migration: </strong>A special task periodically monitors the load of all processors, and redistributes work when it finds an imbalance. </li></ul><ul id="c615c106-1674-4430-abc5-58a04ee0af65" class="bulleted-list"><li style="list-style-type:circle"><strong>Pull Migration: </strong>Idle processors pull a waiting task from a busy processor.</li></ul><p id="ae45f4d9-3a61-492d-85a4-7ec586c95101" class="">Note that process migration is expensive and it requires all memories to be repopulated. </p></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§7.4: Scheduling in Linux</strong></summary><div class="indented"><ul id="db06d2a0-ae31-4bf3-8b1b-b3422d0c00d1" class="bulleted-list"><li style="list-style-type:disc">Linux classifies processes into 2 types:<ul id="ea723cca-9dbe-440d-8731-c4a802c68a50" class="bulleted-list"><li style="list-style-type:circle"><strong>Real time: </strong>Deadlines have to be met, should never be blocked by a low priority task. Once specified as real time, it is always considered as realtime. </li></ul><ul id="7916cfe9-755d-4f16-93e1-1ddb6bc58c6f" class="bulleted-list"><li style="list-style-type:circle"><strong>Normal Process: </strong>A process may act as an interactive process for some time and then become a batch process. Linux uses heuristics to classify<ul id="3bf86ab6-4875-457c-99c8-19c7d6efebac" class="bulleted-list"><li style="list-style-type:square"><strong>Interactive </strong>(typically IO Bound)<strong>: </strong>Constantly interact with their users and spend a lot of time waiting for key presses and mouse operations. When input is received, process must wake up quickly</li></ul><ul id="facd5ccb-2fcd-41b5-aa77-0cea00758543" class="bulleted-list"><li style="list-style-type:square"><strong>Batch </strong>(typically CPU Bound)<strong>: </strong>Do not require any user interaction, runs in the background.</li></ul></li></ul></li></ul><ul id="237f6ccf-4123-44fc-a677-7291f44ecc9a" class="bulleted-list"><li style="list-style-type:disc"><strong>O(n) Scheduler: </strong>At every context switch: scan the list of runnable processes, compute priorities and select the best process to run.<ul id="cb7a4535-6ddd-4a49-8b33-5b763e47a357" class="bulleted-list"><li style="list-style-type:circle">O(n) where n is the number of processes, used a global run-queue ⇒<mark class="highlight-red"> not scalable</mark></li></ul></li></ul><h2 id="3b9709ee-5b60-4b49-a5da-e694a8b36a68" class="">O(1) Scheduler</h2><p id="422bf412-dc2b-4bb8-bbe1-7dbb018565e7" class="">Constant time required to pick the next process ⇒ easily scales to large number of processes. Processes are divided into two types<div class="indented"><ul id="687f8a72-0290-4057-917a-4d9d4b4de5e9" class="bulleted-list"><li style="list-style-type:disc"><strong>Real time: </strong>Priorities from [0,99]</li></ul><ul id="43323eb2-6fda-4137-96e1-115c6c7fa879" class="bulleted-list"><li style="list-style-type:disc"><strong>Normal: </strong>Priorities from [100,139]</li></ul><h3 id="bb262bf8-a999-4035-a869-5e3926e05a01" class=""><strong>Scheduling Normal Processes: </strong></h3><figure id="95235331-304e-4c29-b638-f7c9f33339a4" class="image"><a href="img/Screenshot_2024-03-20_at_4.50.02_PM.png"><img style="width:652px" src="img/Screenshot_2024-03-20_at_4.50.02_PM.png"/></a></figure><ul id="b9676ec7-945d-4868-a812-4862d7846838" class="bulleted-list"><li style="list-style-type:disc">Two ready queues in each CPU: Each queue has 40 priority classes (100-139). When a context switch occurs, the scheduler will scan starting from the 100th run queue going up. It picks the first non-empty queue and executes a process from that queue. This process is then moved to the expired run queue.</li></ul><ul id="5a53b005-1bd9-4a34-be7d-6dea02db815b" class="bulleted-list"><li style="list-style-type:disc">After a while, all the processes in the active run queue would be complete. The expired run queue would now have been filled up. At this point the scheduler would switch the two queues i.e. the empty active run queue is now considered the expired queue and the full expired queue would now be considered the active run queue. </li></ul><ul id="b7018b73-e002-49de-b1a3-7bd21b167690" class="bulleted-list"><li style="list-style-type:disc">This is done in order to prevent starvation. Note that the the scheduler can be implemented in O(1) using special bitmap and instructions. </li></ul><h3 id="1b8d85ce-0d55-4b68-8cdd-263e3b52c1d9" class="">More on Priorities</h3><ul id="fbf417c0-9ef0-492f-bd84-b74711e8fc26" class="bulleted-list"><li style="list-style-type:disc">0-99 is for realtime processes where as 100-139 is for normal processes. The base priority given is 120. The base priority can be changed using linux command <strong>nice. </strong></li></ul><ul id="445c1755-6149-4cd7-94f2-ae170d8b027d" class="bulleted-list"><li style="list-style-type:disc">Recall that Linux uses heuristics to distinguish between batch and interactive process. It uses a bonus which changes the priority based on this heuristic. </li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d94097cf-63e6-4e58-9d78-d1e27702c566" class="code"><code class="language-Notion Formula">dynamic priority = MAX(100, MIN(static priority - bonus + 5, 139))</code></pre><ul id="237e9f94-917b-432b-9fd2-5a3f5c6957c9" class="bulleted-list"><li style="list-style-type:disc">Bonus has a value between 0 and 10. &lt; 5 implies less interaction i.e. more CPU Bound.<ul id="6160fec0-f2a2-4e40-9864-7ebded0173c0" class="bulleted-list"><li style="list-style-type:circle">The bonus is based on the average sleeptime of a process. An IO bound process will sleep more and should therefore get higher priority whereas a CPU bound process will sleep less. </li></ul></li></ul><h3 id="922c0f9e-4603-4ffb-8c99-c063135b085d" class="">Misc</h3><ul id="a2f71a4f-af88-4106-b0e7-83d5484e980c" class="bulleted-list"><li style="list-style-type:disc">Interactive processes have high priorities and are less likely to complete their timeslice ⇒ give it the largest timeslice to ensure it completes it burst without preemption</li></ul><ul id="5a9e54c1-076a-4b94-a52e-e1b3580b66e7" class="bulleted-list"><li style="list-style-type:disc">O(1) uses complex heuristics to distinguish between interactive and non-interactive processes. There is a dependence between timeslice and priority and the distribution is not uniform. </li></ul></div></p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§7.5: Completely Fair Scheduler (CFS)</strong></summary><div class="indented"><ul id="05a652ec-38fc-4311-aaa4-1204816ebaf1" class="bulleted-list"><li style="list-style-type:disc">The advantage of CFS compared to O(1) is that it uses no heuristics and elegantly handles IO and CPU bound processes. </li></ul><ul id="47df50cb-27dc-42a4-bcc1-64f6a9664ffc" class="bulleted-list"><li style="list-style-type:disc">In an ideal fair scheduling, if there are N processes in the system, each process should get (100/N)% of the CPU time. </li></ul><ul id="79b49026-57c4-456a-a416-55d92805a852" class="bulleted-list"><li style="list-style-type:disc">With each runnable process, a <strong>virtual runtime (vruntime) </strong>is included. <ul id="91ca8d37-ae49-405a-b2f9-25d394867d1f" class="bulleted-list"><li style="list-style-type:circle">At every scheduling point, if a process has run for t ms ⇒ vruntime += t</li></ul><ul id="d8309cff-ae16-4d94-9dcf-1aeb68459ef7" class="bulleted-list"><li style="list-style-type:circle">vruntime for a process therefore monotonically increases</li></ul></li></ul><ul id="8e311c4d-33de-4ee7-9f7e-a20cc5171850" class="bulleted-list"><li style="list-style-type:disc">When the timer interrupt occurs, choose the task with the lowest vruntime (min_vruntime is a pointer to the lowest vruntime) ⇒ compute its dynamic timeslice and program the timer with this timeslice ⇒ execute the process <ul id="67af93f6-4310-4f7b-95ab-d5e00d96144b" class="bulleted-list"><li style="list-style-type:circle">CFS uses a red-black tree instead of a queue. The left node will always be lower and the left most node has the lowest runtime. Since min_vruntime is a pointer to this node, choosing the lowest node can be done in O(1) time. </li></ul><ul id="4c49599a-bc14-429e-917f-71fbba90afe1" class="bulleted-list"><li style="list-style-type:circle">If previous process is runnable it is inserted into the tree with the new vruntime ⇒ task moves from left to right of tree and thus starvation is avoided ⇒ done in O(log(n)) time. </li></ul><ul id="b2a3ea0a-1090-4b4c-9ab6-4075b5de99c0" class="bulleted-list"><li style="list-style-type:circle">Red-Black tree is used since it is self balancing and no path will be twice as long and all operations are O(log n). </li></ul></li></ul><ul id="79ea998c-b350-4e6c-b030-3194bc9d87da" class="bulleted-list"><li style="list-style-type:disc">Priority is used to weight the vruntime. If a process has run for t ms ⇒ vruntime += t*(weight based on nice of a process)<ul id="f2acb3a6-51d4-4ffd-a0dd-d8be1ecf11d2" class="bulleted-list"><li style="list-style-type:circle">lower priority ⇒ time moves at a faster rate compared to that of a high priority task </li></ul></li></ul><ul id="8700f7a6-2f36-4a63-9082-a57c0a7135d9" class="bulleted-list"><li style="list-style-type:disc">Since IO bound processes have small CPU bursts, they will have a low vruntime ⇒ appear on the left of the tree and will therefore be given higher priority. Since they have a small vruntime they will have larger time slices. </li></ul><ul id="61be770a-ee82-404c-b95e-91f04ff9d520" class="bulleted-list"><li style="list-style-type:disc">When a new process is added to the RB tree it starts with an initial value of min_vruntime so that it gets to execute quickly. </li></ul></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

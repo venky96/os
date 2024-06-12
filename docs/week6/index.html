@@ -1,0 +1,678 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Week 6</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9cc0fb76-9f82-4119-9128-0e86327c6373" class="page sans"><header><h1 class="page-title">Week 6</h1><p class="page-description"></p></header><div class="page-body"><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§6.1: OS Events: Interrupts and Exceptions</strong></summary><div class="indented"><ul id="1a44d55b-62be-40eb-9b18-07b58c143c86" class="bulleted-list"><li style="list-style-type:disc">The processor has a reset pin. When it receives a signal, the OS starts to boot in machine mode then goes into supervisor mode and creates a user process and switches to that. </li></ul><ul id="85872621-fa76-43dc-948c-82e61a599bf8" class="bulleted-list"><li style="list-style-type:disc">Once a user processes starts executing, the OS which is in supervisor mode only executes when some event occurs ⇒ OS EXECUTES ONLY WHEN EVENTS OCCUR.</li></ul><ul id="674d9279-fca4-48b0-92bc-e426f9e6c26c" class="bulleted-list"><li style="list-style-type:disc">When the process is executing, there may be an interrupt. First the OS needs identify whether it is a software/hardware interrupt or an exception. Upon correct identification, the correct handler is processed and this shifts the processor back from the user mode to the supervisor mode and permits the OS to execute. The OS services this interrupt, executes certain functions as is required for this particular interrupt and then goes back into the user mode and the user mode process continues to execute. <ul id="8af42c85-0606-431b-ad0d-797ba3dcc440" class="bulleted-list"><li style="list-style-type:circle">Software interrupts: System calls like ecall</li></ul><ul id="530d0dd1-7079-44d5-b16a-7606ff59dbd0" class="bulleted-list"><li style="list-style-type:circle">Hardware interrupts: Triggered by external devices (keyboard, mouse click, timer)</li></ul><ul id="86320b34-36a5-4f31-83e9-6fd6411e37ef" class="bulleted-list"><li style="list-style-type:circle">Exceptions: Page fault, divide by 0, illegal instruction</li></ul></li></ul><ul id="039d859a-4d6a-4adf-99dd-0dc2803a8794" class="bulleted-list"><li style="list-style-type:disc">In order to identify the cause of the interrupt, the processor maintains a cause register. The Interrupt Pending register (whether an interrupt is pending to be serviced) and the Interrupt Enable register (enable/disable interrupts).</li></ul><ul id="80f2762a-0170-4334-9729-2af5b0fe3244" class="bulleted-list"><li style="list-style-type:disc">The reason why OS is event driven is because OS cannot trust user processes as they may be buggy or crash which should not affect the OS. Moreover it needs to be fair and not let any one process hog CPU. </li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§6.2: Interrupts and handling in RISCV</strong></summary><div class="indented"><figure id="d4f1088b-939e-4729-9c67-01518b01892e" class="image" style="text-align:center"><a href="img/Screenshot_2024-03-19_at_3.50.29_PM.png"><img style="width:528px" src="img/Screenshot_2024-03-19_at_3.50.29_PM.png"/></a></figure><ul id="f37ea16d-1d0d-4eb5-b391-e6f4f0da16af" class="bulleted-list"><li style="list-style-type:disc">We have different interrupts for different modes. These can be enabled/disabled globally by setting the MIE (machine mode interrupts) bit and SIE (supervisor mode interrupts) bit in the mstatus register appropriately.</li></ul><ul id="f4e86fe8-1bc3-424e-a8f9-14d51be52c44" class="bulleted-list"><li style="list-style-type:disc">The MPP(2 bits) and SPP(1 bit) hold the previous mode before the interrupt. There are three possible ways an interrupt could occur so that an event needs to be serviced in the machine mode. It can occur from user mode, supervisor mode, or machine mode. Therefore MPP requires 2 bits. Whereas an interrupt could occur from user mode or supervisor model in order to be serviced in the supervisor mode. Therefore SPP requires 1 bit. </li></ul><ul id="2a162e4d-2754-44af-b22a-1f2214f6a662" class="bulleted-list"><li style="list-style-type:disc">Machine mode and supervisor mode each have their own interrupt pending and interrupt enable registers. </li></ul><ul id="48a3b98c-2fcd-477b-a651-25ac3bf22f8d" class="bulleted-list"><li style="list-style-type:disc">When an event occurs while the processor switches from the user mode to supervisor mode, it looks into the stvec register and loads it into supervisor mode. The stvec register contains the interrupt routine. <figure id="79f501ff-3cef-461f-84dc-c6ec103673b8" class="image"><a href="img/Screenshot_2024-03-19_at_4.23.01_PM.png"><img style="width:652px" src="img/Screenshot_2024-03-19_at_4.23.01_PM.png"/></a></figure></li></ul><ul id="c8f97655-5e28-4e8c-9a0f-91a5e69406c9" class="bulleted-list"><li style="list-style-type:disc">uservec is used to handle interrupts when in user address space. The reason uservec is executed is because the register stvec contains uservec. Now uservec invokes kernelvec and in this way interrupts are serviced. uservec changes the context from user VA to kernel VA and eventually cause the usertrap to execute. The scause register holds information indicating the case of the interrupt. The usertrap will look into scause register to find the cause of the event. <figure id="1c6b6aad-7b17-4cba-be0b-2aa179c6f78c" class="image"><a href="img/Screenshot_2024-03-19_at_4.30.21_PM.png"><img style="width:652px" src="img/Screenshot_2024-03-19_at_4.30.21_PM.png"/></a></figure></li></ul><ul id="53d515ff-e7a5-45d1-968e-abfd9cd5df87" class="bulleted-list"><li style="list-style-type:disc">Suppose a user process is running and an event gets triggered. This would cause the hardware to store the PC in EPC register. From here it would either move to uservec function or the kernelvec function. This choice of uservec/kernelvec depends on the previous mode of operation. If previous mode was usermode ⇒ uservec is executed. If it is in kernelmode then stvec is configured so as to point to kernelvec and is thus executed.  </li></ul><ul id="02714a54-6f3f-4c96-8486-3dc9dd40cdbc" class="bulleted-list"><li style="list-style-type:disc">Once in kerneltrap or usertrap we need to identify what caused the interrupt. An exception in the usermode simply kills the process whereas in kernel mode causes a panic. Since a system call cannot occur in the kernel mode, a software interrupt is not possible in the kernel mode. </li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§6.3: Hardware Interrupts </strong></summary><div class="indented"><ul id="bde0106c-ab44-4722-9ccc-00cbb7d9d606" class="bulleted-list"><li style="list-style-type:disc">Hardware interrupts are events that get triggered by external devices. However we may have multiple devices (mouse, keyboard, etc) that may want to communicate with the CPU. So how do we handle multiple such devices? <figure id="32209a9c-607d-4a6f-b543-97d3e9ec64c9" class="image" style="text-align:center"><a href="img/Screenshot_2024-03-19_at_5.18.06_PM.png"><img style="width:576px" src="img/Screenshot_2024-03-19_at_5.18.06_PM.png"/></a></figure><ul id="69b856a7-fae2-4a2b-9e01-99997a1e598a" class="bulleted-list"><li style="list-style-type:circle">This is done using a programmable interrupt controller which is connected to the CPU through the interrupt line. The PIC has different input lines to take in hardware inputs. One interrupt line is multiplexed using the PIC. </li></ul><ul id="f338f830-c6e1-428b-b627-63aa2a1459ad" class="bulleted-list"><li style="list-style-type:circle">However the CPU does not know which external device has caused the interrupt. It only knows that an external device has triggered it (recall scause register). Therefore the CPU queries the PIC and identifies which input raised the interrupt. <figure id="c2373c68-6b69-400e-9eff-9faeab07d8f3" class="image" style="text-align:center"><a href="img/Screenshot_2024-03-19_at_5.24.35_PM.png"><img style="width:528px" src="img/Screenshot_2024-03-19_at_5.24.35_PM.png"/></a></figure></li></ul><ul id="65558fbc-bc5e-4774-8093-7039dba350d0" class="bulleted-list"><li style="list-style-type:circle">In a multi-core setup, the PIC also has to decide which core to forward the interrupt. However some interrupts are needed for a particular core (for eg timer). One way to handle this that each core has its own timer and each timer is forwarded according. <figure id="29c49682-dd5b-4d7f-a226-1ec238c0a639" class="image" style="text-align:center"><a href="img/Screenshot_2024-03-19_at_5.25.30_PM.png"><img style="width:480px" src="img/Screenshot_2024-03-19_at_5.25.30_PM.png"/></a></figure></li></ul><ul id="a0a337f5-22a6-4d13-9edd-e898b949e2f8" class="bulleted-list"><li style="list-style-type:circle">In modern architectures we now have local interrupt controller for each core and a global interrupt controller that is shared across all cores. </li></ul><ul id="74c38da9-f815-42d6-96d0-bd111b0d6f7b" class="bulleted-list"><li style="list-style-type:circle">Interrupts which are dedicated to specific controllers such as the timer are connected to the LIC whilst others are routed through GLIC. </li></ul></li></ul><figure id="bf92d354-4b47-4bb8-94b5-300256fa8d59" class="image" style="text-align:center"><a href="img/Screenshot_2024-03-19_at_5.26.44_PM.png"><img style="width:432px" src="img/Screenshot_2024-03-19_at_5.26.44_PM.png"/></a></figure><ul id="a5ddf759-4462-461e-9690-74b77799b0f3" class="bulleted-list"><li style="list-style-type:disc">In RISC V, with multiple cores, a local interrupt controller (CLINT) is shared across all cores and then we have a platform level interrupt controller (PLIC). The CLINT generates different timer interrupts independently for each core (hart) while the keyboard, mouse etc are connected to PLIC. </li></ul><ul id="44c240e2-8c2c-43da-9cbf-b497b187f5aa" class="bulleted-list"><li style="list-style-type:disc">In the case of a hardware interrupt, the trap.c invokes devintr which looks into PLIC and finds which device invoked the interrupt. <figure id="f35de36e-64eb-4357-a188-e1b0ae3761e0" class="image"><a href="img/Screenshot_2024-03-19_at_5.39.05_PM.png"><img style="width:652px" src="img/Screenshot_2024-03-19_at_5.39.05_PM.png"/></a></figure></li></ul><p id="b6015589-b408-465c-a2eb-23af62352181" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§6.4: Handling Hardware Interrupts </strong></summary><div class="indented"><ul id="ef1ce4ed-d43d-4f86-af06-beed2b2e53cb" class="bulleted-list"><li style="list-style-type:disc">Typical interrupt handlers work as a software and the time taken to handle an interrupt is critical.  <ol type="1" id="e33d8410-f035-40a3-8003-45cacfb387b2" class="numbered-list" start="1"><li>The software first saves additional CPU context including saving the PC in the EPC register. </li></ol><ol type="1" id="ebc5cbe5-0f42-419a-b7aa-abbbb932317b" class="numbered-list" start="2"><li>It then processes the interrupt by loading the STVEC into the PC. </li></ol><ol type="1" id="d3d3fef2-29fe-484d-aef7-697693b9aff6" class="numbered-list" start="3"><li>Then it invokes the OS/Kernel scheduler</li></ol><ol type="1" id="0870d394-913c-47da-aab7-2e18042ddd25" class="numbered-list" start="4"><li>Finally it restores the CPU context and returns</li></ol></li></ul><ul id="678c964a-1d2e-4620-85e4-8d3107140577" class="bulleted-list"><li style="list-style-type:disc">The time taken when the interrupt occurs to the point where the interrupt handler executes is called the interrupt latency. <ul id="2bfbb0a0-c55a-4d0d-9f03-2c5692397bc3" class="bulleted-list"><li style="list-style-type:circle">RTOS requires guarantees wrt to the latency</li></ul><ul id="deef344b-56c3-4570-89f3-359afab893dc" class="bulleted-list"><li style="list-style-type:circle">Min latency is due to the PLIC/controller to channel to the core</li></ul><ul id="a5874171-e4bc-4498-9f11-61d04af3ca98" class="bulleted-list"><li style="list-style-type:circle">The max latency is due to the OS. Occurs when the handler cannot be serviced immediately. For example if a certain set of instructions have to be executed together (atomic operations), in that case one has to wait for it to finish its execution before the interrupt could be serviced. </li></ul></li></ul><figure id="8f77388e-e939-4ab1-a44a-68960534c95d" class="image"><a href="img/Screenshot_2024-03-19_at_6.54.59_PM.png"><img style="width:680px" src="img/Screenshot_2024-03-19_at_6.54.59_PM.png"/></a></figure><ul id="ef8668a6-356c-4499-b6ec-5f1f482cb88c" class="bulleted-list"><li style="list-style-type:disc">Linux interrupt handlers are designed in such a way that the main handler is as small as possible. It splits the entire handling into two parts. This causes less chances of nested interrupts and reduces latencies. <ul id="21af4a74-2820-4b58-91af-bc9b05c011bb" class="bulleted-list"><li style="list-style-type:circle"><strong>The Top Half</strong>: does the minimum work and is executed as soon as an interrupt is executed. It saves registers, unmasks others interrupts and restores registers and returns to the previous context. </li></ul><ul id="6f4d6f82-eeca-49c8-8ff2-0f424e8b80c5" class="bulleted-list"><li style="list-style-type:circle"><strong>The Bottom Half: </strong>deferred processing, communicating with the devices, setting memory, etc - can be interrupted. </li></ul></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§6.5: Timer Interrupts</strong></summary><div class="indented"><ul id="c3b6e458-0045-43cb-a1b6-7251cdd496db" class="bulleted-list"><li style="list-style-type:disc">Periodically the timer completes counting and through the CLINT results in an interrupt. The CPU uses this interrupt to perform a context switch. <p id="05e0a38c-9863-48cf-9770-3cba07dfdf04" class="">Suppose a process is executing, after a fixed amount of time the timer will interrupt. The CPU will go into supervisor mode and invoke the scheduler and perform a context switch to a different process. </p></li></ul><ul id="a6bb3bfa-2205-4ffe-abd7-94883764ff26" class="bulleted-list"><li style="list-style-type:disc"><strong>mtime </strong>is a 64 bit register which is incremented at a constant frequency (every clock pulse).  <strong>mtimecmp </strong>is a 64 bit register that is used to compare with mtime every clock pulse.  if(mtime &gt; mtimecmp) ⇒  interrupt<ul id="980f4c02-7a3c-47db-b11a-876d0b471ed4" class="bulleted-list"><li style="list-style-type:circle">Note that supervisor mode cannot configure timer. Only machine mode can. Therefore when a timer interrupt occurs, we move to machine mode and <ol type="1" id="cfe15085-488f-45ca-b965-a7188f14e9f3" class="numbered-list" start="1"><li>Reprogram mtimecmp register</li></ol><ol type="1" id="0e2430a5-6e2b-49b6-a915-0308114f8051" class="numbered-list" start="2"><li> trigger a software interrupt in order to move to the supervisor mode.</li></ol></li></ul></li></ul><ul id="0f2a4485-aa29-4557-8bee-5c90a45675ab" class="bulleted-list"><li style="list-style-type:disc">In xv6, 1 <strong>mtime</strong> is created for all cores but each core has a different <strong>mtimecmp</strong></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§6.6: Context Switching</strong></summary><div class="indented"><ul id="683e190f-8026-44cd-998d-1b811d9dbcc7" class="bulleted-list"><li style="list-style-type:disc">Note that each process has their own VA with their top parts consisting of the trampoline and the trapframe. A kernels has its own VA. In a context switch we need to move from P1’s VA to P2’s VA using the scheduling algorithm. </li></ul><ul id="8566165d-2aa2-47e4-b0ff-bb94a6a4fef5" class="bulleted-list"><li style="list-style-type:disc">Context saves registers and permits to continue executing at a later time by reloading registers. </li></ul><div id="455eb181-30aa-4a22-9214-08276119b6be" class="column-list"><div id="c3e27086-9b13-4b5c-96e9-6bfb89cf765f" style="width:43.75%" class="column"><figure id="7961240f-1568-4d65-8bf8-b188dc512d9a" class="image"><a href="img/Screenshot_2024-03-19_at_8.47.26_PM.png"><img style="width:306.015625px" src="img/Screenshot_2024-03-19_at_8.47.26_PM.png"/></a></figure></div><div id="c24d5c06-3707-4374-9216-c43ec017bfe6" style="width:56.25%" class="column"><ul id="63fd66f5-556e-4465-ad24-8553117f445c" class="bulleted-list"><li style="list-style-type:disc">Suppose P1 is executing and a timer interrupt occurs. This interrupt is in machine mode which is forwarded to the supervisor mode as a software interrupt. </li></ul><ul id="df05fee9-78b6-4e9a-8a5c-7b3e8460a1cc" class="bulleted-list"><li style="list-style-type:disc">The PC holds the value of stvec which holds uservec. uservec saves all registers corresponding to the user space in the trapframe. </li></ul><ul id="f2095081-437c-4d50-a4ed-b9180f593911" class="bulleted-list"><li style="list-style-type:disc">The usertrap identifies cause of the interrupt. If it is happens to be a timer interrupt it invokes yield. </li></ul></div></div><ul id="e4d2ea9b-a404-407f-9b1f-f253b384e350" class="bulleted-list"><li style="list-style-type:disc">The yield function sets P1 to runnable and invokes sched.</li></ul><ul id="f3fde22c-c2e5-481d-bd9e-c0434658fb73" class="bulleted-list"><li style="list-style-type:disc">After performing some sanity checks the sched function switches from the context of P1 to the context of scheduler. </li></ul><ul id="c781538d-341d-42f6-96d8-e0ec489df3ff" class="bulleted-list"><li style="list-style-type:disc">The scheduler then invokes the switch function to change the context from scheduler to P2. </li></ul><ul id="c4ad6c11-7a40-44ba-8e23-e35119224a61" class="bulleted-list"><li style="list-style-type:disc">This time that it takes to switch from the context of P1 to P2 is called the context switch time. </li></ul></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
