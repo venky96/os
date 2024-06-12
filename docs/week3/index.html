@@ -1,0 +1,678 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Week 3</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="71c98e3d-5e6f-4737-b763-9e7d190c480c" class="page sans"><header><h1 class="page-title">Week 3</h1><p class="page-description"></p></header><div class="page-body"><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§3.1: Memory Mapping in QEMU</strong></summary><div class="indented"><ul id="7aa39311-8626-4f70-8f08-8131ee211276" class="bulleted-list"><li style="list-style-type:disc">Every time the CPU wants to load/store data/instruction, it puts out a virtual address. The MMU uses a sequence of page tables to convert the virtual address to the corresponding physical address.  This physical address is looked up in the DRAM. <ul id="967e0657-6b5b-4811-bece-684505648db4" class="bulleted-list"><li style="list-style-type:circle">Any load/store instruction would go through this translation unless there is a caching of the translation present in the CPU called TLB. </li></ul><ul id="924300bd-d39e-4c52-8faf-c8373b4fee30" class="bulleted-list"><li style="list-style-type:circle">The setting up of the page tables is handled by the OS. Unless OS sets it up and enables the translation, the scheme won’t work. </li></ul><ul id="2d44a31a-a3e0-44a8-b6eb-f7a8f25c4e8d" class="bulleted-list"><li style="list-style-type:circle">During booting, page tables are not present in the ram. Soon after booting virtual memory is not enabled as the OS needs to set it up and enable it. During this period before page tables are set up Physical Address = Virtual Address. </li></ul><ul id="950766a4-4d7e-4f66-a550-7bf4edee8b32" class="bulleted-list"><li style="list-style-type:circle">Boot ⇒ entry.S ⇒ start.C ⇒ main.C . The execution of entry and start is done without MMU and DRAM is directly accessed. In main before turning on MMU, the kernel sets up the hierarchy of page tables by setting up the kernel virtual address space and turning on the MMU. </li></ul></li></ul><ul id="b1f8eae8-e6e9-46d7-a06c-a8c7b58b1b25" class="bulleted-list"><li style="list-style-type:disc">Kernel Virtual Address Space: The OS needs to know about the memory of the system and thus could differ across systems. The memory map for QEMU is:<figure id="43065fc8-996f-429e-88fe-426d0a8f8788" class="image"><a href="img/Screenshot_2024-02-17_at_12.47.49_PM.png"><img style="width:1308px" src="img/Screenshot_2024-02-17_at_12.47.49_PM.png"/></a></figure><ul id="aff09275-6e10-4786-9e5d-99913a50df33" class="bulleted-list"><li style="list-style-type:circle">The kernel expects there to be RAM for use by the kernel and user pages from physical address 0x80000000 to PHYSTOP (Maximum location of the ram). </li></ul><ul id="cfa6fb00-7bf5-41c9-a574-24a68c26466f" class="bulleted-list"><li style="list-style-type:circle">Before we enable MMU we would need to create the virtual address space that maps to the physical address space. <figure id="3d0dcb22-c5a8-411a-96b7-cc5f938da18e" class="image"><a href="img/Screenshot_2024-02-17_at_3.18.35_PM.png"><img style="width:970px" src="img/Screenshot_2024-02-17_at_3.18.35_PM.png"/></a></figure></li></ul><ul id="1ff2e33d-ccd8-4ea5-b5c1-1d346738fa7f" class="bulleted-list"><li style="list-style-type:circle">Some addresses are mapped 1-to-1. Others are mapped differently. For example KERNBASE 0x80000000 will be the same for virtual address and physical address. </li></ul><ul id="10168835-afe5-4cb4-8ffa-64cd15763c3b" class="bulleted-list"><li style="list-style-type:circle">The trampoline, Guard page are somewhere in the higher virtual address space and but mapped to a lower physical address space.</li></ul><ul id="3ae01883-dd59-47d1-bb02-9118f860c055" class="bulleted-list"><li style="list-style-type:circle">Note that some items may have different virtual addresses but refer to the same physical address. Somethings in the Trampoline may have the same address as the kernel text item. Thus the same data can be accessed from  2 virtual addresses. </li></ul></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§3.2: Memory Initialisation in xv6</strong></summary><div class="indented"><ul id="89388fc0-3a1c-4333-a7a5-df860d8e309b" class="bulleted-list"><li style="list-style-type:disc">Create page hierarchy and tell the CPU which virtual address should map to which physical address. kvminit() creates the kernel page table does this initialisation.<ul id="90e7c751-a91c-4ab4-b972-d494ac1aa96b" class="bulleted-list"><li style="list-style-type:circle">kvmmap(virtual address, physical address, page size, protection bits) ⇒ calls mappages</li></ul><ul id="811c8a2f-cbc8-47e3-935d-94dd76c6a23d" class="bulleted-list"><li style="list-style-type:circle">mappages(kernel pagetable, virtual address, page size, physical address, protection bits) ⇒ only the required mappings are created. </li></ul><ul id="80c64a9e-5141-4c1f-81a6-bb4aabd3f279" class="bulleted-list"><li style="list-style-type:circle">etext is the address where the kernel ends. Kernel code is give read and execute permissions, no write permissions</li></ul></li></ul><ul id="6f85447e-aa68-4b97-a0ec-907d35af33f8" class="bulleted-list"><li style="list-style-type:disc">Power on Reset ⇒ Registers Initialized to 0 ⇒ entry.S ⇒ start.C ⇒ main.C <ul id="9c5d1371-cd35-46b2-840d-30b3d644f2dc" class="bulleted-list"><li style="list-style-type:circle">Upon arrival in main, paging is disabled and we enter in supervisor mode. kinit (Page frame creation), kvminit(create kernel page table), kvminithart(turns on paging and initializes satp)</li></ul><ul id="4aa75789-fdd3-483a-8d3b-265f38d0c24c" class="bulleted-list"><li style="list-style-type:circle">Processor is enabled with paging when w_satp function inside kvminithart completes execution.</li></ul></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§3.3: Processes</strong></summary><div class="indented"><ul id="f0553d5c-b847-46d9-bd32-85cd0c903cee" class="bulleted-list"><li style="list-style-type:disc">Every time an OS wants to run an application it creates a process. A process is a program in execution and is the most important abstraction in OS identified by a virtual address space. It comprises of the ELF (code, data), user space (stack, heap), kernel space (state in the OS, kernel stack).  <figure id="146be1d1-ca56-4dbb-8ecc-f84eacdd84a0" class="image"><a href="img/Screenshot_2024-02-17_at_5.48.19_PM.png"><img style="width:1444px" src="img/Screenshot_2024-02-17_at_5.48.19_PM.png"/></a></figure></li></ul><div id="0d55fb35-5d03-40c7-b3cc-7b1907d9d988" class="column-list"><div id="03f374d4-c0ae-4b3c-907b-48b730b281a2" style="width:68.75%" class="column"><ul id="0698720a-a81e-49f3-89e3-129da00e2c67" class="bulleted-list"><li style="list-style-type:disc">Process Address Space has a virtual address map with all memory a process can address and a large contiguous array of addresses from 0 to MAXVA. <figure id="441149f8-95b2-4dbc-a272-4fa8bb7d1489" class="image"><a href="img/Screenshot_2024-02-17_at_5.52.18_PM.png"><img style="width:877px" src="img/Screenshot_2024-02-17_at_5.52.18_PM.png"/></a></figure></li></ul></div><div id="98437f14-7c11-4469-8d46-c8c84105b943" style="width:31.25%" class="column"><figure id="008688d9-0661-4a99-8223-6006ad5f78a5" class="image"><a href="img/Screenshot_2024-02-17_at_5.51.28_PM.png"><img style="width:504px" src="img/Screenshot_2024-02-17_at_5.51.28_PM.png"/></a></figure></div></div><ul id="b51589a0-b2fa-4fef-abdf-04591939c12d" class="bulleted-list"><li style="list-style-type:disc">The heap, stack, data, instructions can’t access the trampoline and trapframe as they are in supervisor mode of the process. Each process has a different address space. However the data contained in trapframe and trampoline are common across all processes. <figure id="b15633a9-96bd-41c4-9b16-555b46064979" class="image"><a href="img/Screenshot_2024-02-17_at_5.57.52_PM.png"><img style="width:1630px" src="img/Screenshot_2024-02-17_at_5.57.52_PM.png"/></a></figure></li></ul><ul id="04ee9140-60c0-4824-ad99-2db5d1e7fcab" class="bulleted-list"><li style="list-style-type:disc">User Space Stack is used when executing user code and is present in the process address space. </li></ul><ul id="b92d4305-635a-4083-9c28-f6396520bc9b" class="bulleted-list"><li style="list-style-type:disc">Kernel Space stack is used when executing kernel code (eg system calls) ⇒ Kernel can execute even if user stack is corrupt. </li></ul><ul id="495d92ac-7ddd-4159-89df-8897943a64f0" class="bulleted-list"><li style="list-style-type:disc">In addition to the kernel stack, the kernel also has unique entry called proc data structure. It allows processes to resume execution after a while, keeps track of resources used and tracks the process state</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§3.4: Process control block in xv6</strong></summary><div class="indented"><ul id="9b49cc80-2783-44f7-977b-59173740fca6" class="bulleted-list"><li style="list-style-type:disc">int pid can uniquely identify a process. Number is incremented sequentially. When max is reached reset and continue to increment until an unallocated pid is found</li></ul><ul id="2c922203-5bf8-431f-a953-8ee45cc70211" class="bulleted-list"><li style="list-style-type:disc">enum proctstate state defines the process state : Unused, sleeping, runnable, running, zombie.<ul id="3fdee2ee-14d2-41fa-83e8-8409cfb72fcc" class="bulleted-list"><li style="list-style-type:circle">Runnable: Ready to execute on the CPU which is executing another process. Scheduler picks process from the ready queue</li></ul><ul id="621ccff1-cc5a-4552-b5be-1038a93464a6" class="bulleted-list"><li style="list-style-type:circle">Sleeping: Waiting for an external event to occur (scanf for example). Upon event obtained ⇒ back to runnable state</li></ul><ul id="ae3e5d2e-a08c-4c8f-af6a-9676d2f46b5f" class="bulleted-list"><li style="list-style-type:circle">Timer interrupt would cause a running process to go to the runnable state i.e. put in the queue again</li></ul><figure id="f0a7843e-47a1-4f7d-9175-5b2f40fa1fc7" class="image" style="text-align:center"><a href="img/Screenshot_2024-02-17_at_8.17.48_PM.png"><img style="width:480px" src="img/Screenshot_2024-02-17_at_8.17.48_PM.png"/></a></figure><ul id="1b0280d0-6f41-419d-bd7f-3a9d52b50fad" class="bulleted-list"><li style="list-style-type:circle">Every time we have a process running and it is going to be replaced by another process, which was in the runnable queue and the scheduler runs it we need something known as a context switch ⇒ i) state of the currently running process should be saved ii) state of the runnable process chosen for execution should be restored. <ul id="deb24441-63b2-4293-8082-ce2c11cf02e4" class="bulleted-list"><li style="list-style-type:square">State contains registers, list of open files, related processes, etc</li></ul></li></ul></li></ul><ul id="f32aeadf-e489-4106-bdb3-6ae8bc894912" class="bulleted-list"><li style="list-style-type:disc">pagetable_t pagetable is a pointer to page directory pointer (L2). With this a mapping can be established. </li></ul><ul id="bb8729d0-d202-4711-a392-0970f1ae64a4" class="bulleted-list"><li style="list-style-type:disc">trapframe contains various registers used in xv6 and is stored at the top of the virtual address space</li></ul><ul id="e4034129-e328-48ee-b4c1-85192eef1160" class="bulleted-list"><li style="list-style-type:disc">There are 64 proc entries and each process would have its own process id, state, page table, kernel stack, size, etc</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§3.5: Executing Process, Registers and function invocation in xv6</strong></summary><div class="indented"><ul id="0408c1ea-9178-41c6-92ac-50248a42a184" class="bulleted-list"><li style="list-style-type:disc">Suppose there are 2 functions f1() and f2() and f2 is called inside f1. In that case the register “ra” will store the instruction which is to be executed inside f1 as soon as f2 is finished. </li></ul><ul id="48092eac-6e17-4f1a-92d7-9ad211da704e" class="bulleted-list"><li style="list-style-type:disc">The stack pointer points to the bottom of the the stack corresponding to the currently active program. So when f1 calls f2, the stack pointer will point to the bottom of f2.</li></ul><ul id="ce6ee491-2c31-405b-9801-937ecfd5a635" class="bulleted-list"><li style="list-style-type:disc">t register - caller saved , s register - callee saved register (responsibility of f1 to save registers and restore)</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§3.6: Trapframe and System calls</strong></summary><div class="indented"><ul id="2078f1b7-8378-4bde-ac7c-216fa4a0d246" class="bulleted-list"><li style="list-style-type:disc">Proc also contains a pointer to the trapframe for the particular process. The trapframe contains all the registers that are used in the RISC V core. </li></ul><ul id="07cc52c0-a582-410f-85d0-0e8829ad01e7" class="bulleted-list"><li style="list-style-type:disc">If a process is currently being used and is then interrupted by the scheduler, the execution of the process has to be paused. Since at a later time this has to be started from this point again, the important registers and parameters of the process required to restart the process are saved in these registers inside the trapframe. </li></ul><ul id="2748aab5-bd41-4a7e-a0d0-a376b70dc68c" class="bulleted-list"><li style="list-style-type:disc">The restoration of the trapframe allows the process to continue from where it stopped. </li></ul><ul id="c4e86bdb-c210-4d72-a7f9-a1011a9987f3" class="bulleted-list"><li style="list-style-type:disc"> Suppose a user process is executing and the service of the OS is required (eg read a file), in order to do this the process needs to request the kernel. The way a process does this is by invoking a System Call which switches the CPU from the user mode to supervisor mode and permits the OS to execute. </li></ul><ul id="22db21e0-0887-40f8-8ed6-d1e08c580bf1" class="bulleted-list"><li style="list-style-type:disc">System Calls is implemented using “ecall”. To distinguish between various system calls (open file, write to a file, read keyboard, etc), a system call number is passed just before ecall. The register “a7” is set to a specific value. <figure id="a021f48a-890d-433c-8cbc-c535b5d2fbe3" class="image"><a href="img/Screenshot_2024-02-22_at_11.08.46_AM.png"><img style="width:1629px" src="img/Screenshot_2024-02-22_at_11.08.46_AM.png"/></a></figure></li></ul><ul id="4b004906-01f2-4929-8024-8d12a4fbdb11" class="bulleted-list"><li style="list-style-type:disc">Once open is invoked, ecall is executed. At this point, the CPU switches to to supervisor mode from the process’ virtual space and reads the “a7” register from the proc trapframe. Then usertrap switches to kernel virtual space and calls the appropriate syscall. </li></ul><ul id="f37b58fd-d138-4d16-b319-31aed8f8a4cb" class="bulleted-list"><li style="list-style-type:disc">Going back, whatever is written by the syscall is stored in the “a0” register of the trapframe. When we return at “userret”, the trapframe is used to restore the user process execution. </li></ul><p id="5eb44f5a-419e-4d3f-ac2a-4afd5f66dd1f" class="">
+</p></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
