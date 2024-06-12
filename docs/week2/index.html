@@ -1,0 +1,683 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Week 2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0951e77d-c6a3-4d17-a7eb-30386bdf5408" class="page sans"><header><h1 class="page-title">Week 2</h1><p class="page-description"></p></header><div class="page-body"><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§2.1: Introduction to QEMU and xv6</strong></summary><div class="indented"><figure id="efe1bb42-2429-4471-8e34-71d8c68e3c29" class="image"><a href="img/Screenshot_2024-02-07_at_12.02.01_PM.png"><img style="width:677px" src="img/Screenshot_2024-02-07_at_12.02.01_PM.png"/></a></figure><ul id="5a769270-b694-4c6f-a2f5-e5ce38c9d831" class="bulleted-list"><li style="list-style-type:disc">Reset vector is the first instruction a Program Counter (PC) executes - typically the bootloader.</li></ul><ul id="848da536-0817-4a33-b739-85123a534c81" class="bulleted-list"><li style="list-style-type:disc">QEMU is an emulator which emulates hardware on which we run xv6.<ul id="3f00785d-12a0-4ccf-adea-ef05e731ff6c" class="bulleted-list"><li style="list-style-type:circle">QEMU (UART and Disk Controller are emulated)  ⇒ Bootloader ⇒ xv6 OS</li></ul></li></ul><figure id="0da5fd52-72e0-4205-9579-dc01d47f49f5" class="image"><a href="img/Screenshot_2024-02-07_at_2.33.31_PM.png"><img style="width:1383px" src="img/Screenshot_2024-02-07_at_2.33.31_PM.png"/></a><figcaption>Powering up xv6 on QEMU</figcaption></figure><ul id="d119af6a-91d1-45e2-8466-f81ac418e867" class="bulleted-list"><li style="list-style-type:disc">Linker descriptor is given part of the arguments during make which tells the program where to place the entry.S. kernel.ld ensures that entry.S is at location 0x80000000 which starts the xv6 OS.</li></ul><figure id="f49b6190-9e47-4e30-ab9c-8828bfc0aa09" class="image"><a href="img/Screenshot_2024-02-07_at_2.38.35_PM.png"><img style="width:1212px" src="img/Screenshot_2024-02-07_at_2.38.35_PM.png"/></a><figcaption>Linker Descriptor</figcaption></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§2.2: Powering up xv6 on QEMU</strong></summary><div class="indented"><div id="d64ff8f9-1cbc-44be-9364-0bd1e527b47c" class="column-list"><div id="27939131-a7ce-460d-97de-8026488e2ad2" style="width:68.75%" class="column"><ul id="c347478e-357a-47b4-ae3e-d5227af05e32" class="bulleted-list"><li style="list-style-type:disc">In QEMU, we emulate 3 CPU cores connected to a single memory through a common shared bus. <ul id="9f950eb1-ca4d-439b-a722-afbe7ce3c673" class="bulleted-list"><li style="list-style-type:circle"><strong>Memory Symmetry</strong>: All processors share same memory space ⇒ Common Operating System Code </li></ul><ul id="be4e3f82-a87b-4c7f-9059-771261da8eec" class="bulleted-list"><li style="list-style-type:circle"><strong>I/O Symmetry</strong>: All processors share same I/O system ⇒ Every processor can receive interrupt from any I/O device. </li></ul><ul id="6456137c-d44b-4119-849a-fe48c71beedb" class="bulleted-list"><li style="list-style-type:circle">Within each CPU core, <em>hartid </em>register<strong> </strong>is used to identify the core being used. <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="07ece361-4c83-40a9-80d8-6603d7a8e651" class="code"><code class="language-Assembly">csrr a1, mhartid;</code></pre></li></ul><ul id="7435f834-5c71-4360-a1e1-30c1ec71eee2" class="bulleted-list"><li style="list-style-type:circle">All cores start the same with IP = 0x1000 which jumps to 0x80000000</li></ul></li></ul></div><div id="27b1a40c-5201-4b88-9ba6-f1c6876f1ef4" style="width:31.25%" class="column"><p id="bb251fec-32ec-4cb7-95b6-8132df1755ba" class="">
+</p><p id="3cddc555-6b62-47c1-bf66-82b5156eac42" class="">
+</p><figure id="94f1f9e9-1e14-46cc-804a-6e081726a0b8" class="image" style="text-align:center"><a href="img/Screenshot_2024-02-07_at_4.04.38_PM.png"><img style="width:584px" src="img/Screenshot_2024-02-07_at_4.04.38_PM.png"/></a></figure><p id="5d6354d5-3afb-4714-928b-0d0966b455fc" class="">
+</p></div></div><ul id="52d39e6a-cfaf-4005-b5c4-4dbaa2b8926a" class="bulleted-list"><li style="list-style-type:disc">entry.S is written in assembly as no C code and can run without a stack. <strong>The only job of the entry.S is create a stack for each CPU core</strong> and then move into the C program (start.c). <ul id="75148902-5168-4cdd-b668-e3668ee186d2" class="bulleted-list"><li style="list-style-type:circle">The stack pointer for all the cores point to the top of their stack i.e. stack pointer for core 0 points to stack0+4kb because in C, the stack grows downwards.</li></ul></li></ul><ul id="1ca0342a-3230-47d7-a75c-3e787875ab5b" class="bulleted-list"><li style="list-style-type:disc">start.c is entered in machine mode from entry.S . start.c moves the processor from machine mode to supervisor mode and calls the main.C</li></ul><ul id="1b55f33b-8c73-49ca-a71f-a226221aa316" class="bulleted-list"><li style="list-style-type:disc">main.c is the first function that is executed by xv6 in the supervisor mode. In this function, the cpu cores are distinguished and only core0 executes certain functions whereas cores 1,2 execute something else. <ul id="6b489dfa-cc55-4472-9884-72bdac5fe399" class="bulleted-list"><li style="list-style-type:circle">some intializations should only be done once whereas others should be done by all/others. </li></ul><ul id="b001d2cf-dab6-4a64-9f4e-1053441545f1" class="bulleted-list"><li style="list-style-type:circle">Once these cores are initialized, the scheduler is invoked, and the scheduler would start to choose the user programs to execute and allocate them a CPU and shift the programs to user mode and allocate them processes. </li></ul></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong><strong>§2.3: Memory Management - Virtual Memory</strong></strong></summary><div class="indented"><ul id="91f1f44c-aac3-4ea4-8a22-5c5dc20b9630" class="bulleted-list"><li style="list-style-type:disc">Consider a simple C function that prints “Hello World”. It is first compiled into an executable and upon executing the executable a process is created. The process contains the instructions that the code created (text), libraries (text), data, heap (dynamic allocation - malloc), and stack (local variables).  <ul id="1598f423-603b-4e76-bc63-e34b628d79cd" class="bulleted-list"><li style="list-style-type:circle">There are addresses associated with each of these blocks of the process. The process is contained inside the DRAM. </li></ul><ul id="0276bfb3-9a66-4f48-a816-4e9110835f51" class="bulleted-list"><li style="list-style-type:circle">Process’ memory requirements may be much larger than the available DRAM. Furthermore, memory maps are unique for a system and hence a program compiled for one computer many not execute on another with a different memory map. </li></ul><ul id="18cfe55f-6755-4b83-9357-4d1fa05cf9cc" class="bulleted-list"><li style="list-style-type:circle">In multi-tasking environments, DRAM is shared across processes and each process has its own memory map. Process memory would need to be isolated from other processes and shared libraries could be repeated multiple times. </li></ul></li></ul><ul id="4004a53c-a279-4306-98ef-60ef546c8ae7" class="bulleted-list"><li style="list-style-type:disc"><strong>Virtual Address Space</strong>: Each Process owns an entire contiguous range of addresses. The addresses emitted out by the CPU is a virtual address. This virtual address is translated  into a physical address by the Memory Management Unit / Paging Unit which lies on the DRAM.<figure id="1d44e675-f007-451e-8c29-449dd29d538c" class="image"><a href="img/Screenshot_2024-02-08_at_4.11.53_PM.png"><img style="width:1893px" src="img/Screenshot_2024-02-08_at_4.11.53_PM.png"/></a></figure></li></ul><ul id="d4d4adf5-7160-4ab7-bbe0-9735424abe02" class="bulleted-list"><li style="list-style-type:disc">An entire process memory is divided into fixed block sized of 4kb (Pages). DRAM is also divided into similar blocks known as page frames. In the example below, block 1 of the process is mapped to page frame 14. <strong>Note that frames do not have to be contiguous. </strong><figure id="e4ae072b-e0e7-46b4-ac48-9f462ec74ec5" class="image"><a href="img/Screenshot_2024-02-08_at_4.14.38_PM.png"><img style="width:1740px" src="img/Screenshot_2024-02-08_at_4.14.38_PM.png"/></a></figure></li></ul><ul id="50a265d7-fb88-4db5-9f55-6c70320ecc06" class="bulleted-list"><li style="list-style-type:disc">So the CPU only sees the virtual addresses and the MMU uses the process page table to map it to physical addresses. This takes cares of the incompatibility issue as the virtual address space is the same across across all systems. </li></ul><ul id="6f41a30a-2bbd-4e02-ab0d-6c87022ec802" class="bulleted-list"><li style="list-style-type:disc">This idea can also be extended to multi-tasking systems. Each process will have its own process page table to map the virtual blocks to page frames in the RAM. Blocks from several processes can share pages in the RAM simultaneously. </li></ul><ul id="e1cbf774-fd79-4374-aa79-cfa8c6f2b423" class="bulleted-list"><li style="list-style-type:disc">As the CPU only sees the virtual addresses space for each process, the processes are isolated and sandboxed. However, blocks from several processes can share pages in RAM simultaneously to reduce memory usage. For example if processes 1 and 3 both invoke “printf”, then “printf” could be stored at page frame 8 in the RAM and the the process page table for both processes will map to page frame 8. </li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§2.4: Demand Paging</strong></summary><div class="indented"><ul id="12952133-028f-4f72-9be5-59db675a6fad" class="bulleted-list"><li style="list-style-type:disc">Do we really need to load all blocks into memory before the process starts executing (Alternatively, does the entire process page table need to be filled) ? No. Not all parts of the program are accessed simultaneously. Some may never be executed. Virtual memory takes advantage of this fact by using <strong>Demand Paging</strong></li></ul><ul id="2688b907-048c-4c0c-b215-69e24f40df8b" class="bulleted-list"><li style="list-style-type:disc">Pages are loaded from disk to RAM only when needed. In the process page table, there is another column “P” corresponding to ‘present bit’ that is 1 if the block is in RAM.</li></ul><ul id="05e160af-015b-4d02-88a7-37dea122ec47" class="bulleted-list"><li style="list-style-type:disc">If a page is accessed that is not present in RAM, the processor issues a ‘page default interrupt’, triggering the OS to load the page into RAM and mark the present bit to 1. </li></ul><ul id="cc74a7fc-43cd-40d8-8699-fe0804fd7d54" class="bulleted-list"><li style="list-style-type:disc">If there are no pages free for a new block to be loaded, the OS makes a decision to remove another block from RAM. This is based on the replacement policy implemented in the OS. <ul id="0fe9165f-6905-40e7-b0b1-0dae71b1c0dc" class="bulleted-list"><li style="list-style-type:circle">FIFO, Least Recently Used, Least Frequently Used</li></ul></li></ul><ul id="4df204bb-ae06-4623-96c7-ca78e061865a" class="bulleted-list"><li style="list-style-type:disc">The replaced block <strong>may</strong> need to be written back to swap (swap out) if the block in the RAM was modified from what is in the swap space. If it is unmodified, then it doesn’t need to be written back to the swap space. <ul id="25be6284-2cfa-41bc-a39e-f0021978b570" class="bulleted-list"><li style="list-style-type:circle">The page table contains another column “dirty bit” that is set to 1 if the block is modified in memory indicating that if this block is swapped out, it needs to be written to swap space.</li></ul></li></ul><ul id="28c28967-cd7d-4b9c-b3fb-f2c498f744d2" class="bulleted-list"><li style="list-style-type:disc">The table also has a “protection bit” which determines if the page is executable, read only, and accessible by user processes. <figure id="8ee55768-e31e-4344-bab5-b01304affa23" class="image"><a href="img/Screenshot_2024-02-08_at_5.39.17_PM.png"><img style="width:502px" src="img/Screenshot_2024-02-08_at_5.39.17_PM.png"/></a></figure></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§2.5: Page Translation </strong></summary><div class="indented"><ul id="a5dc5d39-8426-4b1a-8e44-895210e1f0f5" class="bulleted-list"><li style="list-style-type:disc">The virtual address space in a 32 bit system is 4GB (2^32). If the size of each page frame is 4KB (2^12). The number of entries in a page table is 2^32/2^12 = 2^20. If the size of each page entry is 4 bytes, 4 MB of <strong>contiguous</strong> memory is required. Finding 4MB of contiguous may be difficult and therefore multi-level page translations are used</li></ul><ul id="7afdcfe5-1e00-4542-905a-ab50d28cbfea" class="bulleted-list"><li style="list-style-type:disc">The MSB 10 bits are the directory bits, the middle 10 bits are the table bits and LSB 12 bits are the offset. The directory bits choose the page table from the page directory, the table bits choose the page from the page table, and produce its physical address of the page in memory. Then it is merged with the offset bits to point to the exact  pointer to the location inside the page frame. Main advantage is the <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>10</mn></msup></mrow><annotation encoding="application/x-tex">2^{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> tables can be stored separately and do not require a contiguous block of memory.<figure id="bd820bd6-3418-4408-9ce2-5e687800a4bc" class="image"><a href="img/Screenshot_2024-02-09_at_6.38.32_PM.png"><img style="width:1470px" src="img/Screenshot_2024-02-09_at_6.38.32_PM.png"/></a></figure></li></ul><ul id="52d473a9-2a66-4803-bcfe-51fa1c1068b6" class="bulleted-list"><li style="list-style-type:disc">In a 32-bit RISC-V, the page table base register is called the <strong>satp</strong> register. It contains the following value<figure id="4718611e-29a5-4bbf-a59d-d3265513bdf1" class="image"><a href="img/Screenshot_2024-02-09_at_6.46.01_PM.png"><img style="width:1072px" src="img/Screenshot_2024-02-09_at_6.46.01_PM.png"/></a></figure><ul id="382391a4-79de-4811-a93a-cbd46ff84fd8" class="bulleted-list"><li style="list-style-type:circle">If the MODE bit is 1, then 32 bit virtual addressing is being used. If 0, then no translation.</li></ul><ul id="a9176705-5939-44f5-8f05-50f283435c0b" class="bulleted-list"><li style="list-style-type:circle">The next 9 bits ASID is used to distinguish one process from another. </li></ul><ul id="519b5ffc-03cd-4394-9b6a-f0fc2a067def" class="bulleted-list"><li style="list-style-type:circle">The PPN bits is a pointer to the address in memory that holds the first page directory.</li></ul></li></ul><ul id="a87878e4-654a-41bb-b497-9a46e404acf9" class="bulleted-list"><li style="list-style-type:disc">If MODE is 1, then the virtual address is segmented as follows: VPN[1] corresponds to the directory bits, VPN[0] corresponds to the page table bits and the final 12 are the page offset.<figure id="fdc12ef3-b229-4914-b04c-7dbcff87c5bf" class="image"><a href="img/Screenshot_2024-02-09_at_6.51.45_PM.png"><img style="width:1235px" src="img/Screenshot_2024-02-09_at_6.51.45_PM.png"/></a></figure></li></ul><p id="0ff40485-a593-4848-9439-137fbdde9668" class="">
+</p><ul id="4b515610-2f1a-4d44-aea8-b0e3773ff1fd" class="bulleted-list"><li style="list-style-type:disc">An entry in the page directory table or the page table is of the following format:<figure id="cce5e9fe-0a26-41ea-ac07-66430020cd3d" class="image"><a href="img/Screenshot_2024-02-09_at_6.54.42_PM.png"><img style="width:996px" src="img/Screenshot_2024-02-09_at_6.54.42_PM.png"/></a></figure><ul id="e40cf34f-bb75-463d-9bd4-270663f106b1" class="bulleted-list"><li style="list-style-type:circle">Accessed bit is the same as present bit i.e. if a mapping exists then its set to 1</li></ul><ul id="5d11ba26-8ec5-48cb-be1e-6b4dd973dcc8" class="bulleted-list"><li style="list-style-type:circle">X/W/R are protection bits</li></ul><ul id="6cfdaae3-b4c2-4c87-b392-2c5c863323ef" class="bulleted-list"><li style="list-style-type:circle">Valid Bit (V): 0 - entry is invalid</li></ul><ul id="244a3c13-9085-4699-bb3f-505fd8359a02" class="bulleted-list"><li style="list-style-type:circle">User Bit (U): 1 if page belongs to user space/program</li></ul><ul id="589a2957-99a8-4cd3-9f10-d1b5f96ae551" class="bulleted-list"><li style="list-style-type:circle">Global Bit (G): Shared page</li></ul></li></ul><ul id="2edf7535-89a1-4e33-9463-ff6e61521c11" class="bulleted-list"><li style="list-style-type:disc">Once a page table is selected first from the page directory table, and then a page is selected from the page table, the translated physical page address is a 34-bit address where the first 22 bits indicated the page frame and then 12 bits for offset within the page. This can support 4KB and 2MB page sizes. A 2MB page frame would require 21 bits as the offset<figure id="3128d69d-837f-4d4d-97ad-dfadf5c39692" class="image"><a href="img/Screenshot_2024-02-09_at_7.00.18_PM.png"><img style="width:1189px" src="img/Screenshot_2024-02-09_at_7.00.18_PM.png"/></a></figure></li></ul><p id="1d0035bc-c14a-488e-98c9-52dca181a416" class="">
+</p><h2 id="e7c6d54e-f730-4ff2-9877-55d3f8ca3e3d" class="">RISC V 64 Bit Addressing</h2><h3 id="d9ed54d1-fd1c-42ed-b5df-1ad4339fa51f" class="">The SATP Register</h3><figure id="5557c36f-db22-4acb-9330-5187c1f132fd" class="image"><a href="https://osblog.stephenmarz.com/imgs/satp.png"><img src="https://osblog.stephenmarz.com/imgs/satp.png"/></a></figure><ul id="8487e6e0-9668-4f20-a698-f573d3b5375b" class="bulleted-list"><li style="list-style-type:disc">The RISC V 64 bit supports 39-bit and 48-bit virtual addressing. </li></ul><ul id="ed89c6db-f387-4a7a-8334-9cea6923d208" class="bulleted-list"><li style="list-style-type:disc">The mode chooses 39-bit (1000) or 48-bit (1001) addressing. xv6 uses 39-bit addressing</li></ul><h3 id="7124300e-d8d3-4cb6-aae6-803b90880f94" class="">39 Bit Addressing</h3><figure id="5ee6f747-d66c-48da-b6fd-19b6faf18c9f" class="image"><a href="https://osblog.stephenmarz.com/imgs/sv39_virtual_address.png"><img src="https://osblog.stephenmarz.com/imgs/sv39_virtual_address.png"/></a></figure><ul id="288f5069-bd48-4574-846e-7aa9bd8457a7" class="bulleted-list"><li style="list-style-type:disc">39-bit addressing can support 4KB, 2MB, 1GB pages and 3 levels of page tables</li></ul><ul id="440a1849-e2f9-466f-8436-875b3b877dcc" class="bulleted-list"><li style="list-style-type:disc">The Sv39 virtual address contains three 9-bit indices. Since <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">2^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> = 512, each table contains exactly 512 entries.</li></ul><ul id="8e8b4510-da8a-41b7-b3e6-adfeaad348b7" class="bulleted-list"><li style="list-style-type:disc">The Sv39 virtual address contains VPN[x]. The VPN stands for &quot;virtual page number&quot;, which is essentially an index into an array of 512, 8 byte entries. So, instead of having the virtual address directly translate into a physical address, the MMU goes through a series of tables. With the Sv39 system, we can have one to three levels. Each level contains a table of 512, 8 byte entries.</li></ul><h3 id="f95073e3-f5a7-45fe-a45f-524e1f2fd8a3" class="">Table Entries</h3><figure id="8ba7f85e-929e-40d7-a11c-b0f0820d9bfb" class="image"><a href="https://osblog.stephenmarz.com/imgs/sv39_pte.png"><img src="https://osblog.stephenmarz.com/imgs/sv39_pte.png"/></a></figure><p id="31d948c9-5d13-4059-8c64-4464c77f20cf" class="">A table entry is written by the operating system to control how the MMU works. We can change how an address is translated or we can set certain bits to protect a page. </p><h3 id="2acd5fc8-9f1e-4544-9b90-d602cf9fad1f" class="">Physical Address</h3><figure id="a020691d-1c4b-4dbe-a4b2-44e9a9f9c1b1" class="image"><a href="https://osblog.stephenmarz.com/imgs/sv39_physical_address.png"><img src="https://osblog.stephenmarz.com/imgs/sv39_physical_address.png"/></a></figure><ul id="825bf7fb-a787-46e0-ae46-d4afe87f353e" class="bulleted-list"><li style="list-style-type:disc">The physical address is actually 56-bits. Therefore, a 39-bit virtual address can translate into a 56-bit physical address. Obviously, this allows us to map the same virtual address to a different physical address--much like how we will map addresses when creating user processes. The physical address is formed by taking PPN[2:0] and placing them into the following format. Notice that the page offset is directly copied from the virtual address into the physical address.</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><strong>§2.6: Page Table in xv6</strong></summary><div class="indented"><ul id="8ed1967f-7df3-4f53-a28d-7e01a058f27b" class="bulleted-list"><li style="list-style-type:disc">The walk function takes in the following parameters:Page Table, Virtual Address, and Alloc (to determine if new page frame should be allocated). <ul id="ac6ea9ec-8967-45d7-a4ee-c65caf8b0bec" class="bulleted-list"><li style="list-style-type:circle">Check if virtual address is is valid (i.e. &lt; <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>39</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^{39} -1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">39</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></span><span>﻿</span></span>)</li></ul><ul id="35be1a00-401a-4986-bfb2-98be9c3a6a5a" class="bulleted-list"><li style="list-style-type:circle">Then traverse through the page table </li></ul></li></ul></div></details><p id="4e3fe6a4-ce33-49be-bfac-17919cb5ba35" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
